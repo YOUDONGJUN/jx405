@@ -19,11 +19,11 @@ public class StudentManager01 {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(address, username, password);
 
-            while(true){
+            while (true) {
                 String message = "1. 입력 2. 출력 3. 종료";
                 int userChoice = ScannerUtil.nextInt(scanner, message);
 
-                if(userChoice == 1){
+                if (userChoice == 1) {
                     message = "이름을 입력해주세요.";
                     String name = ScannerUtil.nextLine(scanner, message);
 
@@ -49,12 +49,12 @@ public class StudentManager01 {
 
                     pstmt.close();
 
-                } else if(userChoice == 2){
+                } else if (userChoice == 2) {
                     String query = "SELECT * FROM `student`";
                     PreparedStatement pstmt = connection.prepareStatement(query);
                     ResultSet resultSet = pstmt.executeQuery();
 
-                    while(resultSet.next()){
+                    while (resultSet.next()) {
                         int id = resultSet.getInt("id");
                         String name = resultSet.getString("name");
                         int korean = resultSet.getInt("korean");
@@ -70,7 +70,7 @@ public class StudentManager01 {
                     }
 
 
-                } else if(userChoice == 3){
+                } else if (userChoice == 3) {
                     System.out.println("사용해주셔서 감사합니다.");
                     break;
                 }
@@ -83,19 +83,4 @@ public class StudentManager01 {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
