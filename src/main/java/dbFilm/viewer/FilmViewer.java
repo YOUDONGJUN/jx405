@@ -1,27 +1,24 @@
 package dbFilm.viewer;
 
 import dbFilm.Controller.FilmController;
-import dbFilm.model.CustomerDTO;
 import dbFilm.model.FilmDTO;
 import dbFilm.model.StaffDTO;
 import util.ScannerUtil;
 
 import java.sql.Connection;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class FilmViewer {
     private final Scanner SCANNER;
-    private final String DATE_FORMAT = "yy/MM/dd HH:mm:ss";
+    //    private final String DATE_FORMAT = "yy/MM/dd HH:mm:ss";
     private FilmController filmController;
-    private CustomerDTO logIn;
+    private StaffDTO logIn;
     private StaffDTO staffDTO;
     private Connection connection;
 
-    public FilmViewer(Scanner scanner, Connection connection, CustomerDTO logIn) {
+    public FilmViewer(Scanner scanner, Connection connection, StaffDTO logIn) {
         this.connection = connection;
         filmController = new FilmController(this.connection);
         this.logIn = logIn;
@@ -76,7 +73,7 @@ public class FilmViewer {
         if (list.isEmpty()) {
             System.out.println("아직 등록된 영화가 없습니다.");
         } else {
-            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+//            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
             for (FilmDTO f : list) {
                 System.out.printf("%d, %s, %s, %d, %d, %%s - %s\n", f.getFilm_id(), f.getTitle(), f.getDescription(), f.getRelease_year(), f.getRental_duration(), f.getRental_rate(), f.getLength(), f.getSpecial_features());
             }
@@ -88,8 +85,12 @@ public class FilmViewer {
                 System.out.println("잘못 입력하셨습니다.");
                 userChoice = ScannerUtil.nextInt(SCANNER, message);
             }
-
+            if (userChoice != 0) {
+                printOne(userChoice);
+            }
         }
+
+
     }
 
     private void printOne(int film_id) {

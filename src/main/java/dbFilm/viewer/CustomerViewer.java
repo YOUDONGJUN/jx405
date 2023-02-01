@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.Scanner;
 
 public class CustomerViewer {
-    private final Scanner SCANNER;
+    private Scanner SCANNER;
     private Connection connection;
     private StaffViewer staffViewer;
     private FilmViewer filmViewer;
@@ -15,9 +15,14 @@ public class CustomerViewer {
     public CustomerViewer(ConnectionMaker connectionMaker) {
         SCANNER = new Scanner(System.in);
         connection = connectionMaker.makeConnection();
+
+//        connection = connectionMaker.makeConnection();
     }
 
     public void showIndex() {
+        staffViewer = new StaffViewer(SCANNER, connection);
+
+
         String message = "1.영화 목록 보기 2.관리자 전용 페이지 3.종료";
         while (true) {
             int userChoice = ScannerUtil.nextInt(SCANNER, message);
@@ -32,9 +37,3 @@ public class CustomerViewer {
         }
     }
 }
-
-
-
-// github 연동 test
-
-// 230201

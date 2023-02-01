@@ -12,19 +12,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class StaffViewer {
-    private final Scanner SCANNER;
+    private Scanner SCANNER;
     private Connection connection;
     private FilmViewer filmViewer;
     private StaffDTO logIn;
     private StaffController staffController;
+    private StaffViewer staffViewer;
     private CustomerController customerController;
     private CustomerDTO customerDTO;
+    private CustomerViewer customerViewer;
+    private ConnectionMaker connectionMaker;
 
 
-    public StaffViewer(ConnectionMaker connectionMaker) {
+    public StaffViewer(Scanner SCANNER, Connection connection) {
         SCANNER = new Scanner(System.in);
         connection = connectionMaker.makeConnection();
     }
+
 
     public void showIndex() {
         String message = "1.관리자 로그인 2.관리자 회원가입 3.종료";
@@ -38,7 +42,7 @@ public class StaffViewer {
             } else if (userChoice == 2) {
                 register();
             } else if (userChoice == 3) {
-                System.out.println("사용해주셔서 감사합니다.");
+                System.out.println("종료");
                 break;
             }
         }
@@ -46,9 +50,9 @@ public class StaffViewer {
 
     private void register() {
         String message;
-        message = "사용하실 아이디를 입력해주세요.";
 
         StaffDTO s = new StaffDTO();
+        message = "사용하실 아이디를 입력해주세요.";
         s.setUsername(ScannerUtil.nextLine(SCANNER, message));
 
         message = "사용하실 비밀번호를 입력해주세요.";
@@ -330,13 +334,4 @@ public class StaffViewer {
         }
     }
 }
-
-
-
-
-
-
-
-
-
 
