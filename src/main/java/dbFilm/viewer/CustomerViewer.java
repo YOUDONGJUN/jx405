@@ -15,11 +15,10 @@ public class CustomerViewer {
     public CustomerViewer(ConnectionMaker connectionMaker) {
         SCANNER = new Scanner(System.in);
         connection = connectionMaker.makeConnection();
-
-//        connection = connectionMaker.makeConnection();
     }
 
     public void showIndex() {
+        filmViewer = new FilmViewer(SCANNER, connection);
         staffViewer = new StaffViewer(SCANNER, connection);
 
 

@@ -3,6 +3,7 @@ package dbFilm;
 import dbConn.ConnectionMaker;
 import dbConn.MySqlConnectionMaker;
 import dbFilm.viewer.CustomerViewer;
+import dbFilm.viewer.FilmViewer;
 import dbFilm.viewer.StaffViewer;
 
 import java.sql.Connection;
@@ -15,12 +16,11 @@ public class dbFilmMain {
 
         Scanner SCANNER = new Scanner(System.in);
         Connection connection = null;
-//        StaffDTO logIn = new StaffDTO();
 
         ConnectionMaker connectionMaker = new MySqlConnectionMaker();
         CustomerViewer customerViewer = new CustomerViewer(connectionMaker);
         StaffViewer staffViewer = new StaffViewer(SCANNER,connection);
-//        FilmViewer filmViewer = new FilmViewer(SCANNER, connection, logIn);
+        FilmViewer filmViewer = new FilmViewer(SCANNER, connection);
         customerViewer.showIndex();
 
     }

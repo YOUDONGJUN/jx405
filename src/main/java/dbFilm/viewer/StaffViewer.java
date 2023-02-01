@@ -1,6 +1,5 @@
 package dbFilm.viewer;
 
-import dbConn.ConnectionMaker;
 import dbFilm.Controller.CustomerController;
 import dbFilm.Controller.StaffController;
 import dbFilm.model.CustomerDTO;
@@ -17,21 +16,20 @@ public class StaffViewer {
     private FilmViewer filmViewer;
     private StaffDTO logIn;
     private StaffController staffController;
-    private StaffViewer staffViewer;
     private CustomerController customerController;
     private CustomerDTO customerDTO;
-    private CustomerViewer customerViewer;
-    private ConnectionMaker connectionMaker;
 
 
     public StaffViewer(Scanner SCANNER, Connection connection) {
-        SCANNER = new Scanner(System.in);
-        connection = connectionMaker.makeConnection();
+        this.SCANNER = SCANNER;
+        this.connection = connection;
+
+//        connection = connectionMaker.makeConnection();
     }
 
 
     public void showIndex() {
-        String message = "1.관리자 로그인 2.관리자 회원가입 3.종료";
+        String message = "1.관리자 로그인 2.관리자 회원가입 3.뒤로 가기";
         while (true) {
             int userChoice = ScannerUtil.nextInt(SCANNER, message);
             if (userChoice == 1) {
@@ -42,7 +40,7 @@ public class StaffViewer {
             } else if (userChoice == 2) {
                 register();
             } else if (userChoice == 3) {
-                System.out.println("종료");
+                System.out.println("뒤로 가기");
                 break;
             }
         }
@@ -57,6 +55,9 @@ public class StaffViewer {
 
         message = "사용하실 비밀번호를 입력해주세요.";
         s.setPassword(ScannerUtil.nextLine(SCANNER, message));
+
+        message = "address_id를 입력해주세요.";
+        s.setAddress_id(ScannerUtil.nextInt(SCANNER, message));
 
         message = "근무중인 가게 번호를 입력해주세요.";
         s.setStore_id(ScannerUtil.nextInt(SCANNER, message));

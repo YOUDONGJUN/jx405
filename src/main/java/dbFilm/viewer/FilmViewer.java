@@ -11,18 +11,15 @@ import java.util.Scanner;
 
 
 public class FilmViewer {
-    private final Scanner SCANNER;
-    //    private final String DATE_FORMAT = "yy/MM/dd HH:mm:ss";
+    private Scanner SCANNER;
     private FilmController filmController;
-    private StaffDTO logIn;
     private StaffDTO staffDTO;
     private Connection connection;
 
-    public FilmViewer(Scanner scanner, Connection connection, StaffDTO logIn) {
+    public FilmViewer(Scanner SCANNER, Connection connection) {
+        this.SCANNER = SCANNER;
         this.connection = connection;
-        filmController = new FilmController(this.connection);
-        this.logIn = logIn;
-        SCANNER = scanner;
+
     }
 
     public void showMenu() {
@@ -68,6 +65,7 @@ public class FilmViewer {
     }
 
     public void printList() {
+        FilmController filmController = new FilmController(connection);
         ArrayList<FilmDTO> list = filmController.selectAll();
 
         if (list.isEmpty()) {
@@ -81,7 +79,7 @@ public class FilmViewer {
             String message = "상세보기할 영화의 번호나 뒤로 가실려면 0을 입력해주세요.";
             int userChoice = ScannerUtil.nextInt(SCANNER, message);
 
-            while (userChoice != 0 && !list.contains(new FilmDTO())) {
+            while (userChoice != 0 && !list.contains(new FilmDTO(userChoice))) {
                 System.out.println("잘못 입력하셨습니다.");
                 userChoice = ScannerUtil.nextInt(SCANNER, message);
             }

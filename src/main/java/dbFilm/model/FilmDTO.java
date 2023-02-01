@@ -13,4 +13,13 @@ public class FilmDTO {
     private int length;
     private String special_features;
 
+    public FilmDTO(int film_id){
+        this.film_id = film_id;
+    }
+
+    public FilmDTO(){
+
+    }
+
+
 }

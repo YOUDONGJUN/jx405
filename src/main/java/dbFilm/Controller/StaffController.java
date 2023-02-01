@@ -18,15 +18,14 @@ public class StaffController {
     }
 
     public boolean insert(StaffDTO staffDTO) {
-        String query = "INSERT INTO `customer`(`staff_id`, `username`, `password`, `address_id`, `store_id`) VALUES(?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `staff`(`username`, `password`, `address_id`, `store_id`) VALUES( ?, ?, ?, ?)";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setInt(1, staffDTO.getStaff_id());
-            pstmt.setString(2, staffDTO.getUsername());
-            pstmt.setString(3, staffDTO.getPassword());
-            pstmt.setInt(4, staffDTO.getAddress_id());
-            pstmt.setInt(5, staffDTO.getStore_id());
+            pstmt.setString(1, staffDTO.getUsername());
+            pstmt.setString(2, staffDTO.getPassword());
+            pstmt.setInt(3, staffDTO.getAddress_id());
+            pstmt.setInt(4, staffDTO.getStore_id());
 
             pstmt.executeUpdate();
 

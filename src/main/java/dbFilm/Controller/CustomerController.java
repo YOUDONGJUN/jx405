@@ -14,17 +14,16 @@ public class CustomerController {
     }
 
     public boolean insert(CustomerDTO customerDTO) {
-        String query = "INSERT INTO `customer`(`id`, `first_name`, `last_name`, `email`, `address_id`, `create_date`, `last_update`) VALUES(?, ?, ?, ?, ? ,?, ?)";
+        String query = "INSERT INTO `customer`(`first_name`, `last_name`, `email`, `address_id`, `create_date`, `last_update`) VALUES(?, ?, ?, ?, ? ,?, ?)";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setInt(1, customerDTO.getCustomer_id());
-            pstmt.setString(2, customerDTO.getFirst_name());
-            pstmt.setString(3, customerDTO.getLast_name());
-            pstmt.setString(4, customerDTO.getEmail());
-            pstmt.setInt(5, customerDTO.getAddress_id());
-            pstmt.setDate(6, (Date) customerDTO.getCreate_date());
-            pstmt.setDate(7, (Date) customerDTO.getLast_update());
+            pstmt.setString(1, customerDTO.getFirst_name());
+            pstmt.setString(2, customerDTO.getLast_name());
+            pstmt.setString(3, customerDTO.getEmail());
+            pstmt.setInt(4, customerDTO.getAddress_id());
+            pstmt.setDate(5, (Date) customerDTO.getCreate_date());
+            pstmt.setDate(6, (Date) customerDTO.getLast_update());
 
             pstmt.executeUpdate();
 

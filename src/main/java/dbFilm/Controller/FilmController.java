@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class FilmController {
     private Connection connection;
+    private FilmDTO filmDTO;
 
     public FilmController(Connection connection) {
         this.connection = connection;
     }
 
     public void insert(FilmDTO filmDTO) {
-        String query = "INSERT INTO `board`(`title`, `description`, `release_year`, `rental_duration`, `rental_rate` , `length`, `special_features`) " +
-                "VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `board`(`title`, `description`, `release_year`, `rental_duration`, `rental_rate` , `length`, `special_features`) VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
@@ -39,9 +39,10 @@ public class FilmController {
     }
 
     public ArrayList<FilmDTO> selectAll() {
+
         ArrayList<FilmDTO> list = new ArrayList<>();
 
-        String query = "SELECT * FROM `film` ORDER BY `id` DESC";
+        String query = "SELECT * FROM `film` ORDER BY `film_id`";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
@@ -72,8 +73,9 @@ public class FilmController {
     }
 
     public FilmDTO selectOne(int film_id) {
-        FilmDTO filmDTO = null;
-        String query = "SELECT * FROM `film` WHERE `title` = ?";
+
+
+        String query = "SELECT * FROM `film` WHERE `film_id` = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setInt(1, film_id);
@@ -81,7 +83,8 @@ public class FilmController {
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
-                filmDTO = new FilmDTO();
+                FilmDTO filmDTO = new FilmDTO();
+
                 filmDTO.setFilm_id(resultSet.getInt("film_id"));
                 filmDTO.setTitle(resultSet.getString("title"));
                 filmDTO.setDescription(resultSet.getString("description"));
@@ -102,7 +105,7 @@ public class FilmController {
     }
 
     public void update(FilmDTO filmDTO) {
-        String query = "UPDATE `film` SET `title` = ?, `description` = ?, `release_year` = ?, `rental_duration` = ?, `rental_rate` = ?, `length` = ? , `special_features` = ? WHERE `id` = ?";
+        String query = "UPDATE `film` SET `title` = ?, `description` = ?, `release_year` = ?, `rental_duration` = ?, `rental_rate` = ?, `length` = ? , `special_features` = ? WHERE `film_id` = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setString(1, filmDTO.getTitle());
@@ -119,10 +122,11 @@ public class FilmController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
     }
 
     public void delete(int film_id) {
-        String query = "DELETE FROM `film` WHERE `title` = ?";
+        String query = "DELETE FROM `film` WHERE `film_id` = ?";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
