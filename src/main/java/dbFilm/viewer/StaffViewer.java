@@ -23,8 +23,6 @@ public class StaffViewer {
     public StaffViewer(Scanner SCANNER, Connection connection) {
         this.SCANNER = SCANNER;
         this.connection = connection;
-
-//        connection = connectionMaker.makeConnection();
     }
 
 
