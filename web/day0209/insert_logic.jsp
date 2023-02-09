@@ -1,5 +1,3 @@
-<%@ page import="java.lang.reflect.Array" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="model.StudentDTO" %>
 <%@ page import="dbConn.ConnectionMaker" %>
 <%@ page import="dbConn.MySqlConnectionMaker" %>
@@ -7,45 +5,36 @@
   Created by IntelliJ IDEA.
   User: ehdwnsdb
   Date: 2023-02-09
-  Time: 오후 3:18
+  Time: 오후 5:44
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>학생 목록</title>
-
+    <title>Title</title>
 </head>
 <body>
-
 <%
+    String name = request.getParameter("name");
+    int korean = Integer.parseInt(request.getParameter("korean"));
+    int english = Integer.parseInt(request.getParameter("english"));
+    int math = Integer.parseInt(request.getParameter("math"));
+
+    StudentDTO studentDTO = new StudentDTO();
+    studentDTO.setName(name);
+    studentDTO.setKorean(korean);
+    studentDTO.setEnglish(english);
+    studentDTO.setMath(math);
+
     ConnectionMaker connectionMaker = new MySqlConnectionMaker();
     StudentController controller = new StudentController(connectionMaker.makeConnection());
-    ArrayList<StudentDTO> list = controller.selectAll();
+
+    controller.insert(studentDTO);
+
+    response.sendRedirect("/day0209/printList.jsp");
+
+
 %>
-
-<table>
-    <tr>
-        <td>번호</td>
-        <td>이름</td>
-    </tr>
-    <%
-        for (StudentDTO s : list) {
-    %>
-
-    <tr>
-        <td><%=s.getId()%>
-        </td>
-        <td><a href="printOne.jsp?id=<%=s.getId()%>"><%=s.getName()%>
-        </a></td>
-    </tr>
-
-
-    <%
-        }
-    %>
-</table>
-<a href="/day0209/insert.jsp">학생 입력하기</a>
 
 </body>
 </html>
