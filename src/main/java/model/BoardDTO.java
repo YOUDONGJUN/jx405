@@ -11,24 +11,6 @@ public class BoardDTO implements Comparable<BoardDTO> {
     private Date entryDate;
     private Date modifyDate;
 
-    public BoardDTO(BoardDTO origin) {
-        id = origin.id;
-        title = origin.title;
-        writerId = origin.writerId;
-        writerNickname = origin.writerNickname;
-        content = origin.content;
-        entryDate = origin.entryDate;
-        modifyDate = origin.modifyDate;
-    }
-
-    public BoardDTO() {
-
-    }
-
-    public BoardDTO(int id) {
-        this.id = id;
-    }
-
     public Date getEntryDate() {
         return entryDate;
     }
@@ -92,10 +74,27 @@ public class BoardDTO implements Comparable<BoardDTO> {
     }
 
     public boolean equals(Object o) {
-        if (o instanceof BoardDTO) {
-            BoardDTO b = (BoardDTO) o;
+        if (o instanceof BoardDTO b) {
             return id == b.id;
         }
         return false;
+    }
+
+    public BoardDTO(BoardDTO origin) {
+        id = origin.id;
+        title = origin.title;
+        writerId = origin.writerId;
+        writerNickname = origin.writerNickname;
+        content = origin.content;
+        entryDate = origin.entryDate;
+        modifyDate = origin.modifyDate;
+    }
+
+    public BoardDTO() {
+
+    }
+
+    public BoardDTO(int id) {
+        this.id = id;
     }
 }

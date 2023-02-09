@@ -29,7 +29,7 @@ public class Ex01Connection {
             // 2. read
             query = "SELECT * FROM `student`";
             ResultSet resultSet = pstmt.executeQuery(query);
-            while (resultSet.next()) {
+            while(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 int korean = resultSet.getInt("korean");
@@ -45,7 +45,7 @@ public class Ex01Connection {
             pstmt.setInt(1, 6);
 
             resultSet = pstmt.executeQuery();
-            if (resultSet.next()) {
+            if(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 int korean = resultSet.getInt("korean");

@@ -3,6 +3,8 @@ package viewer;
 import controller.UserController;
 import model.UserDTO;
 import util.ScannerUtil;
+import viewer.BoardViewer;
+import viewer.ReplyViewer;
 
 import java.util.Scanner;
 

@@ -4,6 +4,7 @@ import controller.ReviewController;
 import model.MemberDTO;
 import model.ReviewDTO;
 import util.ScannerUtil;
+import viewer.MemberViewer;
 
 import java.lang.reflect.Member;
 import java.util.ArrayList;

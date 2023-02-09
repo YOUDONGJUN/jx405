@@ -3,6 +3,8 @@ package viewer;
 import controller.MemberController;
 import model.MemberDTO;
 import util.ScannerUtil;
+import viewer.FilmViewer;
+import viewer.ReviewViewer;
 
 import java.util.ArrayList;
 import java.util.Scanner;

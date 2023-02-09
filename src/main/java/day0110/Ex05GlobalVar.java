@@ -1,6 +1,7 @@
 package day0110;
 // 전역 변수(Global Variable)
 
+import day0110.Student;
 import util.ScannerUtil;
 
 import java.util.Scanner;

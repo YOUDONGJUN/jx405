@@ -1,6 +1,8 @@
 package day0113;
 
-public class Dog extends Animal{
+import day0113.Animal;
+
+public class Dog extends Animal {
     public Dog() {
         System.out.println("Dog() 호출");
     }

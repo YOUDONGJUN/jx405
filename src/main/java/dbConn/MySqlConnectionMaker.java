@@ -1,11 +1,13 @@
 package dbConn;
 
+import dbConn.ConnectionMaker;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MySqlConnectionMaker implements ConnectionMaker {
-    private final String ADDRRESS = "jdbc:mysql://localhost/sakila";
+    private final String ADDRRESS = "jdbc:mysql://localhost/basic";
     private final String USERNAME = "root";
     private final String PASSWORD = "1111";
 

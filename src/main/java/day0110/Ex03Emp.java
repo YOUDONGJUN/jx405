@@ -1,5 +1,6 @@
 package day0110;
 
+import day0110.Employee;
 import util.ScannerUtil;
 
 import java.util.Scanner;

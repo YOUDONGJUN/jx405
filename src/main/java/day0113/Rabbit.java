@@ -1,6 +1,8 @@
 package day0113;
 
-public class Rabbit implements IAnimal{
+import day0113.IAnimal;
+
+public class Rabbit implements IAnimal {
     public void makeSound(){
         System.out.println("토끼 토끼");
     }

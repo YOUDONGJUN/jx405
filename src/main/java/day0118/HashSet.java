@@ -1,5 +1,7 @@
 package day0118;
 
+import day0118.Set;
+
 public class HashSet implements Set {
     public int[] array = {};
 

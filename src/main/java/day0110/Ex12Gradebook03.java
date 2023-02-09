@@ -5,6 +5,7 @@ package day0110;
 //    단, 5명을 모두 입력한 후에 새로운 학생 정보를 입력할 시에는
 //    가장 오래된 기록을 제거하고 새로운 학생 정보를 입력되도록 코드를 작성하시오.
 
+import day0110.Student;
 import util.ScannerUtil;
 
 import java.util.Scanner;

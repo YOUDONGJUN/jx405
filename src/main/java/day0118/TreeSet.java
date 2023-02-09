@@ -1,5 +1,6 @@
 package day0118;
 
+import day0118.Set;
 import model.BoardDTO;
 
 public class TreeSet implements Set {

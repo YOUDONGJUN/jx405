@@ -4,6 +4,7 @@ package day0110;
 // 출력을 누를때마다 맨 마지막으로 입려괸 학생의 정보가 출력되는 프로그램을
 // 작성해보시오.
 
+import day0110.Student;
 import util.ScannerUtil;
 
 import java.util.Scanner;

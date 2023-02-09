@@ -6,6 +6,8 @@ package day0110;
 // 별개의 클래스를 만들고 그 클래스 안에 필요한 데이터타입들을
 // 정의하는 형식으로 만들어주게 된다.
 
+import day0110.Student;
+
 public class Ex01Struct {
     public static void main(String[] args) {
         Student student = new Student();

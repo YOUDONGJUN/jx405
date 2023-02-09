@@ -1,7 +1,10 @@
 package dbViewer;
 
+import dbConn.ConnectionMaker;
+import dbConn.MySqlConnectionMaker;
 import dbController.BoardController;
 import dbController.UserController;
+import dbViewer.ReplyViewer;
 import model.BoardDTO;
 import model.UserDTO;
 import util.ScannerUtil;
@@ -82,7 +85,8 @@ public class BoardViewer {
     }
 
     private void printOne(int id) {
-        UserController userController = new UserController(connection);
+        ConnectionMaker connectionMaker = new MySqlConnectionMaker();
+        UserController userController = new UserController(connectionMaker);
         ReplyViewer replyViewer = new ReplyViewer(SCANNER, connection, logIn);
 
         DateFormat df = new SimpleDateFormat(DATE_FORMAT);

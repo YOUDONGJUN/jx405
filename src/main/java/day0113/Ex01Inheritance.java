@@ -11,6 +11,12 @@ package day0113;
 //    부모 인터페이스의 메소드를 자식 클래스가 반드시 재정의(=오버라이드) 해야 한다.
 //    implements 라는 키워드를 통해서 이루어진다.
 
+import day0113.Animal;
+import day0113.Cat;
+import day0113.Dog;
+import day0113.IAnimal;
+import day0113.Rabbit;
+
 public class Ex01Inheritance {
     public static void main(String[] args) {
         Animal animal = new Animal();

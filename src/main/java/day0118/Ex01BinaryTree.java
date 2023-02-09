@@ -1,5 +1,7 @@
 package day0118;
 
+import day0118.Node;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 

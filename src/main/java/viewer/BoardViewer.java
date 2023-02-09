@@ -4,6 +4,8 @@ import controller.BoardController;
 import model.BoardDTO;
 import model.UserDTO;
 import util.ScannerUtil;
+import viewer.ReplyViewer;
+import viewer.UserViewer;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

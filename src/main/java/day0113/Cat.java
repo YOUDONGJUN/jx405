@@ -1,6 +1,8 @@
 package day0113;
 
-public class Cat implements IAnimal{
+import day0113.IAnimal;
+
+public class Cat implements IAnimal {
 
     @Override
     public void makeSound() {

@@ -1,8 +1,10 @@
 package dbConn;
 
+import dbConn.ConnectionMaker;
+
 import java.sql.Connection;
 
-public class OracleConnectionMaker implements ConnectionMaker{
+public class OracleConnectionMaker implements ConnectionMaker {
     private final String ADDRESS = "192.168.0.2";
     private final String USERNAME = "ADMIN";
     private final String PASSWORD = "1234";

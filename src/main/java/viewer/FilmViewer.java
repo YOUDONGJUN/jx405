@@ -4,6 +4,7 @@ import controller.FilmController;
 import model.FilmDTO;
 import model.MemberDTO;
 import util.ScannerUtil;
+import viewer.ReviewViewer;
 
 import java.util.ArrayList;
 import java.util.Scanner;

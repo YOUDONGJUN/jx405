@@ -1,5 +1,6 @@
 package day0111;
 
+import day0111.Board;
 import util.ScannerUtil;
 
 import java.util.Scanner;

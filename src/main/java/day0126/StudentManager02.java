@@ -1,5 +1,6 @@
 package day0126;
 
+import day0126.Student;
 import util.ScannerUtil;
 
 import java.sql.*;

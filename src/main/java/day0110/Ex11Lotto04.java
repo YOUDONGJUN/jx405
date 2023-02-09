@@ -5,6 +5,7 @@ package day0110;
 // 해당 게임마다 각각 자동/수동 입력을 받아서
 // 알맞게 처리하는 프로그램
 
+import day0110.Ex10Lotto03;
 import util.ScannerUtil;
 
 import java.util.Scanner;
