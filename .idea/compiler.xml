@@ -10,5 +10,8 @@
         <module name="local" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jx405" target="19" />
+    </bytecodeTargetLevel>
   </component>
 </project>
