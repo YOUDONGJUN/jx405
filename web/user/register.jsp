@@ -1,14 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ehdwnsdb
-  Date: 2023-02-10
-  Time: 오전 10:18
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>로그인</title>
+    <title>회원 가입</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
@@ -19,7 +12,7 @@
 <div class="container-fluid">
     <div class="row vh-100 align-items-center text-center">
         <div class="row justify-content-center">
-            <form action="/user/auth.jsp" method="post">
+            <form action="/user/register_logic.jsp" method="post">
                 <div class="row justify-content-center mb-2">
                     <div class="col-6">
                         <div class="form-floating">
@@ -38,9 +31,15 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <button class="btn btn-outline-primary col-3 m-1">로그인</button>
-                    <div class="col-3 btn btn-outline-secondary m-1" onclick="location.href='/user/register.jsp'">회원가입
+                    <div class="col-6">
+                        <div class="form-floating">
+                            <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임">
+                            <label for="nickname">닉네임</label>
+                        </div>
                     </div>
+                </div>
+                <div class="row justify-content-center">
+                    <button class="btn btn-outline-primary col-6 m-1">회원가입</button>
                 </div>
             </form>
 
@@ -49,31 +48,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
