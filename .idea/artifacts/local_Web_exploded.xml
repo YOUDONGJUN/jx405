@@ -18,7 +18,6 @@
         </element>
       </element>
       <element id="javaee-facet-resources" facet="local/web/Web" />
-      <element id="javaee-facet-resources" facet="jx405/web/Web" />
     </root>
   </artifact>
 </component>
