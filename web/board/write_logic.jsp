@@ -10,6 +10,7 @@
 </head>
 <body>
 <%
+    request.setCharacterEncoding("UTF-8");
     UserDTO logIn = (UserDTO) session.getAttribute("logIn");
     if (logIn == null) {
         response.sendRedirect("/index.jsp");
