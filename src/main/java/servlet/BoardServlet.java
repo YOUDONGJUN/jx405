@@ -4,11 +4,9 @@ import connector.ConnectionMaker;
 import connector.MySqlConnectionMaker;
 import controller.BoardController;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -24,34 +22,17 @@ public class BoardServlet extends HttpServlet {
 
         writer.println("<html>");
         writer.println("<head>");
-        writer.println("<title>Hello, world!</title>");
+        writer.println("<title>Hello, WORLD!!!</title>");
         writer.println("</head>");
         writer.println("<body>");
-        writer.println("<h1>HELLO, WORLD!</h1>");
+        writer.println("<h1>HELLO, WORLD!!!</h1>");
         writer.println("</body>");
-        writer.println("<html>");
+        writer.println("</html>");
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
-
-
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ehdwnsdb
-  Date: 2023-02-10
-  Time: 오전 10:18
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,8 +5,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-            crossorigin="anonymous"></script>
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -31,16 +23,14 @@
                 <div class="row justify-content-center">
                     <div class="col-6">
                         <div class="form-floating">
-                            <input type="password" id="password" name="password" class="form-control"
-                                   placeholder="비밀번호">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="비밀번호">
                             <label for="password">비밀번호</label>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <button class="btn btn-outline-primary col-3 m-1">로그인</button>
-                    <div class="col-3 btn btn-outline-secondary m-1" onclick="location.href='/user/register.jsp'">회원가입
-                    </div>
+                    <div class="col-3 btn btn-outline-secondary m-1" onclick="location.href='/user/register.jsp'">회원가입</div>
                 </div>
             </form>
 
@@ -49,20 +39,6 @@
 </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
