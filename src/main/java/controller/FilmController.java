@@ -1,62 +1,126 @@
 package controller;
 
+import dbConn.ConnectionMaker;
 import model.FilmDTO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class FilmController {
-    private ArrayList<FilmDTO> list;
-    private int nextId;
 
-    public FilmController() {
-        list = new ArrayList<>();
-        nextId = 1;
+    private Connection connection;
 
-        for (int i = 1; i <= 4; i++) {
-            FilmDTO f = new FilmDTO();
-            f.setTitle("제목 " + i);
-            f.setSummary("줄거리 " + i);
-            f.setRating(i);
-
-            add(f);
-        }
+    public FilmController(ConnectionMaker connectionMaker) {
+        this.connection = connectionMaker.makeConnection();
     }
 
-    public void add(FilmDTO filmDTO) {
-        filmDTO.setId(nextId++);
+    public void insert(FilmDTO filmDTO) {
+        String query = "INSERT INTO `film`(`title`, `summary`, `rating`) " +
+                "VALUES(?, ?, ?)";
 
-        list.add(filmDTO);
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, filmDTO.getTitle());
+            pstmt.setString(2, filmDTO.getSummary());
+            pstmt.setInt(3, filmDTO.getRating());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ArrayList<FilmDTO> selectAll() {
-        ArrayList<FilmDTO> temp = new ArrayList<>();
-        for (FilmDTO f : list) {
-            temp.add(new FilmDTO(f));
+        ArrayList<FilmDTO> list = new ArrayList<>();
+
+        String query = "SELECT * FROM `film` ORDER BY `id` DESC";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            ResultSet resultSet = pstmt.executeQuery();
+
+            while (resultSet.next()) {
+                FilmDTO f = new FilmDTO();
+                f.setId(resultSet.getInt("id"));
+                f.setTitle(resultSet.getString("title"));
+                f.setSummary(resultSet.getString("summary"));
+                f.setRating(resultSet.getInt("rating"));
+
+                list.add(f);
+            }
+            resultSet.close();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        return temp;
+        return list;
     }
 
     public FilmDTO selectOne(int id) {
-        FilmDTO temp = new FilmDTO(id);
-        if (list.contains(temp)) {
-            int index = list.indexOf(temp);
-            return new FilmDTO(list.get(index));
+        FilmDTO filmDTO = null;
+        String query = "SELECT * FROM `film` WHERE `id` = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, id);
+
+            ResultSet resultSet = pstmt.executeQuery();
+
+            if (resultSet.next()) {
+                filmDTO = new FilmDTO();
+                filmDTO.setId(resultSet.getInt("id"));
+                filmDTO.setTitle(resultSet.getString("title"));
+                filmDTO.setSummary(resultSet.getString("summary"));
+                filmDTO.setRating(resultSet.getInt("rating"));
+
+            }
+
+            resultSet.close();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return null;
+
+        return filmDTO;
     }
 
     public void update(FilmDTO filmDTO) {
-        int index = list.indexOf(filmDTO);
-        list.set(index, filmDTO);
+        String query = "UPDATE `film` SET `title` = ?, `summary` = ?, `rating` = ? WHERE `id` = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setString(1, filmDTO.getTitle());
+            pstmt.setString(2, filmDTO.getSummary());
+            pstmt.setInt(3, filmDTO.getRating());
+            pstmt.setInt(4, filmDTO.getId());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void delete(int id) {
-        FilmDTO f = new FilmDTO(id);
-        list.remove(f);
+    public void delete(int id){
+        String query = "DELETE FROM `film` WHERE `id` = ?";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, id);
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
-
 
 
 

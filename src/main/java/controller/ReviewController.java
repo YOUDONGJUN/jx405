@@ -1,110 +1,127 @@
 package controller;
 
+import dbConn.ConnectionMaker;
 import model.ReviewDTO;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ReviewController {
-    private ArrayList<ReviewDTO> list;
-    private int nextId;
+    private Connection connection;
 
-    public ReviewController() {
-        list = new ArrayList<>();
-
-        nextId = 1;
+    public ReviewController(ConnectionMaker connectionMaker) {
+        this.connection = connectionMaker.makeConnection();
     }
 
-    public void add(ReviewDTO reviewDTO) {
-        reviewDTO.setId(nextId++);
+    public void insert(ReviewDTO reviewDTO) {
+        String query = "INSERT INTO `review`(`writerId`, `filmId`, `score`, `review`) " +
+                "VALUES(?, ?, ?, ?)";
 
-        list.add(reviewDTO);
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, reviewDTO.getWriterId());
+            pstmt.setInt(2, reviewDTO.getFilmId());
+            pstmt.setInt(3, reviewDTO.getScore());
+            pstmt.setString(4, reviewDTO.getReview());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public ArrayList<ReviewDTO> selectAll(int filmId) {
-        ArrayList<ReviewDTO> temp = new ArrayList<>();
-        for (ReviewDTO r : list) {
-            if (r.getFilmId() == filmId) {
-                temp.add(new ReviewDTO(r));
+    public ArrayList<ReviewDTO> selectAll() {
+        ArrayList<ReviewDTO> list = new ArrayList<>();
+
+        String query = "SELECT * FROM `review` ORDER BY `id` DESC";
+
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            ResultSet resultSet = pstmt.executeQuery();
+
+            while (resultSet.next()) {
+                ReviewDTO r = new ReviewDTO();
+                r.setId(resultSet.getInt("id"));
+                r.setWriterId(resultSet.getInt("writerId"));
+                r.setFilmId(resultSet.getInt("filmId"));
+                r.setScore(resultSet.getInt("score"));
+                r.setReview(resultSet.getString("review"));
+
+                list.add(r);
             }
+
+            resultSet.close();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
-        return temp;
-    }
-
-    public ArrayList<ReviewDTO> selectGeneralList(int filmId) {
-        ArrayList<ReviewDTO> temp = new ArrayList<>();
-
-        for (ReviewDTO r : selectAll(filmId)) {
-            if (r.getReview() == null) {
-                temp.add(new ReviewDTO(r));
-            }
-        }
-
-        return temp;
-    }
-
-    public ArrayList<ReviewDTO> selectCriticList(int filmId) {
-        ArrayList<ReviewDTO> temp = new ArrayList<>();
-        for (ReviewDTO r : selectAll(filmId)) {
-            if (r.getReview() != null) {
-                temp.add(new ReviewDTO(r));
-            }
-        }
-
-        return temp;
+        return list;
     }
 
     public ReviewDTO selectOne(int id) {
-        ReviewDTO reviewDTO = new ReviewDTO(id);
-        if (list.contains(reviewDTO)) {
-            int index = list.indexOf(reviewDTO);
-            return new ReviewDTO(list.get(index));
+        ReviewDTO reviewDTO = null;
+        String query = "SELECT * FROM `review` WHERE `id` = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, id);
+
+            ResultSet resultSet = pstmt.executeQuery();
+
+            if (resultSet.next()) {
+                reviewDTO = new ReviewDTO();
+                reviewDTO.setId(resultSet.getInt("id"));
+                reviewDTO.setWriterId(resultSet.getInt("writerId"));
+                reviewDTO.setFilmId(resultSet.getInt("filmId"));
+                reviewDTO.setScore(resultSet.getInt("score"));
+                reviewDTO.setReview(resultSet.getString("review"));
+            }
+
+            resultSet.close();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        return null;
+
+        return reviewDTO;
     }
 
     public void update(ReviewDTO reviewDTO) {
-        int index = list.indexOf(reviewDTO);
-        list.set(index, reviewDTO);
+        String query = "UPDATE `review` SET `writerId` = ?, `filmId` = ?, `score` = ?, `review` = ? WHERE `id` = ?";
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, reviewDTO.getWriterId());
+            pstmt.setInt(2, reviewDTO.getFilmId());
+            pstmt.setInt(3, reviewDTO.getScore());
+            pstmt.setString(4, reviewDTO.getReview());
+            pstmt.setInt(5, reviewDTO.getId());
+
+            pstmt.executeUpdate();
+
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void delete(int id) {
-        list.remove(new ReviewDTO(id));
-    }
+        String query = "DELETE FROM `review` WHERE `id` = ?";
 
-    public void delete(int filmId, int writerId) {
-        list.remove(selectOne(filmId, writerId));
-    }
+        try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
+            pstmt.setInt(1, id);
 
-    public double calculateAverage(ArrayList<ReviewDTO> list) {
+            pstmt.executeUpdate();
 
-        int sum = 0;
-        for (ReviewDTO r : list) {
-            sum += r.getScore();
-        }
-
-        return (double) sum / list.size();
-    }
-
-    public boolean validateReview(int filmId, int writerId) {
-        return selectOne(filmId, writerId) == null;
-    }
-
-    public ReviewDTO selectOne(int filmId, int writerId) {
-        for (ReviewDTO r : selectAll(filmId)) {
-            if (r.getWriterId() == writerId) {
-                return new ReviewDTO(r);
-            }
-        }
-        return null;
-    }
-
-    public void deleteByWriterId(int writerId) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getWriterId() == writerId) {
-                list.remove(i);
-                i--;
-            }
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
+

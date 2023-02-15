@@ -5,6 +5,12 @@ public class UserDTO {
     private String username;
     private String password;
     private String nickname;
+    private int level;
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 
     public int getId() {
         return id;
@@ -38,6 +44,14 @@ public class UserDTO {
         this.nickname = nickname;
     }
 
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
     public boolean equals(Object o) {
         if (o instanceof UserDTO) {
             UserDTO u = (UserDTO) o;
@@ -46,23 +60,19 @@ public class UserDTO {
         return false;
     }
 
-    public UserDTO(UserDTO origin) {
-        id = origin.id;
-        username = origin.username;
-        password = origin.password;
-        nickname = origin.password;
-    }
-
     public UserDTO() {
 
     }
 
-    public String toString() {
-        return "{" +
-                "id: " + id + ", " +
-                "username: " + username + ", " +
-                "password: " + password + ", " +
-                "nickname: " + nickname +
-                "}";
+    public UserDTO(int id) {
+        this.id = id;
+    }
+
+    public UserDTO(UserDTO origin) {
+        this.id = origin.id;
+        this.username = origin.username;
+        this.password = origin.password;
+        this.nickname = origin.nickname;
+        this.level = origin.level;
     }
 }
