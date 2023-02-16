@@ -1,6 +1,6 @@
 package controller;
 
-import dbConn.ConnectionMaker;
+import connector.ConnectionMaker;
 import model.ReviewDTO;
 
 import java.sql.Connection;

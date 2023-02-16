@@ -1,6 +1,4 @@
-package dbConn;
-
-import dbConn.ConnectionMaker;
+package connector;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

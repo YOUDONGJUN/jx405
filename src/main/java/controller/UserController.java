@@ -1,5 +1,5 @@
 package controller;
-import dbConn.ConnectionMaker;
+import connector.ConnectionMaker;
 import model.UserDTO;
 
 import java.sql.Connection;
