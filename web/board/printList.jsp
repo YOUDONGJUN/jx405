@@ -16,6 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/assets/board/printList.css">
+
 </head>
 <body>
 <div class="container-fluid">
@@ -66,7 +68,6 @@
             pageContext.setAttribute("startPage", startNum);
             pageContext.setAttribute("endPage", endNum);
             pageContext.setAttribute("totalPage", totalPage);
-
         %>
         <c:choose>
             <c:when test="${list.isEmpty()}">
@@ -92,7 +93,8 @@
 
                             <tbody>
                             <c:forEach var="b" items="${list}">
-                                <tr class="table-danger" onclick="location.href='/board/printOne.jsp?id=${b.id}'">
+                                <tr class="table-danger page-end"
+                                    onclick="location.href='/board/printOne.jsp?id=${b.id}'">
                                     <td>
                                             ${b.id}
                                     </td>
@@ -111,10 +113,10 @@
                                 </tr>
                             </c:forEach>
                             <tr>
-                                <td colspan="5" class="justify-content-center">
-                                    <ul class="pagination">
+                                <td colspan="5">
+                                    <ul class="pagination justify-content-center m-auto">
                                         <li class="page-item">
-                                            <a href="/board/printList.jsp?pageNo=${1}" class="page-link">
+                                            <a href="/board/printList.jsp?pageNo=${1}" class="page-link page-end">
                                                 <span>&laquo;</span>
                                             </a>
                                         </li>
@@ -137,7 +139,8 @@
                                             </c:choose>
                                         </c:forEach>
                                         <li class="page-item">
-                                            <a href="/board/printList.jsp?pageNo=${totalPage}" class="page-link">
+                                            <a href="/board/printList.jsp?pageNo=${totalPage}"
+                                               class="page-link page-end">
                                                 <span>&raquo;</span>
                                             </a>
                                         </li>
