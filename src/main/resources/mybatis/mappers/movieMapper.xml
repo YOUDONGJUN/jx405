@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MovieMapper">
+
+	<select id="getMovieLikeCount" parameterType="int" resultType="com.example.vo.Movie">
+		select 
+			movie_no as no,
+			movie_name as movieName,
+			movie_total_liked as likeCount
+		from movie
+		where movie_no = #{value}
+	</select>
+	
+	<select id="getAllMovieNo" resultType="int">
+		select
+			MOVIE_NO as no
+		from
+			movie
+	</select>
+	
+	<select id="getTop4" resultType="com.example.vo.Movie">
+		select ROWNUM, movie_no no, movie_name movieName, movie_total_liked likeCount
+		from 
+			(select movie_no, movie_name, movie_total_liked
+      		from movie
+      		order by MOVIE_TOTAL_LIKED desc)
+		where ROWNUM &lt;= 4
+	</select>
+	
+	<select id="getTotalAudience" resultType="int">
+		select sum(movie_audience_total_number)
+		from movie
+	</select>
+	
+	<select id="getAudienceCountByMovieNo" parameterType="int" resultType="int">
+		select movie_audience_total_number
+		from movie
+		where movie_no = #{value}
+	</select>
+</mapper>

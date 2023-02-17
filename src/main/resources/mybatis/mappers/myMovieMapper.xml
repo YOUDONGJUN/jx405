@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.MyMovieMapper">
+	
+	<insert id="saveLike" parameterType="com.example.vo.MyMovie">
+		insert into my_movie
+		(customer_no, movie_no)
+		values
+		(#{customerNo}, #{movieNo})
+	</insert>
+	
+	<update id="upLike" parameterType="int">
+		update movie
+		set 
+			movie_total_liked = movie_total_liked + 1
+		where movie_no = #{value}
+	</update>
+	
+	<delete id="deleteLike" parameterType="com.example.vo.MyMovie">
+		delete from my_movie
+		where 
+			customer_no = #{customerNo}
+			and	movie_no = #{movieNo}
+	</delete>
+	
+	<update id="downLike" parameterType="int">
+		update movie
+		set
+			movie_total_liked = movie_total_liked - 1
+		where movie_no = #{value}
+	</update>
+	
+	<select id="getLikeCount" parameterType="int" resultType="int">
+		select movie_total_liked
+		from movie
+		where movie_no = #{value}
+	</select>
+	
+	<select id="getMyMovies" parameterType="int" resultType="com.example.vo.MyMovie">
+		select movie_no movieNo
+		from my_movie
+		where customer_no = #{value}
+	</select>
+</mapper>

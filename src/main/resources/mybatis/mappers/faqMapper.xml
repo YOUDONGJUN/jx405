@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.FaqMapper">
+	
+	<select id="getFaqTotalRows" parameterType="com.example.web.form.FaqCriteria" resultType="int">
+		select count(*)
+		from faq
+		<where>
+			<if test="option != null">
+				<choose>
+					<when test="option == '전체'">
+						faq_question like '%' || #{keyword} || '%'
+					</when>
+					<when test="option == '예매'">
+						question_type_no = 1
+						and faq_question like '%' || #{keyword} || '%'
+					</when>
+					<when test="option == '극장'">
+						question_type_no = 2
+						and faq_question like '%' || #{keyword} || '%'
+					</when>
+				</choose>
+			</if>
+		</where>
+	</select>
+	
+	<select id="getAllFaq" resultType="com.example.dto.FaqDto" parameterType="com.example.web.form.FaqCriteria">
+		select 
+         faq_no faqNo, 
+         question_type_no questionNo, 
+         question_type_name questionName, 
+         faq_question faqQuestion, 
+         faq_answer faqAnswer
+      from (select
+              row_number() over (order by f.faq_no desc) rn,
+              f.faq_no, q.question_type_no, q.question_type_name, f.faq_question, f.faq_answer
+            from 
+               faq f, question_type q
+            where
+               q.question_type_no = f.question_type_no
+                 <choose>
+                    <when test="option == '전체'">
+                    and f.faq_question like '%' || #{keyword} || '%')
+                    </when>
+                    <when test="option == '예매'">
+                    and q.question_type_no = 1
+                    and f.faq_question like '%' || #{keyword} || '%')
+                    </when>
+                    <when test="option == '극장'">
+                    and q.question_type_no = 2
+                    and f.faq_question like '%' || #{keyword} || '%')
+                    </when>
+                 </choose>
+      where rn between #{beginIndex} and #{endIndex}
+	</select>
+</mapper>

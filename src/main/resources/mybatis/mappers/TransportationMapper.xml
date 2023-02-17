@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.TransportationMapper">
+	
+	<select id="getAllTransportationByNo" parameterType="int" resultType="com.example.dto.TheaterTransportationDto">
+		select
+			ptt.PUBLIC_TRANSPORTATION_TYPE_NO			as typeNo,
+			ptt.PUBLIC_TRANSPORTATION_TYPE_NAME			as typeName,
+			tptc.THEATER_PUBLIC_TRANSPORTATION_NO		as no,
+			tptc.THEATER_PUBLIC_TRANSPORTATION_CONTENT	as content
+		from 	
+			THEATER_PUBLIC_TRANSPORTATION tpt,
+			PUBLIC_TRANSPORTATION_TYPE ptt,
+			THEATER_PUBLIC_TRANSPORTATION_CONTENT tptc
+		where 
+			tpt.THEATER_PUBLIC_TRANSPORTATION_NO = tptc.THEATER_PUBLIC_TRANSPORTATION_NO
+			and tpt.PUBLIC_TRANSPORTATION_TYPE_NO = ptt.PUBLIC_TRANSPORTATION_TYPE_NO
+			and theater_no = #{value}
+	</select>
+</mapper>
