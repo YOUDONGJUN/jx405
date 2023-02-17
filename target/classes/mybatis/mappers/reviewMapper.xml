@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ReviewMapper">
+ 
+	<select id="getReviewByNo" resultType="com.example.vo.Review" parameterType="long">
+		select 
+			review_no no, 
+			customer_no customerNo, 
+			movie_no movieNo, 
+			review_score reviewScore, 
+			review_content reviewContent, 
+			review_created_date createdDate
+		from review
+		where review_no = #{value}
+	</select>
+	
+	<insert id="insertReview" parameterType="com.example.vo.Review">
+		<selectKey resultType="long" keyProperty="no" order="BEFORE">
+			select review_seq.nextval from dual
+		</selectKey>
+		insert into review 
+		(review_no, customer_no, movie_no, review_score, review_content)
+		values 
+		(#{no}, #{customerNo}, #{movieNo}, #{reviewScore}, #{reviewContent})
+	</insert>
+	
+	<insert id="insertReviewPoint" parameterType="com.example.vo.ReviewPoint">
+		insert into review_point
+		values(#{no}, #{pointNo})
+	</insert>
+	
+	<select id="getTotalReviewsByMovieNo" parameterType="int" resultType="int">
+		select count(*)
+		from review
+		where movie_no = #{value}
+	</select>
+	
+	<select id="getAllPointTypes" resultType="com.example.vo.ReviewPointType">
+		select 
+			review_point_type_no 	as no, 
+			review_point_type_name 	as pointName
+		from review_point_type
+	</select>
+	
+	<select id="getPointNamesByReviewNo" parameterType="long" resultType="com.example.vo.ReviewPointType">
+		select 
+			p.review_point_type_no no,
+			pt.review_point_type_name pointName
+		from 
+			review_point p, review_point_type pt, review r
+		where 
+			p.review_point_type_no = pt.review_point_type_no
+      		and r.review_no = p.review_no
+      		and r.review_no = #{value}
+	</select>
+	
+	<select id="getMyReviewByMovieNo" resultType="com.example.vo.Review">
+		select 
+			review_no no, 
+			customer_no customerNo, 
+			movie_no movieNo, 
+			review_score reviewScore, 
+			review_content reviewContent, 
+			review_created_date createdDate
+		from review
+		where 
+			customer_no = #{customerNo}
+        	and movie_no = #{movieNo}
+	</select>
+	
+	<update id="updateReview" parameterType="com.example.vo.Review">
+		update review
+		set 
+			review_score = #{reviewScore},
+			review_content = #{reviewContent}
+		where review_no = #{no}
+	</update>
+	
+	<delete id="deleteReviewPoints" parameterType="long">
+		delete from 
+			review_point
+		where 
+		    review_no = #{value}
+	</delete>
+	
+	<delete id="deleteReview" parameterType="long">
+		delete from 
+		    review
+		where 
+		    review_no = #{value}
+	</delete>
+		
+	<select id="getReviewPointCount" resultType="int">
+		select 
+			count(review_point_type_no) pointNo
+		from 
+			(select 
+				m.movie_no, r.review_no, p.review_point_type_no
+     		 from 
+     		 	movie m, review r, review_point p
+      	     where 
+      	     	m.movie_no = r.movie_no
+      		 	and r.review_no = p.review_no
+      		 	and m.movie_no = #{movieNo})
+		where review_point_type_no = #{pointNo}
+	</select>
+	 
+	<select id="getReviewScore" parameterType="int" resultType="int">
+		select sum(review_score)
+		from review
+		where movie_no = #{value}
+	</select>
+	
+	<select id="getPointNameByPointNo" parameterType="int" resultType="String">
+		select 
+			review_point_type_name
+		from 
+			review_point_type
+		where 
+			review_point_type_no = #{value}
+	</select>
+		
+	<select id="getAllReviewsByMovieNo" parameterType="com.example.web.form.Criteria" resultType="com.example.dto.ReviewDto">
+		select 
+			review_no reviewNo,
+			customer_id customerId,
+        	review_score reviewScore,
+       		review_content reviewContent
+		from 
+			(select 
+				row_number() over (order by 
+				<choose>
+					<when test="option == 'date'">r.review_no desc</when>
+					<when test="option == 'rate'">r.review_score desc</when>
+				</choose>
+				) rn,
+      			r.review_no, c.customer_id, r.review_score, r.review_content
+      		from 
+      			customer c, review r, movie m
+      		where 
+      			r.movie_no = m.movie_no
+      			and c.customer_no = r.customer_no
+      			and m.movie_no = #{movieNo})
+		where 
+			rn between #{beginIndex} and #{endIndex}
+	</select>
+	
+	<select id="getQualification" resultType="string">
+		select 
+   			t.ticket_cancelled ticketCancelled
+		from 
+		    show_schedule s, ticket t
+		where 
+		    s.show_schedule_no = t.show_schedule_no
+			and t.customer_no = #{customerNo}
+			and s.movie_no = #{movieNo}
+			and t.ticket_cancelled = 'N'
+	</select>
+</mapper>

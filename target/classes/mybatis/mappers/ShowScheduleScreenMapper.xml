@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.ShowScheduleScreenMapper">
+<!-- 
+		public List<ShowScheduleScreenDto> AllListByMovie(int movieNo);
+	public int CountRegionByNo(int regionNo);
+	public List<ShowScheduleScreenDto> ListByTheaterNo(@Param("movieNo") int movieNo ,@Param("theaterNo") int theaterNo);
+ -->
+ 
+ 	<select id="allListByMovie" parameterType="int" resultType="com.example.dto.ShowScheduleScreenDto">
+ 		select 
+ 			t.theater_no as theaterNo, 
+ 			t.theater_name as theaterName, 
+ 			r.region_no as regionNo,
+ 			r.region_name as regionName,
+ 			sc.screen_no as screenNo, 
+ 			show.show_schedule_no as showScheduleNo,
+ 			show.movie_no as movieNo,
+ 			spe.special_screen_no as specialScreenNo
+		from theater t, region r, screen sc, show_schedule show, special_screen spe
+		where t.region_no = r.region_no
+		and sc.theater_no = t.theater_no
+		and show.screen_no = sc.screen_no
+		and sc.special_screen_no = spe.special_screen_no
+		and movie_no = #{value}
+ 	</select>
+ 	<select id="countRegionByNo" parameterType="int" resultType="int">
+ 		select count(*) as total
+		from region r, theater t
+		where r.region_no = t.region_no
+		and r.region_no = #{value}
+ 	</select>
+ 	<select id="listByTheaterNo" parameterType="int" resultType="com.example.dto.ShowScheduleScreenDto">
+ 		select 
+ 			t.theater_no as theaterNo,
+ 			t.theater_name as theaterName,
+ 			r.region_no as regionNo, 
+ 			r.region_name as regionName, 
+ 			sc.screen_no as screenNo, 
+ 			sc.screen_name as screenName, 
+ 			show.movie_no as movieNo, 
+ 			sc.screen_total_seat as screenTotalSeat,
+            show.show_schedule_no as showScheduleNo,
+ 			show.show_schedule_start_time as showScheduleStartTime, 
+ 			show.show_schedule_end_time as showScheduleEndTime,
+ 			mr.movie_rating_no as movieRatingNo,
+ 			mr.movie_rating_name as movieRatingName,
+ 			m.movie_name as movieName,
+ 			st.show_type_no as showTypeNo,
+ 			st.show_type_name as showTypeName,
+ 			st.show_type_subtitle as showTypeSubTitle
+		from theater t, region r, screen sc, show_schedule show, movie m, movie_rating mr, show_type st
+		where t.region_no = r.region_no
+		and sc.theater_no = t.theater_no
+		and show.screen_no = sc.screen_no
+		and show.movie_no = m.movie_no
+		and m.movie_rating_no = mr.movie_rating_no
+		and show.show_type_no = st.show_type_no
+		and show.movie_no = #{movieNo}
+		and t.theater_no = #{theaterNo}
+		 order by show.show_schedule_start_time asc
+ 	</select> 	 
+ 	<select id="getListByShowScheduleNo" parameterType="long" resultType="int">
+ 		select count(*)
+ 		from ticket t, ticket_seat ts
+ 		where t.ticket_no = ts.ticket_no
+ 		and t.show_schedule_no = #{value}
+ 	</select>
+ 	<select id="getListByscreenNo" parameterType="int" resultType="int">
+ 		select count(*)
+ 		from nonexistent_seat
+ 		where screen_no = #{value}
+ 	</select>
+</mapper>

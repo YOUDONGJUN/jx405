@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.ScheduleMapper">
+
+	<select id="getAllScheduleByTheaterNo"
+		resultType="com.example.dto.ScheduleDto">
+		
+		select
+			
+			ss.SHOW_SCHEDULE_NO as showScheduleNo,
+			ss.SHOW_TYPE_NO as showTypeNo,
+			ss.SHOW_SCHEDULE_START_TIME as startTime,
+			ss.SHOW_SCHEDULE_END_TIME as endTime,
+			ss.SHOW_SCHEDULE_TIME_NO as timeNo,
+			st.SHOW_TYPE_NAME as showTypeName
+		from 
+			SHOW_SCHEDULE ss, show_type st, movie m, screen s
+		where 
+			ss.SHOW_TYPE_NO = st.SHOW_TYPE_NO 
+			and ss.movie_no = m.movie_no
+            and s.screen_no = ss.screen_no
+			and s.THEATER_NO = #{no}
+			and m.movie_no = #{movieNo}
+			and s.screen_no =#{screenNo}
+			and to_char(ss.SHOW_SCHEDULE_START_TIME, 'yyyyMMdd') =	#{showDate}
+			
+		
+	</select>
+</mapper>

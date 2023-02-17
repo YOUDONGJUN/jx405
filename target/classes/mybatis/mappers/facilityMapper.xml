@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.FacilityMapper">
+
+	<select id="getAllFacilityByNo" parameterType="int" resultType="com.example.dto.TheaterFacilityDto">
+		select
+			ft.FACILITY_TYPE_NO 			as facilityTypeNo,
+			ft.FACILITY_TYPE_NAME			as facilityTypeName
+		from 
+			FACILITY_TYPE ft, THEATER_FACILITY tf
+		where 
+			ft.FACILITY_TYPE_NO = tf.FACILITY_TYPE_NO
+			and theater_no = #{value}
+	</select>
+</mapper>
