@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/resources/js/movie/movieFn.js"></script>
     <link rel="stylesheet" href="/resources/css/navbar.css"/>
     <link rel="stylesheet" href="/resources/css/common.css"/>
+    <link rel="stylesheet" href="/resources/css/footer.css"/>
     <link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon">
     <title>CINEMA</title>
 </head>
