@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.TicketingMapper" >
+<!-- 
+	public void insertTicket(Ticket ticket);
+	public ShowStartTimeType getStartType(String time);
+	public ShowDayType getShowDayType(String name);
+	public AudienceType getAudienceTypeName(String name);
+	public List<FeeType> getAllFeeType(int showTypeNo, int dayTypeNo, int showStartTimeNo, int audienceTypeNo);
+	public FeeType getAllFeeTypeByNo(int showTypeNo, int dayTypeNo, int showStartTimeNo, int audienceTypeNo);
+	public void insertTicketAudience(TicketAudience audience);
+	public void insertTicetSeat(TicketSeat seat);
+	public AudienceType getAudienceTypeNameByOne(String name);
+	public TicketSeat getTicketSeatByNo(String no);
+	public TicketSeat ticketSeatByNo(long ticketNo);
+ -->
+ <select id="ticketSeatBySeat" parameterType="com.example.vo.TicketSeat" resultType="com.example.vo.TicketSeat">
+ 	select 
+ 		ticket_no as ticketNo, 
+ 		ticket_seat_no as no
+ 	from ticket_seat  
+ 	where ticket_seat_no = #{no}
+ 	and ticket_no = #{ticketNo}
+ </select>
+<select id="getStartType" parameterType="string" resultType="com.example.vo.ShowStartTimeType">
+	 	 select *
+ 	from (
+		 select Row_number() over(order by show_start_time_type_time asc) as rowNm,
+		 			show_start_time_type_no as no,
+		 			show_start_time_type_name as name,
+		 			show_start_time_type_time as startTime
+		 		from show_start_time_type
+		<![CDATA[
+		where to_char(show_start_time_type_time,'HH24') >= #{value}
+		]]>
+		order by startTime ASC )
+		where rowNm = 1
+</select>
+<select id="getShowDayType" parameterType="string" resultType="com.example.vo.ShowDayType">
+ 	select 
+ 	show_day_type_no as no, 
+ 	show_day_type_name as name
+ 	from show_day_type
+ 	where show_day_type_name like '%' || #{value} || '%'
+</select>
+ <select id="getAudienceTypeName" parameterType="java.util.List" resultType="com.example.vo.AudienceType">
+ 	select 
+ 	audience_type_no as no, 
+ 	audience_type_name as name
+ 	from audience_type
+ 	<choose>
+ 		<when test="list.size gt 1 and list != null">
+ 			<foreach collection="list" item="items" open="(" separator="," close=")">
+	 		 where audience_type_name in #{items}
+	 		</foreach>
+ 		</when>
+	 	<otherwise>
+	 		where audience_type_name like '%' || #{list} || '%'
+	 	</otherwise>
+ 	</choose>
+ </select>
+ <select id="getAudienceTypeNameByOne" parameterType="string" resultType="com.example.vo.AudienceType">
+ 	select 
+ 	audience_type_no as no, 
+ 	audience_type_name as name
+ 	from audience_type
+ 	where audience_type_name like '%' || #{value} || '%'
+ </select>
+ <select id="getAllFeeType" parameterType="int" resultType="com.example.vo.FeeType">
+ 	select 
+ 	show_type_no as showTypeNo,  
+ 	show_day_type_no as showDayTypeNo,
+ 	show_start_time_type_no as showStartTypeNo, 
+ 	audience_type_no as audienceTypeNo,
+ 	fee as fee
+ 	from fee_type
+ 	where show_type_no = #{showTypeNo}
+ 	and show_day_type_no = #{dayTypeNo}
+ 	and show_start_time_type no = #{showStartTimeNo}
+ 	and audience_type_no = #{audienceTypeNo}
+ </select>
+ <!-- public Movie getMovieByNo(int movieNo); -->
+ <select id="getMovieByNo" parameterType="int" resultType="com.example.vo.Movie">
+ 	select movie_audience_total_number as movieAudienceTotalNumber
+ 	from movie
+ 	where movie_no = #{value}
+ </select>
+ <!-- 	public void countUpdateTotalNumber(Movie movie);//영화관람자수 증가-->
+	<update id="countUpdateTotalNumber" parameterType="com.example.vo.Movie">
+		update movie
+		set movie_audience_total_number = #{movieAudienceTotalNumber}
+		where movie_no = #{no}
+	</update>
+ <select id="getAllFeeTypeByNo" parameterType="int" resultType="com.example.vo.FeeType" >
+	select 
+ 	show_type_no as showTypeNo,  
+ 	show_day_type_no as showDayTypeNo,
+ 	show_start_time_type_no as showStartTypeNo, 
+ 	audience_type_no as audienceTypeNo,
+ 	fee as fee
+ 	from fee_type
+ 	where show_type_no = #{showTypeNo}
+ 	and show_day_type_no = #{dayTypeNo}
+ 	and show_start_time_type_no = #{showStartTimeNo}
+ 	and audience_type_no = #{audienceTypeNo}
+ </select>
+ <insert id="insertTicket" parameterType="com.example.vo.Ticket">
+ <selectKey order="BEFORE" resultType="long" keyProperty="no">
+ 	select ticket_seq.nextval as no from dual
+ </selectKey>
+ 	insert into ticket
+ 	(ticket_no, customer_no, show_schedule_no, ticket_total_amount, ticket_used_point, ticket_Expected_earning_point, ticket_created_date)
+ 	values
+ 	(#{no},#{customerNo},#{showScheduleNo},#{ticketTotalAmount},#{ticketUsedPoint},#{ticketExpectedEarningPoint}, sysdate)
+ </insert>
+ <insert id="insertTicketAudience" parameterType="com.example.vo.TicketAudience">
+ 		insert into ticket_audience
+ 	(ticket_no, audience_type_no, ticket_audience_total_number)
+ 	values
+ 	(#{ticketNo},#{audienceTypeNo},#{totalNumber})
+ </insert>
+ <insert id="insertTicetSeat" parameterType="com.example.vo.TicketSeat">
+ 	insert into ticket_seat
+ 	(ticket_seat_no, ticket_no)
+ 	values
+ 	(#{no},#{ticketNo})
+ </insert>
+ <!-- public void insertFeeType(FeeType fee); -->
+ <insert id="insertFeeType" parameterType="com.example.vo.FeeType">
+ 	insert into fee_type
+ 	(show_type_no, show_day_type_no, show_start_time_type_no, audience_type_no, fee)
+ 	values
+ 	(#{showTypeNo},#{showDayTypeNo},#{showStartTypeNo},#{audienceTypeNo},#{fee})
+ </insert>
+ <!-- 
+ 	public Ticket ticketByNo(int ticketNo);
+	public TicketAudience ticketAudienceByNo(int ticketNo, int audienceTypeNo);
+	public TicketSeat ticketSeatByNo(int ticketNo);
+	public Ticket ticketByscheduleNo(int scheduleNo);
+  -->
+  
+  <select id="ticketByNo" parameterType="long" resultType="com.example.vo.Ticket">
+  	select 
+  	ticket_no as no, 
+  	customer_no as customerNo, 
+  	show_schedule_no as showScheduleNo, 
+  	ticket_Total_amount as ticketTotalAmount,
+  	ticket_used_point as ticketUserPoint, 
+  	ticket_expected_earning_point as ticketExpectedEarningPoint,
+  	ticket_created_date as ticketCreatedDate
+  	from ticket
+  	where ticket_no = #{value}
+  </select>
+  <select id="ticketAudienceByNo" parameterType="com.example.web.form.TicketAdienceTypeForm" resultType="com.example.vo.TicketAudience">
+  	select 
+  	ticket_no as ticketNo, 
+  	audience_type_no as audienceTypeNo, 
+  	ticket_audience_total_number as totalNumber
+  	from ticket_audience
+  	where ticket_no = #{ticketNo}
+  	and audience_type_no =#{audienceTypeNo}
+  </select>
+  <select id="ticketByscheduleNo" parameterType="long" resultType="com.example.vo.Ticket">
+  select 
+  	ticket_no as no, 
+  	customer_no as customerNo, 
+  	show_schedule_no as showScheduleNo, 
+  	ticket_Total_amount as ticketTotalAmount,
+  	ticket_used_point as ticketUserPoint, 
+  	ticket_expected_earning_point as ticketExpectedEarningPoint,
+  	ticket_created_date as ticketCreatedDate
+  	from ticket
+  	where show_schedule_no = #{value}
+  </select>
+  <!-- 
+  	public void deleteticketSeatByNo(String no);//예약 취소시 삭제 
+	public void updateticketByPoint(Ticket ticket);//point사용시 수정될 ticket내용
+	public void insertPointHistory(PointHistory history);
+	public void insertPointHistoryDetail(PointHistoryTypeDetail detailHistory);
+	public void insertPointHistoryType(PointHistoryType type);
+   -->
+   <delete id="deleteticketSeatByNo" parameterType="string">
+   		delete from ticket_seat where ticket_seat_no = #{value}
+   </delete>
+   <update id="updateticketByPoint" parameterType="com.example.vo.Ticket">
+   		update ticket
+   		set 
+   		ticket_total_amount = #{TicketTotalAmount},
+   		ticket_used_point = #{ticketUsedPoint},
+   		ticket_expected_earning_point = #{ticketExpectedEarningPoint},
+   		ticket_cancelled = #{ticketCancled},
+   		ticket_cancelled_date = #{ticketCanlledDate}
+   		where ticket_no = #{no}
+   		and customer_no = #{customerNo}
+   		and schedule_no = #{showScheduleNo}
+   </update>
+   <insert id="insertPointHistory" parameterType="com.example.vo.PointHistory">
+   	insert into point_history
+   	(point_history_date,customer_no,point_history_type_detail_no, point_history_point)
+   	values
+   	(sysdate, #{customerNo},#{pointHistoryTypeDetailNo},#{pointHistoryPoint})
+   </insert>
+   <insert id="insertPointHistoryDetail" parameterType="com.example.vo.PointHistoryType">
+   <selectKey order="BEFORE" keyProperty="no" resultType="int">
+   	select point_history_type_detail_seq.nextval as no from dual
+   </selectKey>
+   insert into point_history_type_detail
+   	(point_history_type_detail_no, point_history_type_name, point_history_type_detail_name)
+   	values
+   	(#{no},#{name},#{detailName})
+   </insert>
+<!-- public PointHistoryType getType(String name); 
+	 public PointHistoryTypeDetail getDetailHistory(int no);
+-->
+	<select id="getType" parameterType="string" resultType="com.example.vo.PointHistoryType">
+		select
+		point_history_type_name as name
+		from point_history_type
+		where point_history_type_name like '%' || #{value} || '%'
+	</select>
+	<select id="getDetailHistory" parameterType="int" resultType="com.example.vo.PointHistoryTypeDetail">
+		select 
+		point_history_type_detail_no as no,
+		point_history_type_name as name,
+		point_history_type_detail_name as detailName 
+		from point_history_type_detail
+		where point_history_type_detail_no = #{value}
+	</select>
+   <!-- public void updateCustomerPoint(int customerNo);//구매시 update될 customer의 point -->
+   <update id="updateCustomerPoint" parameterType="com.example.vo.Customer">
+   	update customer
+   	set customer_current_point = #{currentPoint}
+   	where customer_no = #{no}
+   </update>
+   <!-- public Screen getScreenByNo(int screenNo); -->
+   <select id="getScreenByNo" parameterType="int" resultType="com.example.vo.Screen">
+   		select 
+   		screen_no as no, 
+   		theater_no as theaterNo, 
+   		screen_name as name,
+   		screen_total_seat_row as totalSeatRow,
+   		screen_total_seat_column as totalSeatColumn, 
+   		screen_total_seat as totalSeat
+   		from screen
+   		where screen_no = #{value}
+   </select>
+ </mapper>

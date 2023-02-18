@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.QnaMapper">
+
+	<select id="getAllCategories" resultType="com.example.vo.QnaType">
+		select 
+			qna_type_no no,
+			qna_type_name typeName
+		from qna_type
+	</select>
+	
+	<insert id="insertQna" parameterType="com.example.vo.Qna">
+		<selectKey resultType="int" order="BEFORE" keyProperty="no">
+			select qna_seq.nextval from dual
+		</selectKey>
+		insert into qna
+			(qna_no, customer_no, qna_type_no, theater_no, qna_title, qna_content, qna_created_date)
+		values
+			(#{no}, #{customerNo}, #{qnaTypeNo}, #{theaterNo}, #{title}, #{content}, sysdate)
+	</insert>
+	
+	<insert id="insertQnaImage" parameterType="com.example.vo.QnaImage">
+		insert into qna_image
+			(qna_no, qna_image_url)
+		values
+			(#{qnaNo}, #{imageUrl})
+	</insert>
+</mapper>

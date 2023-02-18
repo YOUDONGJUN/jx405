@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.TheaterMapper">
+
+	<resultMap type="com.example.vo.Theater" id="TheaterResultMap">
+		<id column="theater_no" 				property="no"/>
+		<result column="theater_name" 			property="name"/>
+		<result column="theater_street_address" property="streetAddress"/>
+		<result column="theater_longitude" 		property="longitude"/>
+		<result column="theater_latitude" 		property="latitude"/>
+		<result column="region_no" 				property="regionNo"/>
+	</resultMap>
+	
+	<select id="getAllTheaters" resultMap="TheaterResultMap">
+		select
+			theater_no,
+			theater_name,
+			theater_street_address,
+			theater_longitude,
+			theater_latitude,
+			region_no
+		from
+			theater
+	</select>
+	             
+	<select id="getTheatersByRegion" parameterType="int" resultMap="TheaterResultMap">
+		select
+			theater_no,
+			theater_name,
+			theater_street_address,
+			theater_longitude,
+			theater_latitude,
+			region_no
+		from
+			theater
+		where
+			region_no = #{value}	
+	</select>
+	
+	<select id="getTheaterByNo" parameterType="int" resultMap="TheaterResultMap">
+		select
+			theater_no,
+			theater_name,
+			theater_street_address,
+			theater_longitude,
+			theater_latitude,
+			region_no
+		from
+			theater
+		where
+			theater_no = #{value}	
+	</select>
+	
+	<select id="getAllRegion" resultType="com.example.vo.Region">
+		select
+			region_no	as no,
+			region_name as name
+		from
+			region
+	</select>
+	
+</mapper>

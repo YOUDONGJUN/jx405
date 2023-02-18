@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.ShowFormMapper">
+<!-- 
+	public ShowStartTimeType getStartTimeType(int starTime);
+	public ShowDayType getShowDayType(int no);
+	public MovieScheduleDto getScheduleList(ScreenListInsertForm form);
+	public ShowSchedule getShowSchduleByNo(int movieNo, int screenNo, int showTypeNo);
+ -->
+ 	<select id="getShowSchduleByNo" parameterType="int" resultType="com.example.vo.ShowSchedule">
+ 		select 
+ 		show_schedule_no as no, 
+ 		screen_no as screenNo, 
+ 		movie_no as movieNo, 
+ 		show_type_no as showTypeNo, 
+ 		show_schedule_start_time as StartTime,
+ 		show_schedule_end_time as EndTime, 
+ 		show_schedule_time_no as TimeNo
+ 		from show_schedule
+ 		where show_type_no = #{showTypeNo}
+ 		and movie_no = #{movieNo} 
+ 		and screen_no =#{screenNo}
+ 	</select>
+ 	<select id="getScheduleList" parameterType="com.example.web.form.ScreenListInsertForm" resultType="com.example.dto.MovieScheduleDto">
+ 		select 
+ 			sc.show_schedule_no as showScheDuleNo, 
+ 			sc.screen_no as screenNo, 
+ 			sc.movie_no as movieNo, 
+ 			sc.show_type_no as showTypeNo, 
+ 			sc.show_schedule_start_time as showScheduleStartTime,
+ 			sc.show_schedule_end_time as showScheduleEndTime,
+ 			s.theater_no as theaterNo, 
+ 			s.screen_name as screenName, 
+ 			s.screen_total_seat_row as screenTotalSeatRow, 
+ 			s.screen_total_seat_column as sceenTotalSeatCoulumn,
+ 			s.screen_total_seat as screenTotalSeat
+ 		from screen s, show_schedule sc
+ 		where sc.screen_no = s.screen_no
+ 		and sc.screen_no = #{screenNo}
+ 		and sc.movie_no = #{movieNo}
+ 		and sc.show_type_no = #{showTypeNo}
+ 		and s.theater_no = #{theaterNo}
+ 		and sc.show_schedule_no = #{showScheduleNo}
+ 	</select>
+ 	<select id="getStartTimeType" parameterType="string" resultType="com.example.vo.ShowStartTimeType">
+ 		select
+ 			show_start_time_type_no as no,
+ 			show_start_time_type_name as name,
+ 			show_start_time_type_time as startTime
+ 		from show_start_time_type
+ 		  <![CDATA[
+        	where to_char(show_start_time_type_time,'HH24') >= #{value}
+    		]]>
+ 	</select>
+ 	<select id="getShowDayType" parameterType="string" resultType="com.example.vo.ShowDayType">
+ 		select 
+ 		show_day_type_no as no, 
+ 		show_day_type_name as name
+ 		from show_day_type
+ 		where show_day_type_name like '%' || #{value} || '%'
+ 	</select>
+ 	<!-- 
+ 		public List<MovieScheduleDto> getSeatAllscreenNo(int screenNo);	//스크린번호로 조회하는 상영관 빈좌석과 상영관의 행과 열
+		public List<ShowScheduleScreenDto> getScreenDayAllMovieNo(int movieNo, int showTypeNo); // 영화관 번호화 상영번호로 조회하는 상영시간표 
+		public List<TicketSeat> getTicketSeatByTicketNo(int ticketNo);//티켓번호로 조회하는 예약만료한좌석
+		public List<Ticket> getAllTicketByShowScheduleNo(int schedultNo, int customerNo);//손님번호와 스케쥴번호로 조회하는 티켓정보
+ 	 -->
+ 	 <select id="getSeatAllscreenNo" parameterType="int" resultType="com.example.dto.MovieScheduleDto">
+ 	 	 select 
+ 	 	 s.screen_no as screenNo, 
+ 	 	 s.theater_no as theaterNo,
+ 	 	 s.screen_name as screenName, 
+ 	 	 s.screen_total_seat_row as screenTotalSeatRow,
+ 	 	 s.screen_total_seat_column as sceenTotalSeatCoulumn, 
+ 	 	 s.screen_total_seat as screenTotalSeat,
+ 	 	 n.nonexistent_seat_no as nonexistentSeatNo
+ 	 	 from nonexistent_seat n, screen s
+ 	 	 where n.screen_no = s.screen_no
+ 	 	 and s.screen_no = #{screenNo}
+ 	 	 and s.theater_no = #{theaterNo}
+ 	 </select>
+ 	 <select id="getScreenDayAllMovieNo" parameterType="int" resultType="com.example.dto.ShowScheduleScreenDto">
+ 	 	select 
+ 	 	show_schedule_no as showScheduleNo, 
+ 	 	screen_no as screenNo, 
+ 	 	movie_no as movieNo, 
+ 	 	show_type_no as showTypeNo,
+ 	 	show_schedule_start_time as showScheduleStartTime, 
+ 	 	show_schedule_end_time as showScheduleEndTime, 
+ 	 	show_schedule_time_no as showScheduleTimeNo
+ 	 	from show_schedule
+  		where movie_no = #{movieNo}
+  		and show_type_no = #{showTypeNo}
+ 	 </select>
+ 	 <select id="getAudienceType" resultType="com.example.vo.AudienceType">
+ 	 	select 
+ 	 	audience_type_no as no, 
+ 	 	audience_type_name as name
+ 	 	from audience_type
+ 	 </select>
+ 	 <select id="getExceptAudienceType" parameterType="int" resultType="com.example.vo.AudienceType">
+ 	 	select 
+ 	 	audience_type_no as no, 
+ 	 	audience_type_name as name
+ 	 	from audience_type
+ 	 	where not audience_type_no in #{value}
+ 	 </select>
+ 	 <!-- 
+ 	 public ShowType getShowTypeByShowTypeNo(int showTypeNo);//상영관정보를 조회한다. 
+ 	  -->
+ 	  <select id="getShowTypeByShowTypeNo" parameterType="int" resultType="com.example.vo.ShowType">
+ 	  select 
+ 	  show_type_no as no, 
+ 	  show_type_name as name, 
+ 	  show_type_subtitle as subTitle
+ 	  from show_type
+ 	  where show_type_no = #{value}
+ 	  </select>
+ 	  <!-- 	public Screen getScreenByNo(int screenNo, int theaterNo);//상영관좌석을 조회한다.
+		public List<NonExistentSeat> getNonExistentSeat(int screenNo);//빈좌석을 조회한다. 
+	 -->
+	 <select id="getScreenByNo" parameterType="int" resultType="com.example.vo.Screen">
+	 	select 
+	 	screen_no as no, 
+	 	theater_no as theaterNo, 
+	 	screen_name as name,
+		screen_total_seat_row as totalSeatRow, 
+		screen_total_seat_column as totalSeatColumn,
+		screen_total_seat as totalSeat
+	 	from screen
+	 	where screen_no = #{screenNo}
+	 	and theater_no = #{theaterNo}
+	 </select>
+	 <select id="getNonExistentSeat" parameterType="int" resultType="com.example.vo.NonExistentSeat">
+	 	select 
+	 	nonexistent_seat_no as no, 
+	 	screen_no as screenNo
+	 	from nonexistent_seat
+	 	where screen_no = #{value}
+	 </select>
+	 <!-- 	public Ticket getTicketNoByScheduleNo(int scheduleNo);//스케쥴번호를 이용하여 티켓번호를 조회한다. -->
+	 <select id="getTicketNoByScheduleNo" parameterType="com.example.web.form.TicketNoForm" resultType="com.example.vo.TicketSeat">
+		select 
+	    t.ticket_no as TicketNo, 
+	    ts.ticket_seat_no as no
+		from show_schedule s, ticket t, ticket_seat ts
+		where s.show_schedule_no = t.show_schedule_no
+		and t.ticket_no = ts.ticket_no
+		and s.show_schedule_no = #{showScheduleNo}
+		and s.movie_no = #{movieNo}
+	 </select>
+</mapper>

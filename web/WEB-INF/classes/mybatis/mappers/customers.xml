@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.mapper.CustomerMapper">
+	<resultMap id="CustomerResultMap"  type="com.example.vo.Customer">
+		<id 	column="customer_no" 				property="no"/>
+		<result column="customer_grade_no" 			property="gradeNo"/>
+		<result column="customer_id" 				property="id"/>
+		<result column="customer_password" 			property="password"/>
+		<result column="customer_name" 				property="name"/>
+		<result column="customer_phone_number" 		property="phoneNumber"/>
+		<result column="customer_email" 			property="email"/>
+		<result column="customer_street_address" 	property="streetAddress"/>
+		<result column="customer_birth_date" 		property="birthDate"/>
+		<result column="customer_current_point" 	property="currentPoint"/>
+		<result column="customer_created_date" 		property="createdDate"/>
+		<result column="customer_deleted" 			property="deleted"/>
+		<result column="customer_deleted_date" 		property="deletedDate"/>
+	</resultMap>
+	
+	<select id="getCustomerById" parameterType="string" resultMap="CustomerResultMap">
+		select 
+			customer_no, customer_grade_no, customer_id, customer_password, customer_name, 
+			customer_phone_number, customer_email, customer_street_address, customer_birth_date, 
+			customer_current_point, customer_created_date, customer_deleted, customer_deleted_date 
+		from 
+			customer 
+		where 
+			customer_id = #{value}
+	</select>
+	
+	<select id="getCustomerByCriteria" parameterType="com.example.dto.CustomerCriteria" resultMap="CustomerResultMap">
+		select 
+			customer_no, customer_grade_no, customer_id, customer_password, customer_name, 
+			customer_phone_number, customer_email, customer_street_address, customer_birth_date, 
+			customer_current_point, customer_created_date, customer_deleted, customer_deleted_date 
+		from 
+			customer 
+		where 
+			customer_name = #{name} 
+			and customer_phone_number = #{phoneNumber} 
+			<choose>
+				<when test="id == null">
+					and customer_birth_date = #{birthDate}
+				</when>
+				<otherwise>
+					and customer_id = #{id}
+				</otherwise>
+			</choose>
+	</select>
+	
+	<update id="updateCustomer" parameterType="com.example.vo.Customer">
+		update 
+			customer 
+		set 
+			customer_grade_no = #{gradeNo}, 
+			customer_id = #{id}, 
+			customer_password = #{password}, 
+			customer_name = #{name}, 
+			customer_phone_number = #{phoneNumber}, 
+			customer_email = #{email}, 
+			customer_street_address = #{streetAddress}, 
+			customer_birth_date = #{birthDate}, 
+			customer_current_point = #{currentPoint}, 
+			customer_created_date = #{createdDate}, 
+			customer_deleted = #{deleted}, 
+			customer_deleted_date = #{deletedDate} 
+		where 
+			customer_no = #{no}
+	</update>
+	
+	<insert id="insertCustomer" parameterType="com.example.web.form.CustomerSignUpForm">
+		insert into customer (customer_no, customer_id, customer_password, customer_name, 
+			customer_birth_date, customer_phone_number, customer_email) 
+		values (customer_seq.nextval, #{id}, #{password}, #{name}, #{birthDate}, 
+			#{phoneNumber}, #{email})
+	</insert>
+</mapper>
