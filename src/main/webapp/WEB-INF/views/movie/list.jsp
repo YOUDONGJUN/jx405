@@ -15,7 +15,7 @@
 </head>
 <head>
     <meta charset="UTF-8">
-    <title>HTA CINEMA</title>
+    <title>CINEMA</title>
 </head>
 <body>
 <%@include file="../common/navbar.jsp" %>
