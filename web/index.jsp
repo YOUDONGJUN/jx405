@@ -66,8 +66,8 @@
 <div class="container">
     <div class="container mt-5 text-center">
         <div class="row">
-            <h4>궁금하신 점이 있으신가요?</h4>
-            <p>고객센터에 문의해 보세요.</p>
+            <h4>메인페이지입니당</h4>
+            <p>아 피곤하다 집 가고 싶다</p>
         </div>
         <div class="row text-center mt-3">
             <div class="col"></div>

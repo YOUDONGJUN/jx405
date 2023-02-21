@@ -52,9 +52,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link" href="/movie/list">영화</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/web/movie/list">영화</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">예매</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/theater/list">극장</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/web/theater/list">극장</a></li>
                     <li class="nav-item"><a class="nav-link" href="/"
                                             style="font-family: 'Alfa Slab One'; font-weight: 400;">동준 CINEMA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>
