@@ -6,16 +6,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/resources/css/movieDetail.css"/>
-    <link rel="stylesheet" href="/resources/css/movieList.css"/>
-    <link rel="stylesheet" href="/resources/css/navbar.css"/>
-    <link rel="stylesheet" href="/resources/css/common.css"/>
-    <script type="text/javascript" src="/resources/js/movie/movieFn.js"></script>
-    <link rel="icon" href="/resources/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/web/css/movieDetail.css"/>
+    <link rel="stylesheet" href="/web/css/movieList.css"/>
+    <link rel="stylesheet" href="/web/css/navbar.css"/>
+    <link rel="stylesheet" href="/web/css/common.css"/>
+    <script type="text/javascript" src="/web/js/movie/movieFn.js"></script>
+    <link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
 </head>
 <head>
     <meta charset="UTF-8">
-    <title>CINEMA</title>
+    <title>동준 CINEMA</title>
 </head>
 <body>
 <%@include file="../common/navbar.jsp" %>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-auto">
             <button type="button" class="btn btn-sm mb-3 search-btn">
-                <img src="/resources/images/nav/ico-search.png">
+                <img src="/web/images/nav/ico-search.png">
             </button>
         </div>
     </form>
@@ -70,7 +70,7 @@
     <div class="mt-1 mb-3">
         <div class="container">
             <button id="searchMore" class="btn btn-light col-sm-12">더보기
-                <img alt="" src="/resources/images/movie/ico-btn-more-arr.png">
+                <img alt="" src="/web/images/movie/ico-btn-more-arr.png">
             </button>
         </div>
     </div>
@@ -154,7 +154,7 @@
                 if (movie.poster_path) {
                     output += "<img src = '" + poster + "'class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
                 } else {
-                    output += "<img src ='/resources/images/movie/none.jpg' class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
+                    output += "<img src ='/web/images/movie/none.jpg' class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
                 }
                 output += "</a>";
                 if (movie.title) {
@@ -168,7 +168,7 @@
                     output += "<span class='openDt-txt'> 개봉일 |  미정</span>";
                 }
                 output += "<div class='d-flex'>";
-                output += "<button id='btn-" + movie.id + "' class='btn btn-light btn-like col-5 mt-1 float-end' data-no='" + movie.id + "' type='button' style='margin-right: 15px;'><img class='me-3' src='/resources/images/movie/unlike.png'><span>" + count + "</span></button>";
+                output += "<button id='btn-" + movie.id + "' class='btn btn-light btn-like col-5 mt-1 float-end' data-no='" + movie.id + "' type='button' style='margin-right: 15px;'><img class='me-3' src='/web/images/movie/unlike.png'><span>" + count + "</span></button>";
                 output += "<button type='button' class='btn btn-primary ticket col-5 mt-1 float-end'><a href='/ticketing/screenList?no=" + movie.id + "'>예매</a></button>";
                 output += "</div>";
                 output += "</div>";
@@ -252,8 +252,8 @@
 
             let movieNo = $(this).attr("data-no");
             let button = $(this);
-            let unlike = "/resources/images/movie/unlike.png";
-            let like = "/resources/images/movie/like.png";
+            let unlike = "/web/images/movie/unlike.png";
+            let like = "/web/images/movie/like.png";
 
             if (button.find('img').attr('src') == unlike) {
 

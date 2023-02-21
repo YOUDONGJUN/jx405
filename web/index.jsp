@@ -33,7 +33,7 @@
     }
 </style>
 <body>
-<%@include file="/WEB-INF/views/common/navbar.jsp" %>
+<%@include file="/web/common/navbar.jsp" %>
 <div class="mt-3 bg-dark movie-head">
     <div class="container">
         <div class="row" id="movie-head">
