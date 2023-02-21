@@ -4,24 +4,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 /* movie detail */
-#movie-head h1, p{
-	color: white;
+#movie-head h1, p {
+    color: white;
 }
 
 #title {
-	font-size: 50px;
-	font-weight: bold;
-} 
+    font-size: 50px;
+    font-weight: bold;
+}
 
 .tit {
-	overflow: hidden;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     border-radius: 10px 10px 0 0;
 }
 
 #original-title {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 #movie-head div {
@@ -29,7 +29,7 @@
 }
 
 .raing span {
-	color: white;
+    color: white;
 }
 
 .ticketing {
@@ -42,82 +42,82 @@
 }
 
 .review-head a {
-	text-decoration: none;
-	color: black;
+    text-decoration: none;
+    color: black;
 }
 
-#nav-video div span{
-	color:black;
-	font-size: 20px;
+#nav-video div span {
+    color: black;
+    font-size: 20px;
 }
 
 #info-lists span, dt, dd, h2, a {
-	font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .review-btn {
-	font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
-.btn-outline-light{
-	margin-right: 525px;
+.btn-outline-light {
+    margin-right: 525px;
     position: absolute;
     width: 100px;
 }
 
 .score-top p, .rating-top p, .audience-top p {
-	font-family: 'Nanum Gothic', sans-serif;
-	font-weight: 400px;
-	font-size: 15px;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-weight: 400px;
+    font-size: 15px;
 }
 
 .rating-top span, .audience-top span {
-	color:white;
-	font-family: 'Nanum Gothic', sans-serif;
-	font-size: 18px;
+    color: white;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 18px;
 }
 
 .score-top span {
-	color: #59bec9;
-	font-size: 30px;
+    color: #59bec9;
+    font-size: 30px;
 }
 
 /* 리뷰 모달 */
 #reviewModal h4, h5, span {
-	font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .star-rating {
-	border: 0;
-	display: flex;
-	flex-direction: row-reverse;
-	font-size: 2em;
-	justify-content: auto;
-	text-align: center;
-	width: 5em;
-	margin-left: 137px;
+    border: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 2em;
+    justify-content: auto;
+    text-align: center;
+    width: 5em;
+    margin-left: 137px;
 }
 
 .star-rating input {
-	display: none;
+    display: none;
 }
 
 .star-rating label {
-	color: rgb(128, 128, 128);
-	cursor: pointer;
+    color: rgb(128, 128, 128);
+    cursor: pointer;
 }
 
 .star-rating :checked ~ label {
-	color: rgb(255, 212, 59);
+    color: rgb(255, 212, 59);
 }
 
 .star-rating :hover ~ label {
-	color: rgb(250, 176, 5);
+    color: rgb(250, 176, 5);
 }
 
 .review-point-circle {
-	margin: 0 5px;
-	width: 65px;
+    margin: 0 5px;
+    width: 65px;
     height: 65px;
     line-height: 65px;
     border-radius: 120px;
@@ -125,28 +125,28 @@
 }
 
 .circle-box {
-	width: 65px;
+    width: 65px;
     height: 65px;
     border-radius: 120px;
 }
 
 .review-point-circle :checked {
-	color: #6543b1;
+    color: #6543b1;
 }
 
-.btn-check:checked +.circle-box {
-	color: #fff;
-	background-color: #6543b1;
+.btn-check:checked + .circle-box {
+    color: #fff;
+    background-color: #6543b1;
 }
 
 /* review */
 .title2, #txt, #score-txt, #points-txt, .reviewCount {
-	color: #503396;
-	font-weight: bold;
+    color: #503396;
+    font-weight: bold;
 }
 
 #score-txt {
-	font-size: 30px;
+    font-size: 30px;
 }
 
 /* 페이지네이션 */
@@ -160,17 +160,17 @@
     color: #01738b;
 }
 
-.btn-check:checked+.btn-outline-dark {
-	background-color: #01738b; 
+.btn-check:checked + .btn-outline-dark {
+    background-color: #01738b;
 }
 
 .btn-outline-dark {
-	border-color: #c0c0c0;
+    border-color: #c0c0c0;
 }
 
 /* 드롭다운 */
 .dropstart .dropdown-toggle::before {
-	display: inline-block;
+    display: inline-block;
     margin-left: 0;
     vertical-align: 0;
     border-top: 0;
@@ -180,21 +180,21 @@
 }
 
 .dropdown-toggle {
-	margin-left: 43px;
-	margin-top: 8px;
+    margin-left: 43px;
+    margin-top: 8px;
 }
 
 .dropdown-menu {
-	min-width: 0;
+    min-width: 0;
 }
 
 .btn:focus {
-	outline: 0;
-    box-shadow: 0; 
+    outline: 0;
+    box-shadow: 0;
 }
 
 .dropdown-item {
-	font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Nanum Gothic', sans-serif;
 }
 
 .circle {
@@ -213,18 +213,18 @@
 }
 
 #all-movie-graph dd {
-	font-size: 30px;
+    font-size: 30px;
     color: #503396;
     font-weight: bold;
 }
 
 .ytp-cued-thumbnail-overlay-image {
-	width: 80%;
+    width: 80%;
     height: 80%;
 }
 
 .ticket a, .ticketing a {
-	text-decoration: none;
-	color: white;
+    text-decoration: none;
+    color: white;
 }
 

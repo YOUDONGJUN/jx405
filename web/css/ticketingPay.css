@@ -1,18 +1,20 @@
-h2{
+h2 {
     margin-left: 10%;
     width: 90%;
     border-bottom: 1px solid black;
     padding-bottom: 10px;
 }
-.left-container{
+
+.left-container {
     float: left;
     width: 60%;
     margin-left: 10%;
     position: relative;
     height: 400px;
 }
-.right-container{
-  
+
+.right-container {
+
     float: right;
     width: 20%;
     margin: auto;
@@ -22,10 +24,12 @@ h2{
     background-color: rgb(43, 41, 41);
     border-radius: 10px;
 }
-.sale-ticket{
+
+.sale-ticket {
     margin: 10px;
 }
-.sale-ticket>span{
+
+.sale-ticket > span {
     width: 100%;
     height: 40px;
     display: block;
@@ -37,17 +41,20 @@ h2{
     font-size: 13px;
 
 }
-.pay-kakao{
+
+.pay-kakao {
     margin-top: 30px;
 }
-.text-wrap{
+
+.text-wrap {
     display: flex;
     background-color: #f0f3f3d8;
     border: 1px solid white;
     width: 90%;
 
 }
-#pay-kakao-id{
+
+#pay-kakao-id {
     background-image: url(/resources/images/btn/mypay.png);
     background-repeat: no-repeat;
     background-position: left;
@@ -59,19 +66,22 @@ h2{
     margin-top: 5px;
     display: flex;
 }
-.text-event{
+
+.text-event {
     width: 50%;
     float: right;
     margin-right: 280px;
     height: 30px;
 }
-.text-event>p{
+
+.text-event > p {
     color: black;
     font-size: 10px;
     margin-top: 10px;
     font-weight: 600;
 }
-.pay-wrap{
+
+.pay-wrap {
     width: 80%;
     height: 60px;
     margin: 20px;
@@ -79,76 +89,91 @@ h2{
     border: 1px solid #f0f3f3d8;
 
 }
-.pay-story{
+
+.pay-story {
     border: 1px solid #f0f3f3d8;
 }
-.pay-story li{
+
+.pay-story li {
     list-style-type: square;
     font-size: 11px;
     font-weight: 400;
 }
-#kakao-pay-radiobox{
+
+#kakao-pay-radiobox {
     padding: 10px;
     margin-left: 10px;
     font-weight: 300;
 }
-.title-name{
+
+.title-name {
     width: 100%;
     height: 110px;
     padding: 10px;
 }
-.count-age{
+
+.count-age {
     width: 12px;
 }
-.title-text{
+
+.title-text {
     color: white;
     display: inline;
     font-size: 13px;
 }
-.screen-system,.screen-location,.screen-day{
+
+.screen-system, .screen-location, .screen-day {
     color: rgb(207, 205, 205);
     font-size: 12px;
     margin-left: 10px;
     height: 5px;
 }
-.screen-time{
+
+.screen-time {
     float: right;
     color: rgb(207, 205, 205);
     font-size: 10px;
     height: 5px;
     padding-right: 8%;
 }
-.fa-clock{
+
+.fa-clock {
     float: left;
 }
-.kind-age,.total,.discount-total{
+
+.kind-age, .total, .discount-total {
     background-color: rgb(78, 78, 78);
     font-size: 10px;
     width: 80%;
     margin-left: 10%;
     height: 30px;
 }
-.name,.discount-title,.use-point,.final-title{
+
+.name, .discount-title, .use-point, .final-title {
     color: rgb(233, 230, 230);
     display: inline;
     padding-left: 5%;
 }
-.pay,.discount-pay,.point-discount,.final-total{
+
+.pay, .discount-pay, .point-discount, .final-total {
     color: rgb(207, 205, 205);
     text-align: right;
     padding-right: 5%;
 }
-.total-title,.way-pay-title{
+
+.total-title, .way-pay-title {
     color: white;
     display: inline;
     padding-left: 5%;
 }
-.total-pay,.way-pay-content{
+
+.total-pay, .way-pay-content {
     color: white;
     text-align: right;
     padding-right: 5%;
 }
-.fa-minus-circle{
+
+.fa-minus-circle {
     width: 20px;
     height: 20px;
     color: white;
@@ -156,56 +181,65 @@ h2{
     background-repeat: no-repeat;
     margin-left: 45%;
 }
-.discount-content{
+
+.discount-content {
     width: 80%;
     font-size: 10px;
     margin-left: 10%;
     height: 60px;
     border-radius: 3px;
 }
-.final-pay{
+
+.final-pay {
     width: 80%;
     height: 30px;
     font-size: 10px;
     margin-left: 10%;
 }
-.way-pay{
+
+.way-pay {
     border-top: 1px solid gray;
     width: 80%;
     height: 60px;
     font-size: 10px;
     margin-left: 10%;
 }
-.btn-final>button,.btn-final>a{
+
+.btn-final > button, .btn-final > a {
     width: 50%;
     height: 30px;
     display: inline-block;
 }
-a.btn-pre{
-    text-decoration-line : none;
+
+a.btn-pre {
+    text-decoration-line: none;
     text-align: center;
     align-items: center;
 }
-a.btn-pre:hover{
-    text-decoration : none;
+
+a.btn-pre:hover {
+    text-decoration: none;
     text-align: center;
     align-items: center;
     color: white;
 }
-.btn-pre{
+
+.btn-pre {
     float: left;
     border-radius: 0 0 0 10px;
     background-color: rgb(61, 61, 61);
     color: white;
     border: 1px solid rgb(61, 61, 61);
 }
-.btn-pay{
+
+.btn-pay {
     border-radius: 0 0 10px 0;
     background-color: #028487;
     color: white;
     border: 1px solid #028487;
 }
-.btn-modal-show{
+
+.btn-modal-show {
     border: 1px solid rgb(190, 190, 190);
     width: 30%;
     height: 40px;
@@ -213,54 +247,61 @@ a.btn-pre:hover{
     margin-top: 12px;
     font-size: 10px;
 }
-#point-modal{
-    background-color:rgba(0, 0, 0, 0.8); 
-    justify-content:center; 
-    align-items:center;     
-    position:absolute;      
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;             
-    display:none; 
+
+#point-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
 }
-.point-modal{
-    width:400px;            
-    border-radius:5px;       
-    overflow:hidden;        
-    background-color:#743cf7; 
-    box-shadow: 5px 10px 10px 1px rgba(0,0,0,.1); 
+
+.point-modal {
+    width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #743cf7;
+    box-shadow: 5px 10px 10px 1px rgba(0, 0, 0, .1);
     height: 400px;
     z-index: 60;
 }
-.point-modal-header{
-  width:100%;
-  height:30px;  
-  display:flex; 
-  align-items:left;
-  justify-content:left;
-  color: white;
-  font-size: 5px;
-  padding-left: 10px;
+
+.point-modal-header {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    font-size: 5px;
+    padding-left: 10px;
 }
-.tit{
+
+.tit {
     font-weight: 500;
     font-style: normal;
 }
-.point-modal-body{
+
+.point-modal-body {
     width: 400px;
     height: 400px;
     padding: 6px;
-    background-color:#ffffff;
-    word-break:break-word; 
-    overflow-y:auto;  
+    background-color: #ffffff;
+    word-break: break-word;
+    overflow-y: auto;
 }
-.dot-list{
+
+.dot-list {
     font-size: 10px;
     font-weight: 500;
 }
-.usable-point{
-    justify-content:center;            
+
+.usable-point {
+    justify-content: center;
     text-align: center;
     margin-left: auto;
     background-color: rgb(235, 235, 235);
@@ -268,54 +309,63 @@ a.btn-pre:hover{
     font-size: 11px;
     color: #844fff;
 }
-em{
+
+em {
     margin-left: 10px;
     font-size: 13px;
     font-style: normal;
 }
-.button-list{
-    width:100%;
-    height:30px;
+
+.button-list {
+    width: 100%;
+    height: 30px;
     float: center;
     margin: auto;
 }
-.btn-discount-pay{     
-    text-align: center;  
-    width:50px;                    
-    height:30px;
-    margin: auto;                                              
-    color:#ffffff;                 
-    cursor:pointer;  
-    border: 1px solid #844fff;       
+
+.btn-discount-pay {
+    text-align: center;
+    width: 50px;
+    height: 30px;
+    margin: auto;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #844fff;
 }
-#btn-point-close{
+
+#btn-point-close {
     color: #844fff;
     background-color: white;
 }
-#btn-point-submit{
+
+#btn-point-submit {
     background-color: #844fff;
     color: white;
 }
 
-.total-point{
+.total-point {
     width: 100%;
     height: 230px;
     border: 1px solid rgb(173, 172, 172);
     margin: 3px;
 }
-.point-wrap{
+
+.point-wrap {
     width: 100%;
     height: 30%;
     display: flex;
 
 }
-.text-right{
+
+.text-right {
     float: right;
 }
-p{
+
+p {
     color: #3ba7ff;
 }
-.block{
+
+.block {
     width: 70%;
     padding-top: 10px;
     margin: 10px;
@@ -324,79 +374,88 @@ p{
     border: 1px solid rgb(173, 172, 172);
     background-color: rgb(235, 235, 235);
 }
-#coupon-modal{
-    background-color:rgba(0, 0, 0, 0.8); 
-    justify-content:center; 
-    align-items:center;     
-    position:absolute;      
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;             
-    display:none; 
+
+#coupon-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
 }
-.coupon-modal{
-    width:400px;            
-    border-radius:5px;       
-    overflow:hidden;        
+
+.coupon-modal {
+    width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
     height: 430px;
     z-index: 60;
 }
-.coupon-modal-header{
-  width:100%;
-  height:30px;  
-  display:flex; 
-  align-items:left;
-  justify-content:left;
-  color: white;
-  font-size: 5px;
-  padding-left: 10px;
-  background-color: #743cf7;
+
+.coupon-modal-header {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    font-size: 5px;
+    padding-left: 10px;
+    background-color: #743cf7;
 }
-.coupon-modal-body{
+
+.coupon-modal-body {
     width: 400px;
     height: 400px;
     padding: 6px;
-    background-color:#fdfdfd;
-    word-break:break-word; 
-    overflow-y:auto;  
+    background-color: #fdfdfd;
+    word-break: break-word;
+    overflow-y: auto;
 }
-.coupon-modal-body>ul{
+
+.coupon-modal-body > ul {
     list-style: none;
 }
 
-.usable-coupon{
+.usable-coupon {
     border: 1px solid rgba(243, 241, 241, 0.473);
     display: flex;
     margin: 10px;
     background-color: rgba(243, 241, 241, 0.8);
 }
-.usable-coupon>p{
+
+.usable-coupon > p {
     text-align: center;
-    justify-content:center;
+    justify-content: center;
     margin: 10px;
     font-size: 8px;
-    word-break:break-word; 
+    word-break: break-word;
     color: rgb(37, 37, 37);
 }
-.input-text{
+
+.input-text {
     float: right;
     height: 25px;
     margin: 5px;
-    justify-content:center;
+    justify-content: center;
     border: 1px solid rgba(187, 186, 186, 0.473);
 }
-.btn-submit{
+
+.btn-submit {
     float: right;
     height: 25px;
     width: 70px;
     text-align: center;
     font-size: 12px;
-    justify-content:center;
+    justify-content: center;
     margin: auto;
     display: block;
 }
-.coupon-title{
+
+.coupon-title {
     width: 100%;
     height: 30px;
     border-top: 1px solid rgba(155, 155, 155, 0.808);
@@ -404,41 +463,48 @@ p{
     display: flex;
     background-color: rgba(243, 241, 241, 0.8);
 }
-.coupon-name{
+
+.coupon-name {
     height: 100%;
     width: 70%;
     float: left;
 }
-.coupon-date{
+
+.coupon-date {
     height: 100%;
     width: 20%;
-   
+
 }
-.coupon-name>p,.coupon-date>p,.coupon-use>p{
+
+.coupon-name > p, .coupon-date > p, .coupon-use > p {
     color: rgb(37, 37, 37);
     margin: 5px;
     text-align: center;
     justify-content: center;
 }
-.coupon-use{
+
+.coupon-use {
     height: 100%;
     width: 10%;
     text-align: center;
     justify-content: center;
     font-size: 8px;
 }
-.coupon-content{
+
+.coupon-content {
     height: 80%;
     overflow: auto;
 }
-#coupon-list{
+
+#coupon-list {
     width: 70%;
     height: 25px;
     border-bottom: rgba(243, 241, 241, 0.425);
     float: left;
     text-align: center;
 }
-#coupon-date{
+
+#coupon-date {
     width: 20%;
     height: 25px;
     border-bottom: rgba(243, 241, 241, 0.425);
@@ -447,80 +513,92 @@ p{
     font-size: 5px;
     padding: 5px;
 }
-#coupon-use-btn{
+
+#coupon-use-btn {
     width: 10%;
     border-bottom: rgba(243, 241, 241, 0.425);
     height: 25px;
     float: left;
 }
-#button-use{
+
+#button-use {
     display: block;
     background-color: #743cf7;
     font-size: 10px;
     color: white;
     height: 23px;
     border: 1px solid #743cf7;
-    word-break:break-word; 
+    word-break: break-word;
 }
-#btn-coupon-close{
+
+#btn-coupon-close {
     color: #844fff;
     background-color: white;
 }
-#btn-coupon-submit{
+
+#btn-coupon-submit {
     background-color: #844fff;
     color: white;
 }
-#btn-vipcoupon-close{
+
+#btn-vipcoupon-close {
     color: #844fff;
     background-color: white;
 }
-#btn-vipcoupon-submit{
+
+#btn-vipcoupon-submit {
     background-color: #844fff;
     color: white;
 }
-#vipcoupon-modal{
-    background-color:rgba(0, 0, 0, 0.8); 
-    justify-content:center; 
-    align-items:center;     
-    position:absolute;      
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;             
-    display:none;
-     
+
+#vipcoupon-modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+
 }
-.vipcoupon-modal{
-    width:400px;            
-    border-radius:5px;       
-    overflow:hidden;        
+
+.vipcoupon-modal {
+    width: 400px;
+    border-radius: 5px;
+    overflow: hidden;
     height: 430px;
     z-index: 60;
 }
-.vipcoupon-modal-header{
-  width:100%;
-  height:30px;  
-  display:flex; 
-  align-items:left;
-  justify-content:left;
-  color: white;
-  font-size: 5px;
-  padding-left: 10px;
-  background-color: #743cf7;
+
+.vipcoupon-modal-header {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    color: white;
+    font-size: 5px;
+    padding-left: 10px;
+    background-color: #743cf7;
 }
-.vipcoupon-modal-body{
+
+.vipcoupon-modal-body {
     width: 400px;
     height: 400px;
     padding: 6px;
-    background-color:#fdfdfd;
-    word-break:break-word; 
-    overflow-y:auto;  
+    background-color: #fdfdfd;
+    word-break: break-word;
+    overflow-y: auto;
 }
-.vipcoupon-content{
+
+.vipcoupon-content {
     width: 100%;
     height: 250px;
 }
-button.btn-block{
-	width: 100%;
-	height:100%;
+
+button.btn-block {
+    width: 100%;
+    height: 100%;
 }

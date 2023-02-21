@@ -13,36 +13,36 @@ a {
     font-weight: 500px;
 }
 
-.container{
-	min-width: 1250px;
+.container {
+    min-width: 1250px;
 }
 
 /* navbar */
 #header {
-	border-bottom: 2px solid #000;
+    border-bottom: 2px solid #000;
 }
 
 #navbar-2 .util-list li a {
-	color: black;
+    color: black;
     font-size: 18px;
     padding-left: 10px;
     padding-right: 10px;
 }
 
 #navbar-top .navbar-nav .nav-link {
-	color: black;
+    color: black;
     font-size: 13px;
-    
+
 }
 
 #navbarNav .navbar-nav .nav-link {
-	font-family: Noto Sans KR;
-	font-weight: bold;
-	color: black;
+    font-family: Noto Sans KR;
+    font-weight: bold;
+    color: black;
     font-size: 20px;
     margin-left: 35px;
     margin-right: 35px;
-} 
+}
 
 .navbar-light .search-box {
     position: relative;
@@ -63,7 +63,7 @@ a {
 .navbar-light button {
     position: absolute;
     top: 0;
-	right: 10px;
+    right: 10px;
     left: 31;
     width: 37px;
     height: 65px;
@@ -73,11 +73,11 @@ a {
 }
 
 #img-logo {
-	display: block;
-	margin: auto;
-	width: 70%;
+    display: block;
+    margin: auto;
+    width: 70%;
 }
 
 a {
-	word-break: keep-all;
+    word-break: keep-all;
 }

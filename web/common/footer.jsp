@@ -5,7 +5,7 @@
     <div class="container p-0">
         <div class="bg-light footer">
             <div class="container" style="font-size: 20px; font-style: italic;">
-                <p>유동준이다 이짜식들아</p>
+                <p> WELCOME TO 동준 CINEMA </p>
             </div>
         </div>
     </div>
