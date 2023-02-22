@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href="/web/css/common.css" />
 	<link rel="stylesheet" href="/web/css/customer/customerCommon.css" />
 	<link rel="stylesheet" href="/web/css/customer/signUp.css" />
-	<link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <%@include file="/common/noticeModal.jsp"%>
@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col">
 					<a class="nav-link my-5" href="/">
-						<img id="img-logo" src="/web/images/logo/logo-htacinema-purple.png">
+						<img id="img-logo" src="/images/logo/logo-htacinema-purple.png">
 					</a>
 				</div>
 			</div>

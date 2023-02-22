@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse justify-content-start">
                 <ul class="navbar-nav util-list">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="/web/images/nav/ico-sitemap.png"></a>
+                        <a class="nav-link" href="#"><img src="/images/nav/ico-sitemap.png"></a>
                     </li>
 
                     <li class="nav-item dropdown"><a class="nav-link" href="#"
@@ -42,7 +42,7 @@
                                 <form action="">
                                     <input class="form-control" type="search" name="keyword" value=""
                                            placeholder="영화를 검색하세요!" aria-label="Search">
-                                    <button class="btn btn-sm" type="button"><img src="/web/images/nav/ico-search.png">
+                                    <button class="btn btn-sm" type="button"><img src="/images/nav/ico-search.png">
                                     </button>
                                 </form>
                             </div>
@@ -52,9 +52,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link" href="/web/movie/list">영화</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/movie/list">영화</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">예매</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/web/theater/list">극장</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/theater/list">극장</a></li>
                     <li class="nav-item"><a class="nav-link" href="/"
                                             style="font-family: 'Alfa Slab One'; font-weight: 400;">동준 CINEMA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>
@@ -64,9 +64,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav util-list">
-                    <li class="nav-item"><a class="nav-link" href="#"><img src="/web/images/nav/ico-schedule.png"></a>
+                    <li class="nav-item"><a class="nav-link" href="#"><img src="/images/nav/ico-schedule.png"></a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#"><img src="/web/images/nav/ico-mymega.png"></a>
+                    <li class="nav-item"><a class="nav-link" href="#"><img src="/images/nav/ico-mymega.png"></a>
                     </li>
                 </ul>
             </div>

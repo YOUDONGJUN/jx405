@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/web/css/common.css"/>
     <link rel="stylesheet" href="/web/css/movieDetail.css"/>
     <link rel="stylesheet" href="/web/css/supports/supports.css"/>
-    <link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title>고객센터</title>
 </head>
 <body>

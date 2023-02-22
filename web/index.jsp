@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/web/css/navbar.css"/>
     <link rel="stylesheet" href="/web/css/common.css"/>
     <link rel="stylesheet" href="/web/css/footer.css"/>
-    <link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title>동준 CINEMA</title>
 </head>
 
@@ -43,20 +43,20 @@
         </div>
         <div class="row text-center">
             <div class="col-4 mb-5">
-                <a href="">
-                    <img alt="" src="/web/images/main/ico-schedule-main.png">
+                <a href="#">
+                    <img alt="" src="/images/main/ico-schedule-main.png">
                     상영시간표
                 </a>
             </div>
             <div class="col-4 mb-5">
                 <a href="/movie/list">
-                    <img alt="" src="/web/images/main/ico-boxoffice-main.png">
+                    <img alt="" src="/images/main/ico-boxoffice-main.png">
                     박스오피스
                 </a>
             </div>
             <div class="col-4 mb-5">
-                <a href="/ticketing/screenList">
-                    <img alt="" src="/web/images/main/ico-quick-reserve-main.png">
+                <a href="#">
+                    <img alt="" src="/images/main/ico-quick-reserve-main.png">
                     빠른예매
                 </a>
             </div>
@@ -72,12 +72,12 @@
         <div class="row text-center mt-3">
             <div class="col"></div>
             <div class="col">
-                <a href="/supports"><img alt="" src="/web/images/supports/ico-faq.png">
+                <a href="/supports"><img alt="" src="/images/supports/ico-faq.png">
                     <p style="color:black;" class="mt-3">자주 묻는 질문</p>
                 </a>
             </div>
             <div class="col">
-                <a href="/supports/inquiry"><img alt="" src="/web/images/supports/ico-oneandone.png">
+                <a href="/supports/inquiry"><img alt="" src="/images/supports/ico-oneandone.png">
                     <p style="color:black;" class="mt-3">1:1 문의</p>
                 </a>
             </div>
@@ -119,7 +119,7 @@
                     output += "<img src = '" + poster + "'class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
                     output += "</a>";
                     output += "<div class='d-flex mt-3'>";
-                    output += "<button id='btn-" + movie.no + "' class='btn btn-outline-light btn-like col-5 mt-1 float-end' data-no='" + movie.no + "' type='button' style='margin-right: 15px;'><img class='me-3' src='/web/images/movie/unlike.png'><span>" + movie.likeCount + "</span></button>";
+                    output += "<button id='btn-" + movie.no + "' class='btn btn-outline-light btn-like col-5 mt-1 float-end' data-no='" + movie.no + "' type='button' style='margin-right: 15px;'><img class='me-3' src='/images/movie/unlike.png'><span>" + movie.likeCount + "</span></button>";
                     output += "<button data-no='" + movie.no + "' type='button' class='btn btn-primary col-5 mt-1 float-end'><a href='/ticketing/screenList?no=" + movie.no + "'>예매</a></button>";
                     output += "</div>";
                     output += "</div>";
@@ -133,8 +133,8 @@
         $(".poster").on('click', '.btn-like', function () {
             let movieNo = $(this).attr("data-no");
             let button = $(this);
-            let unlike = "/web/images/movie/unlike.png";
-            let like = "/web/images/movie/like.png";
+            let unlike = "/images/movie/unlike.png";
+            let like = "/images/movie/like.png";
             if (button.find('img').attr('src') == unlike) {
                 $.ajax({
                     type: "post",
