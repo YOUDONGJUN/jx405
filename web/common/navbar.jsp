@@ -9,7 +9,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a href="#" class="nav-link">VIP LOUNGE</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">멤버십</a></li>
-                    <li class="nav-item"><a href="/supports" class="nav-link">고객센터</a></li>
+                    <li class="nav-item"><a href="/supports/faq.jsp" class="nav-link">고객센터</a></li>
                 </ul>
                 <ul class="navbar-nav">
                     <c:if test="${empty LOGIN_USER }">
@@ -34,8 +34,7 @@
 
                     <li class="nav-item dropdown"><a class="nav-link" href="#"
                                                      id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                                                     aria-expanded="false"> <img
-                            src="/web/images/nav/ico-search.png">
+                                                     src="/images/nav/ico-search.png">
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="">
                             <div class="search-box p-3">
@@ -52,9 +51,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link" href="/movie/list">영화</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/movie/list.jsp">영화</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">예매</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/theater/list">극장</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/theater/list.jsp">극장</a></li>
                     <li class="nav-item"><a class="nav-link" href="/"
                                             style="font-family: 'Alfa Slab One'; font-weight: 400;">동준 CINEMA</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>

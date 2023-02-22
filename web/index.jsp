@@ -49,7 +49,7 @@
                 </a>
             </div>
             <div class="col-4 mb-5">
-                <a href="/movie/list">
+                <a href="/movie/list.jsp">
                     <img alt="" src="/images/main/ico-boxoffice-main.png">
                     박스오피스
                 </a>
@@ -72,12 +72,12 @@
         <div class="row text-center mt-3">
             <div class="col"></div>
             <div class="col">
-                <a href="/supports"><img alt="" src="/images/supports/ico-faq.png">
+                <a href="/supports/faq.jsp"><img alt="" src="/images/supports/ico-faq.png">
                     <p style="color:black;" class="mt-3">자주 묻는 질문</p>
                 </a>
             </div>
             <div class="col">
-                <a href="/supports/inquiry"><img alt="" src="/images/supports/ico-oneandone.png">
+                <a href="/supports/inquiry.jsp"><img alt="" src="/images/supports/ico-oneandone.png">
                     <p style="color:black;" class="mt-3">1:1 문의</p>
                 </a>
             </div>
