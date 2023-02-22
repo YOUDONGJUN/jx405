@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col">
                 <a class="nav-link my-5" href="/">
-                    <img id="img-logo" src="/images/logo/logo-htacinema-purple.png">
+                    <img id="img-logo" src="/images/logo/logo-DJCINEMA-black.png">
                 </a>
             </div>
         </div>
@@ -99,7 +99,7 @@
                 </form>
             </div>
             <div class="tab-pane" id="findPassword" role="tabpanel" aria-labelledby="findPassword-tab">
-                <form id="form-findPassword" action="/customer/resetPasswordForm" method="post">
+                <form id="form-findPassword" action="/customer/resetPasswordForm.jsp" method="post">
                     <input type="hidden" name="find" value="password"/>
                     <div class="row mt-4">
                         <div class="col p-0">

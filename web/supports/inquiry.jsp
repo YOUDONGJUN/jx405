@@ -27,10 +27,10 @@
         <div class="row mypage">
             <div class="col p-0 aside text-center mt-3">
                 <ul class="nav flex-column p-0">
-                    <li class=""><a href="/supports" class="nav-link p-0">자주 묻는 질문</a></li>
+                    <li class=""><a href="/supports/faq.jsp" class="nav-link p-0">자주 묻는 질문</a></li>
                 </ul>
                 <ul class="nav flex-column p-0">
-                    <li class=""><a href="/supports/inquiry" class="nav-link p-0">1:1 문의</a></li>
+                    <li class=""><a href="/supports/inquiry.jsp" class="nav-link p-0">1:1 문의</a></li>
                 </ul>
             </div>
             <div class="text-center mt-3 mb-3">

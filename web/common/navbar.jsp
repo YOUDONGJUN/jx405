@@ -15,7 +15,7 @@
                     <c:if test="${empty LOGIN_USER }">
                         <li class="nav-item"><a href="modal-login-form" class="nav-link" data-bs-toggle="modal"
                                                 data-bs-target="#modal-login-form">로그인</a></li>
-                        <li class="nav-item"><a href="/customer/signUp" class="nav-link">회원가입</a></li>
+                        <li class="nav-item"><a href="/customer/signUp.jsp" class="nav-link">회원가입</a></li>
                     </c:if>
                     <c:if test="${not empty LOGIN_USER }">
                         <li class="nav-item"><a href="/logout" class="nav-link">로그아웃</a></li>

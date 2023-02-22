@@ -23,9 +23,9 @@
 					</div>
 				<button id="btn-call-login-error" data-bs-target="#modal-login-error" data-bs-toggle="modal" hidden></button>
 				<div class="container-a mt-3">
-					<a class="link-secondary" href="/customer/findIdPassword">ID/PW 찾기</a>
+					<a class="link-secondary" href="/customer/findIdPassword.jsp">ID/PW 찾기</a>
 					<span class="divide-a-tag mx-3"></span>
-					<a class="link-secondary" href="/customer/signUp">회원가입</a>
+					<a class="link-secondary" href="/customer/signUp.jsp">회원가입</a>
 				</div>
 			</div>
 		</div>
