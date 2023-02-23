@@ -6,14 +6,12 @@ import connector.MySqlConnectionMaker;
 import controller.UserController;
 import model.UserDTO;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 
 @WebServlet(name = "AuthServlet", value = "/user/auth")
 public class UserAuthServlet extends HttpServlet {
@@ -33,24 +31,19 @@ public class UserAuthServlet extends HttpServlet {
         UserDTO userDTO = userController.auth(username, password);
 
         JsonObject result = new JsonObject();
-        if (userDTO != null) {
+        if(userDTO != null){
             HttpSession session = request.getSession();
             session.setAttribute("logIn", userDTO);
 
-            result.addProperty("status", "success");
-        } else {
+            result.addProperty("result", "success");
+        }else {
             result.addProperty("result", "fail");
         }
 
         PrintWriter writer = response.getWriter();
         writer.print(result);
-
-
     }
 }
-
-
-
 
 
 
