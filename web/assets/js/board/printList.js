@@ -12,8 +12,29 @@ let initPage = () => {
         data: data,
         success: (message) => {
             let result = JSON.parse(message);
-            let array = result.data;
-            console.log(array);
+            let array = JSON.parse(result.data);
+            array.forEach((b) => {
+                insertRow(b);
+            })
         }
     });
+}
+
+function insertRow(board) {
+    console.log(board.id);
+    let pagination = $('tbody>tr');
+    let tbody = $('tbody');
+    $(tbody).remove(pagination);
+    let tr = document.createElement("tr");
+    $(tr).addClass("table-danger");
+    $(tr).click(() => {
+        location.href = "/board/printOne.jsp?id="+board.id;
+    });
+    $(tr).append($(document.createElement("td")).text(board.id));
+    $(tr).append($(document.createElement("td")).text(board.title));
+    $(tr).append($(document.createElement("td")).text(board.writerNickname));
+    $(tr).append($(document.createElement("td")).text(board.entryDate));
+    $(tr).append($(document.createElement("td")).text(board.modifyDate));
+    $(tbody).append(tr);
+    $(tbody).append(pagination);
 }

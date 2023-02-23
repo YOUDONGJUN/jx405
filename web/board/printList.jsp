@@ -93,25 +93,7 @@
                             </thead>
 
                             <tbody>
-                            <c:forEach var="b" items="${list}">
-                                <tr class="table-danger page-end" onclick="location.href='/board/printOne.jsp?id=${b.id}'">
-                                    <td>
-                                            ${b.id}
-                                    </td>
-                                    <td>
-                                            ${b.title}
-                                    </td>
-                                    <td>
-                                            ${userController.selectOne(b.writerId).nickname}
-                                    </td>
-                                    <td>
-                                            ${b.entryDate}
-                                    </td>
-                                    <td>
-                                            ${b.modifyDate}
-                                    </td>
-                                </tr>
-                            </c:forEach>
+
                             <tr>
                                 <td colspan="5">
                                     <ul class="pagination justify-content-center m-auto">

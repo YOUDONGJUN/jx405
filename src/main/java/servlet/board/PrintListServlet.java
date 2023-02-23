@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import connector.ConnectionMaker;
 import connector.MySqlConnectionMaker;
 import controller.BoardController;
+import controller.UserController;
 import model.BoardDTO;
 import model.UserDTO;
 
@@ -33,6 +34,9 @@ public class PrintListServlet extends HttpServlet {
 
         ConnectionMaker connectionMaker = new MySqlConnectionMaker();
         BoardController boardController = new BoardController(connectionMaker);
+        UserController userController = new UserController(connectionMaker);
+
+
         ArrayList<BoardDTO> list = boardController.selectAll(pageNo);
         SimpleDateFormat sdf = new SimpleDateFormat("y/M/d");
 
@@ -44,6 +48,7 @@ public class PrintListServlet extends HttpServlet {
             object.addProperty("title", b.getTitle());
             object.addProperty("entryDate", sdf.format(b.getEntryDate()));
             object.addProperty("modifyDate", sdf.format(b.getModifyDate()));
+            object.addProperty("writerNickname", userController.selectOne(b.getWriterId()).getNickname());
             array.add(object);
         }
 
