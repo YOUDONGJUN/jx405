@@ -1,5 +1,6 @@
 package servlet;
 
+import com.google.gson.JsonObject;
 import connector.ConnectionMaker;
 import connector.MySqlConnectionMaker;
 import controller.UserController;
@@ -16,20 +17,34 @@ import java.io.PrintWriter;
 public class UserValidateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         ConnectionMaker connectionMaker = new MySqlConnectionMaker();
         UserController userController = new UserController(connectionMaker);
 
         String username = request.getParameter("username");
         boolean result = userController.validateUsername(username);
 
+        String message;
+        if (result) {
+            message = "회원가입 가능";
+        } else {
+            message = "중복된 아이디";
+        }
+
         PrintWriter writer = response.getWriter();
 
         // message에 포함할 내용
         // 1. 결과
         // 2. 성공시 결과 내용
-        String message = "{status: \"success\", message: \"" + result + "\"}";
+        JsonObject object = new JsonObject();
+        object.addProperty("status", "success");
+        object.addProperty("result", result);
+        object.addProperty("message", message);
 
-        writer.print(message);
+        System.out.println(object);
+
+        writer.print(object);
 
     }
 

@@ -25,7 +25,11 @@
                 type: "get",
                 data: data,
                 success: function (message) {
-                    console.log(message);
+                    let jsonResult = JSON.parse(message);
+
+                    if (!jsonResult.result) {
+                        Swal.fire({title: '실패', text: jsonResult.message});
+                    }
                 }
             });
 
