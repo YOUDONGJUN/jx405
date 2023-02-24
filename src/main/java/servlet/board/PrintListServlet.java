@@ -9,12 +9,9 @@ import controller.UserController;
 import model.BoardDTO;
 import model.UserDTO;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -36,8 +33,9 @@ public class PrintListServlet extends HttpServlet {
         BoardController boardController = new BoardController(connectionMaker);
         UserController userController = new UserController(connectionMaker);
 
-
         ArrayList<BoardDTO> list = boardController.selectAll(pageNo);
+        int totalPage = boardController.countTotalPage();
+
         SimpleDateFormat sdf = new SimpleDateFormat("y/M/d");
 
         JsonArray array = new JsonArray();
@@ -55,6 +53,7 @@ public class PrintListServlet extends HttpServlet {
         JsonObject result = new JsonObject();
         result.addProperty("result", "success");
         result.addProperty("data", array.toString());
+        result.addProperty("totalPage", totalPage);
 
         response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
