@@ -22,25 +22,33 @@ import java.text.SimpleDateFormat;
 public class PrintOneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        UserDTO logIn = (UserDTO) session.getAttribute("logIn");
-        if (logIn == null) {
-            response.sendRedirect("/index.jsp");
-        }
-
         response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
         JsonObject object = new JsonObject();
 
+        HttpSession session = request.getSession();
+
         ConnectionMaker connectionMaker = new MySqlConnectionMaker();
         BoardController boardController = new BoardController(connectionMaker);
         UserController userController = new UserController(connectionMaker);
-
+        String message = "";
+        String nextPath = "";
         try {
+            UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+
+            if (logIn == null) {
+                message = "로그인한 유저만 볼 수 있습니다.";
+                nextPath = "/index.jsp";
+
+                throw new NullPointerException();
+            }
+
             int id = Integer.parseInt(request.getParameter("id"));
 
             BoardDTO boardDTO = boardController.selectOne(id);
             if (boardDTO == null) {
+                message = "유효하지 않은 글 번호입니다.";
+                nextPath = "/board/printList.jsp?pageNo=1";
                 throw new NullPointerException();
             }
 
@@ -56,18 +64,22 @@ public class PrintOneServlet extends HttpServlet {
             boardJson.addProperty("isOwned", boardDTO.getWriterId() == logIn.getId());
 
             object.addProperty("status", "success");
-            object.addProperty("status", boardJson.toString());
+            object.addProperty("data", boardJson.toString());
 
             writer.print(object);
-
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             object.addProperty("status", "fail");
-            object.addProperty("message", "유효하지 않은 글 번호 입니다.");
+            object.addProperty("message", message);
+            object.addProperty("nextPath", nextPath);
 
             writer.print(object);
-
+        } catch (Exception e) {
+            message = "오류가 발생하였습니다";
+            nextPath = "/board/printList.jsp?pageNo=1";
+            object.addProperty("status", "fail");
+            object.addProperty("message", message);
+            object.addProperty("nextPath", nextPath);
         }
-
 
     }
 

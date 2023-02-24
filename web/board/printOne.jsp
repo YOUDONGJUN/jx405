@@ -1,13 +1,3 @@
-<%@ page import="model.UserDTO" %>
-<%@ page import="connector.ConnectionMaker" %>
-<%@ page import="connector.MySqlConnectionMaker" %>
-<%@ page import="controller.BoardController" %>
-<%@ page import="model.BoardDTO" %>
-<%@ page import="controller.UserController" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%@ page import="controller.ReplyController" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="model.ReplyDTO" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -25,26 +15,42 @@
     <script src="/assets/js/board/printOne.js"></script>
 </head>
 <body onload="initPage()">
-<div class="container-fluid">
+<div class="container-fluid vh-100">
+    <div class="row justify-content-center vh-100 align-items-center">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <table class="table table-striped table-info" id="table-board">
+                    <tr>
+                        <th>글 번호</th>
+                        <td id="td-id"></td>
+                    </tr>
+                    <tr>
+                        <th>글 제목</th>
+                        <td id="td-title"></td>
+                    </tr>
+                    <tr>
+                        <th>작성자</th>
+                        <td id="td-writer"></td>
+                    </tr>
+                    <tr>
+                        <th>작성일</th>
+                        <td id="td-entry-date"></td>
+                    </tr>
+                    <tr>
+                        <th>수정일</th>
+                        <td id="td-modify-date"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-center">내용</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="td-content"></td>
+                    </tr>
 
-</div>
-<script>
-    let addNewRow = () => {
-        let newRow = document.getElementById('tr-new-row');
-        let table = document.getElementById('table-board');
-
-        table.children[0].removeChild(newRow);
-
-        let tr = document.createElement('tr');
-        let td = document.createElement('td');
-        td.colSpan = 2;
-
-        tr.appendChild(td);
-
-        table.children[0].appendChild(tr);
-        table.children[0].appendChild(newRow);
-    }
-</script>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
