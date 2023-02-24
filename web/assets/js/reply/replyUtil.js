@@ -96,13 +96,32 @@ function updateUi(td, reply) {
     $(tr).html("");
 
     let form =
-        $(document.createElement("input")).attr("type", "text").addClass("form-control").val(reply.content);
+        $(document.createElement("input")).attr("type", "text").attr("id", "input-update" + reply.id).addClass("form-control").val(reply.content);
     let btnUpdate =
         $(document.createElement("div")).addClass("btn btn-success").click();
     let newTd = $(document.createElement("td")).attr("colspan", "2").append(form).append(btnUpdate);
     $(tr).append(newTd);
 }
 
+function updateReply(reply) {
+    let content = $('#input-update' + reply.id).val();
+    let formData = {
+        "content": content,
+        "id": reply.id
+    };
+    $.ajax({
+        url: "/reply/update",
+        method: "post",
+        data: formData,
+        success: (message) => {
+            let response = JSON.parse(message);
+            if (response.status == 'fail') {
+                Swal.fire({"text": "오류가 발생하였습니다.", "title": "!!! ERROR !!!"});
+            }
+            location.reload();
+        }
+    })
+}
 
 
 
