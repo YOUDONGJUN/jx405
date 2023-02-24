@@ -23,10 +23,6 @@ public class PrintListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         UserDTO logIn = (UserDTO) session.getAttribute("logIn");
-        if (logIn == null) {
-            response.sendRedirect("/index.jsp");
-        }
-
         int pageNo = Integer.parseInt(request.getParameter("pageNo"));
 
         ConnectionMaker connectionMaker = new MySqlConnectionMaker();
@@ -55,7 +51,6 @@ public class PrintListServlet extends HttpServlet {
         result.addProperty("data", array.toString());
         result.addProperty("totalPage", totalPage);
 
-        response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
         writer.print(result);
 

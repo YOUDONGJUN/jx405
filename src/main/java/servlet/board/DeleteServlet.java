@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 public class DeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("UTF-8");
+
         PrintWriter writer = response.getWriter();
 
         JsonObject resp = new JsonObject();
@@ -27,10 +27,6 @@ public class DeleteServlet extends HttpServlet {
         try {
             HttpSession session = request.getSession();
             UserDTO logIn = (UserDTO) (session.getAttribute("logIn"));
-            if (logIn == null) {
-                throw new NullPointerException();
-            }
-
             int id = Integer.parseInt(request.getParameter("id"));
 
             ConnectionMaker connectionMaker = new MySqlConnectionMaker();

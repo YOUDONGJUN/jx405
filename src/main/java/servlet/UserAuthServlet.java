@@ -31,12 +31,12 @@ public class UserAuthServlet extends HttpServlet {
         UserDTO userDTO = userController.auth(username, password);
 
         JsonObject result = new JsonObject();
-        if(userDTO != null){
+        if (userDTO != null) {
             HttpSession session = request.getSession();
             session.setAttribute("logIn", userDTO);
 
             result.addProperty("result", "success");
-        }else {
+        } else {
             result.addProperty("result", "fail");
         }
 

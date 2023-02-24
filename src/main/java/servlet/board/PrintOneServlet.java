@@ -19,7 +19,6 @@ import java.text.SimpleDateFormat;
 public class PrintOneServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setCharacterEncoding("UTF-8");
         PrintWriter writer = response.getWriter();
         JsonObject object = new JsonObject();
 
@@ -32,14 +31,6 @@ public class PrintOneServlet extends HttpServlet {
         String nextPath = "";
         try {
             UserDTO logIn = (UserDTO) session.getAttribute("logIn");
-
-            if (logIn == null) {
-                message = "로그인한 유저만 볼 수 있습니다.";
-                nextPath = "/index.jsp";
-
-                throw new NullPointerException();
-            }
-
             int id = Integer.parseInt(request.getParameter("id"));
 
             BoardDTO boardDTO = boardController.selectOne(id);

@@ -25,6 +25,8 @@ let initPage = () => {
             }
         }
     });
+
+    printReply(temp);
 }
 
 function printData(data) {

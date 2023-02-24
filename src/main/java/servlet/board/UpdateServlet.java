@@ -7,12 +7,9 @@ import controller.BoardController;
 import model.BoardDTO;
 import model.UserDTO;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,17 +26,12 @@ public class UpdateServlet extends HttpServlet {
         String nextPath = "";
         String message = "";
         JsonObject object = new JsonObject();
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
+
         PrintWriter printWriter = response.getWriter();
 
         try {
             HttpSession session = request.getSession();
             UserDTO logIn = (UserDTO) session.getAttribute("logIn");
-            if (logIn == null) {
-                throw new NullPointerException();
-            }
-
             int id = Integer.parseInt(request.getParameter("id"));
 
             ConnectionMaker connectionMaker = new MySqlConnectionMaker();

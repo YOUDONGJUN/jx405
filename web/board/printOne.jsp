@@ -12,6 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script src="/assets/js/board/printOne.js"></script>
+    <script src="/assets/js/reply/replyUtil.js"></script>
 </head>
 <body onload="initPage()">
 <div class="container-fluid">
@@ -44,6 +45,21 @@
                     </tr>
                     <tr>
                         <td colspan="2" id="td-content"></td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="text-center">댓글</th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table class="table table-light table-striped" id="table-reply">
+                                <tr>
+                                    <td><input type="text" class="form-control" id="input-reply"></td>
+                                    <td>
+                                        <div class="btn btn-outline-secondary w-100" onclick="writeReply()">등록</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
                 </table>
             </div>
