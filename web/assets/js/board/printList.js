@@ -7,10 +7,7 @@ let initPage = () => {
         data = {"pageNo": temp}
     }
     $.ajax({
-        url: "/board/printList",
-        method: "GET",
-        data: data,
-        success: (message) => {
+        url: "/board/printList", method: "GET", data: data, success: (message) => {
             let result = JSON.parse(message);
             let array = JSON.parse(result.data);
             array.forEach(b => {
@@ -46,13 +43,13 @@ function insertRow(board) {
 function insertPagination(totalPage, pageNo) {
     var startNum, endNum;
 
-    if (pageNo < 3) {
-        startNum = 1;
-        endNum = 5;
-    } else if (totalPage <= 5) {
+    if (totalPage <= 5) {
         startNum = 1;
         endNum = totalPage;
-    } else if (pageNo > totalPage - 2) {
+    } else if (pageNo < 3) {
+        startNum = 1;
+        endNum = 5;
+    } else if (parseInt(pageNo) > totalPage - 2) {
         startNum = totalPage - 4;
         endNum = totalPage;
     } else {
@@ -62,8 +59,6 @@ function insertPagination(totalPage, pageNo) {
 
     console.log(startNum, endNum);
 
-    let tr = document.createElement("tr");
-    let td = $(document.createElement("td")).attr("colspan", "5");
     let ul = $(document.createElement("ul")).addClass("pagination justify-content-center m-auto");
     let li = $(document.createElement("li")).addClass("page-link page-end");
     let firstAnchor = $(document.createElement("a")).addClass("page-link").attr("href", "/board/printList.jsp?pageNo=1");
@@ -89,17 +84,5 @@ function insertPagination(totalPage, pageNo) {
     $(lastLi).append(lastAnchor);
     $(ul).append(lastLi);
 
-    $(td).append(ul);
-    $(tr).append(td);
-    $('tbody').append(tr);
+    $('#td-pagination').append(ul);
 }
-
-
-
-
-
-
-
-
-
-
