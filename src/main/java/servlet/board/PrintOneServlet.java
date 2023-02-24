@@ -8,12 +8,9 @@ import controller.UserController;
 import model.BoardDTO;
 import model.UserDTO;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
@@ -66,21 +63,19 @@ public class PrintOneServlet extends HttpServlet {
             object.addProperty("status", "success");
             object.addProperty("data", boardJson.toString());
 
-            writer.print(object);
         } catch (NullPointerException e) {
             object.addProperty("status", "fail");
             object.addProperty("message", message);
             object.addProperty("nextPath", nextPath);
-
-            writer.print(object);
         } catch (Exception e) {
-            message = "오류가 발생하였습니다";
+            message = "오류가 발생하였습니다.";
             nextPath = "/board/printList.jsp?pageNo=1";
             object.addProperty("status", "fail");
             object.addProperty("message", message);
             object.addProperty("nextPath", nextPath);
         }
 
+        writer.print(object);
     }
 
     @Override
