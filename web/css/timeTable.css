@@ -97,7 +97,7 @@ body {
 }
 
 
-.movieChoiseArea {
+.movieChoiceArea {
     display: grid;
     grid-template-columns: repeat(5, 200px);
     grid-template-rows: repeat(6, 50px);

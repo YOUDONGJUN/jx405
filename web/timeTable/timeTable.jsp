@@ -23,7 +23,7 @@
             </div>
         </div>
         <div>
-            <div class="movieChoiseArea">
+            <div class="movieChoiceArea">
                 <div class="tab-left-area1">
                     <a href="#masterMovie" title="영화별 선택" class="btn"><img src="/web/images/btn/ico-tab-movie-on.png"/>
                         영화별</a>
