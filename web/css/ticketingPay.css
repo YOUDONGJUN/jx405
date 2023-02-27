@@ -55,7 +55,7 @@ h2 {
 }
 
 #pay-kakao-id {
-    background-image: url(/web/images/btn/mypay.png);
+    background-image: url('/web/images/btn/mypay.png');
     background-repeat: no-repeat;
     background-position: left;
     background-size: 80px 30px;

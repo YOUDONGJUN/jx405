@@ -357,58 +357,58 @@ ol, ul {
 .ico-stage {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option01.png);
+    background-image: url('/web/images/theater/ico-greeting-option01.png');
 }
 
 .ico-user {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option02.png);
+    background-image: url('/web/images/theater/ico-greeting-option02.png');
 }
 
 .ico-open {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option03.png);
+    background-image: url('/web/images/theater/ico-greeting-option03.png');
 }
 
 .ico-goods {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option04.png);
+    background-image: url('/web/images/theater/ico-greeting-option04.png');
 }
 
 .ico-singalong {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option05.png);
+    background-image: url('/web/images/theater/ico-greeting-option05.png');
 
 }
 
 .ico-gv {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option06.png);
+    background-image: url('/web/images/theater/ico-greeting-option06.png');
 
 }
 
 .ico-sun {
     width: 14px;
     height: 14px;
-    background-image: url(/web/images/theater/ico-greeting-option-sun.png);
+    background-image: url('/web/images/theater/ico-greeting-option-sun.png');
 }
 
 .ico-brunch {
     width: 14px;
     height: 14px;
-    background-image: url(/web/images/theater/ico-time-brunch.png);
+    background-image: url('/web/images/theater/ico-time-brunch.png');
 
 }
 
 .ico-moon {
     width: 12px;
     height: 12px;
-    background-image: url(/web/images/theater/ico-greeting-option-moon.png);
+    background-image: url('/web/images/theater/ico-greeting-option-moon.png');
 }
 
 .tab-content {
