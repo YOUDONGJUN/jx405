@@ -32,7 +32,7 @@
                     <button id='btn-${param.no }' class='btn btn-outline-light btn-like col-2 float-end'
                             data-no='${param.no }' type='button'>
                         <img class='me-3' src='/images/movie/unlike.png'><span style="color:white;"
-                                                                                   id="likeCount">0</span>
+                                                                               id="likeCount">0</span>
                     </button>
                     <div class="row" style="margin-top: 310px;">
                         <div class="col-3 score-top">

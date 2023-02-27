@@ -146,7 +146,7 @@
              -->
             <div class="row mt-4">
                 <div class="d-grid col-6 mx-auto">
-                    <button id="btn-signUp" type="button" class="btn btn-primary btn-lg" disabled>회원가입</button>
+                    <button id="btn-signUp" type="button" class="btn btn-primary btn-lg">회원가입</button>
                 </div>
             </div>
         </form>
