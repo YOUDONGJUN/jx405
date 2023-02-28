@@ -4,7 +4,7 @@ h2 {
 }
 
 .pre {
-    background-image: url('/web/images/btn/pre-arro.png');
+    background-image: url("/web/images/btn/pre-arro.png");
     background-size: 100%;
     border: 1px solid white;
     width: 15px;
@@ -13,7 +13,7 @@ h2 {
 }
 
 .next {
-    background-image: url('/web/images/btn/next-arro.png');
+    background-image: url("/web/images/btn/next-arro.png");
     background-size: 100%;
     border: 1px solid white;
     width: 15px;
@@ -99,7 +99,7 @@ strong {
     height: 28px;
     margin: 8px;
     border: 1px solid white;
-    background-image: url('/web/images/btn/calendar.png');
+    background-image: url("/web/images/btn/calendar.png");
     background-size: 100%;
     opacity: 0.9;
 }
@@ -228,13 +228,13 @@ img + .del {
     display: inline;
     background: white;
     border: 1px solid white;
-    background-image: url('/web/images/btn/del.png');
+    background-image: url("/web/images/btn/del.png");
     background-size: 10px;
 }
 
 .del {
     border: 1px solid white;
-    background-image: url('/web/images/bg/bg-empty-cell.png');
+    background-image: url("/web/images/bg/bg-empty-cell.png");
     background-size: 100%;
     overflow: visible;
     table-layout: fixed;
@@ -382,7 +382,7 @@ p {
 p > .detail-check {
     float: center;
     border: 1px solid #dae2f5;
-    background-image: url('/web/images/btn/delete.png');
+    background-image: url("/web/images/btn/delete.png");
     background-size: 100%;
     background-color: gray;
     color: black;
@@ -390,7 +390,7 @@ p > .detail-check {
 }
 
 .detail-check {
-    background-image: url('/web/images/bg/bg-empty-cell-circle.png');
+    background-image: url("/web/images/bg/bg-empty-cell-circle.png");
     opacity: 0.5;
     border: 1px solid white;
     background-size: 100%;
@@ -400,7 +400,7 @@ p > .detail-check {
 
 .pre-time-button {
     overflow: hidden;
-    background-image: url('/web/images/btn/pre-arro.png');
+    background-image: url("/web/images/btn/pre-arro.png");
     background-size: 100%;
     opacity: 0.4;
     width: 10px;
@@ -410,7 +410,7 @@ p > .detail-check {
 }
 
 .next-time-button {
-    background-image: url('/web/images/btn/next-arro.png');
+    background-image: url("/web/images/btn/next-arro.png");
     background-size: 100%;
     opacity: 0.4;
     width: 10px;

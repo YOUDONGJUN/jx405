@@ -47,7 +47,7 @@
                                     <button class="movie-button" type="button" value="${movie.movieNo}">
                                         <img src="${movie.ratingImageURL} " alt="${movie.ratingName}"/>
                                         <span class="txt">${movie.movieName}</span>
-                                        <img src="/web/images/btn/ico-heart.png" alt="heart" class="buttonicon">
+                                        <img src="../images/btn/ico-heart.png" alt="heart" class="buttonicon">
                                     </button>
                                 </c:forEach>
                             </c:when>
@@ -57,7 +57,7 @@
                                             type="button" value="${movie.movieNo}">
                                         <img src="${movie.ratingImageURL} " alt="${movie.ratingName}"/>
                                         <span class="txt">${movie.movieName}</span>
-                                        <img src="/web/images/btn/ico-heart.png" alt="heart" class="buttonicon">
+                                        <img src="../images/btn/ico-heart.png" alt="heart" class="buttonicon">
                                     </button>
                                 </c:forEach>
                             </c:otherwise>
@@ -65,7 +65,7 @@
                     </div>
                     <div class="movie-img">
                         <div class="choice-list" id="choiceMovieList-0">
-                            <img id="picture" alt="no-pricture" src="/web/images/movie/no-graph03.jpg">
+                            <img id="picture" alt="no-pricture" src="../images/movie/no-graph03.jpg">
                             <p id="picture-name">영화를 클릭하세요</p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                             <div class="explain-button">
                                 <p style="display:flex">영화를 선택하세요</p>
                                 <c:forEach var="region" items="${regions }">
-                                    <button class='list-theater-button' data-region='${region.no }'
+                                    <button class='list-theater-button' data-region='${region.no}'
                                             style="display:none">${region.name }</button>
                                 </c:forEach>
                             </div>
@@ -112,7 +112,7 @@
     </div>
     <div class="footer">
         <div class="advertise-footer">
-            <img src="/web/images/btn/광고.jpg" alt="advertisement">
+            <img src="../images/btn/광고.jpg" alt="advertisement">
         </div>
     </div>
 </div>
