@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="supports col-6">
+    <div class="supports">
         <div class="row">
             <div class="col mt-3">
                 <h1>1:1 문의</h1>
@@ -65,14 +65,14 @@
                             <div class="row">
                                 <div class="col">
                                     <select id="region" class="form-select">
-                                        <option selected disabled>지역선택</option>
+                                        <option selected>지역선택</option>
                                         <c:forEach var="region" items="${regions }">
                                             <option value="${region.no }">${region.name }</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <select id="theater" name="theaterNo" class="form-select" disabled>
+                                    <select id="theater" name="theaterNo" class="form-select">
                                         <option value="">극장선택</option>
                                     </select>
                                 </div>
@@ -86,7 +86,7 @@
                         </th>
                         <td colspan="3">
                             <select id="ask-type" name="qnaTypeNo" class="form-select">
-                                <option value="" selected disabled>문의유형선택</option>
+                                <option value="" selected>문의유형선택</option>
                                 <c:forEach var="category" items="${categories }">
                                     <option value="${category.no }">${category.typeName }</option>
                                 </c:forEach>
@@ -95,7 +95,7 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="name">이름</label>
+                            <%--@declare id="name"--%><label for="name">이름</label>
                             <span class="red">*</span>
                         </th>
                         <td>
@@ -145,7 +145,7 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="upfiles">사진첨부</label>
+                            <%--@declare id="upfiles"--%><label for="upfiles">사진첨부</label>
                             <span class="red">*</span>
                         </th>
                         <td>
@@ -265,7 +265,7 @@
                 count--;
 
                 if (count <= 3) {
-                    $("#addFile").attr('disabled', false);
+                    $("#addFile").attr('', false);
                 }
             })
         }
@@ -289,7 +289,7 @@
         function resetTheater() {
             $('#theater option').remove();
             $('#theater').append($('<option>').val('').text('극장선택'));
-            $('#theater').attr('disabled', true);
+            $('#theater').attr('', true);
         }
 
         $("#region").click(function () {
@@ -298,7 +298,7 @@
 
             if (regionNo != '지역선택') {
                 resetTheater();
-                $("#theater").attr("disabled", false);
+                $("#theater").attr("", false);
 
                 $.getJSON("/rest/theater", {regionNo: regionNo}, function (response) {
                     let theaters = response.items;

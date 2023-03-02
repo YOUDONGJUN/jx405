@@ -146,7 +146,7 @@
              -->
             <div class="row mt-4">
                 <div class="d-grid col-6 mx-auto">
-                    <button id="btn-signUp" type="button" class="btn btn-primary btn-lg">회원가입</button>
+                    <button id="btn-signUp" type="button" class="btn btn-primary btn-lg" >회원가입</button>
                 </div>
             </div>
         </form>
@@ -216,7 +216,7 @@
                 && emailValidation.flag
         }
 
-        // 비밀번호와 비밀번호 확인 input의 값이 일치하면 flag를 true로 변경한다.
+        // 비밀번호와 비밀번호 확인 input의 값이 일치하면 flag를  true로 변경한다.
         function passwordValueMatchValidation() {
             if (passwordInput.val() === passwordCheckInput.val()) {
                 passwordValueMatchValidationFlag = true;

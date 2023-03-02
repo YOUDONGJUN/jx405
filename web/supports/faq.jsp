@@ -42,9 +42,9 @@
             </div>
         </div>
 
-        <div class="supports col-9">
+        <div class="supports">
             <div class="row">
-                <div class="offset ms-4 col-7 p-0" style="margin-left: 20px;">
+                <div class="offset ms-4 p-0" style="margin-left: 20px;">
                     <div class="mt-5 mb-3">
                         <h1>자주 묻는 질문</h1>
                     </div>
