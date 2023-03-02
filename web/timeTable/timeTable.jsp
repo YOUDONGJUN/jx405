@@ -6,18 +6,19 @@
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/navbar.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/timeTable.css"/>
 </head>
 <body>
-<%-- <%@include file="../common/navbar.jsp"%> --%>
+<%@include file="../common/navbar.jsp" %>
 <div class="container">
     <div class="mt-5">
         <div class="inner-wrap">
             <div>
-                <span>Home</span> >
+                <span><a href="/">Home</a></span> >
                 <a href="#" title="예매 페이지로 이동">예매</a> >
                 <a href="/timeTable/timeTable" title="상영시간표 페이지로 이동">상영시간표</a>
             </div>
