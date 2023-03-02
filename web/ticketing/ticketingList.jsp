@@ -6,10 +6,10 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>동준 CINEMA</title>
-    <link rel="stylesheet" href="/web/css/ticketingList.css">
-    <link rel="stylesheet" href="/web/css/navbar.css"/>
-    <link rel="stylesheet" href="/web/css/common.css"/>
-    <link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/ticketingList.css">
+    <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,7 +25,7 @@
             <div class="box">
                 <div class="text-title">
                     <h3>관람인원선택</h3>
-                    <button class="reset-button" type="button"><img src="/web/images/btn/resetbutton.png"
+                    <button class="reset-button" type="button"><img src="../images/btn/resetbutton.png"
                                                                     class="btn-reset-icon"/>초기화
                     </button>
                 </div>
@@ -65,7 +65,7 @@
         </div>
         <div class="seat-view">
             <div class="seat">
-                <img src="/web/images/btn/img-theater-screen.png" alt="screen-seat" class="screen-seat">
+                <img src="../images/btn/img-theater-screen.png" alt="screen-seat" class="screen-seat">
                 <div class="seat-wrapper">
                     <div class="toggle-seat" id="seat-layout">
                         <form action="">
@@ -112,7 +112,7 @@
                     </div>
                 </div>
                 <div class="img-card">
-                    <img src="/web/images/movie/no-graph03.jpg" alt="no-picture" id="img-movie">
+                    <img src="../images/movie/no-graph03.jpg" alt="no-picture" id="img-movie">
                 </div>
                 <div>
                     <div class="kind-seat">

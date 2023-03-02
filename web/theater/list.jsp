@@ -14,7 +14,7 @@
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/web/css/navbar.css"/>
+    <link rel="stylesheet" href="../css/navbar.css"/>
     <style type="text/css">
         button {
             height: 32px;

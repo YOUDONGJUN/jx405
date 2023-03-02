@@ -6,10 +6,10 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>동준 CINEMA</title>
-    <link rel="stylesheet" href="/web/css/ticketingPay.css">
-    <link rel="stylesheet" href="/web/css/navbar.css"/>
-    <link rel="stylesheet" href="/web/css/common.css"/>
-    <link rel="icon" href="/web/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/ticketingPay.css">
+    <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -6,8 +6,8 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
-    <link rel="stylesheet" href="/web/css/navbar.css"/>
-    <link rel="stylesheet" href="/web/css/common.css"/>
+    <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet">

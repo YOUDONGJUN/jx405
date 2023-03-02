@@ -7,12 +7,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-    <link rel="stylesheet" href="/web/css/navbar.css"/>
-    <link rel="stylesheet" href="/web/css/common.css"/>
+    <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
     <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
             rel="stylesheet">
-    <link rel="stylesheet" href="/web/css/theaterDetail.css">
+    <link rel="stylesheet" href="../css/theaterDetail.css">
     <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script
