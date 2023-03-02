@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="/web/css/supports/supports.css"/>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title>고객센터</title>
+    <style>
+        .box1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .li1 {
+            margin: 0 10px;
+        }
+    </style>
 </head>
 <body>
 <%@include file="../common/tags.jsp" %>
@@ -27,13 +37,14 @@
                 </div>
             </div>
             <div class="row mypage">
-                <div class="col p-0 aside text-center mt-3">
-                    <ul class="nav flex-column p-0">
-                        <li class=""><a href="/supports/faq.jsp" class="nav-link p-0">자주 묻는 질문</a></li>
+                <div class="col p-0 aside text-center mt-3 box1">
+                    <ul class="nav flex-row p-0">
+                        <li class="li1"><a href="/supports/faq.jsp" class="nav-link p-0">자주 묻는 질문</a></li>
+                        <li class="li1"><a href="/supports/inquiry.jsp" class="nav-link p-0">1:1 문의</a></li>
                     </ul>
-                    <ul class="nav flex-column p-0">
-                        <li class=""><a href="/supports/inquiry.jsp" class="nav-link p-0">1:1 문의</a></li>
-                    </ul>
+                    <%--                    <ul class="nav flex-column p-0">--%>
+                    <%--                        <li class=""><a href="/supports/inquiry.jsp" class="nav-link p-0">1:1 문의</a></li>--%>
+                    <%--                    </ul>--%>
                 </div>
                 <div class="text-center mt-3 mb-3">
                     <span>고객센터</span>

@@ -2,6 +2,31 @@
          pageEncoding="UTF-8" %>
 <%@ include file="tags.jsp" %>
 
+<style>
+    .font1 {
+        font-size: 20px;
+
+    }
+
+    .font2 {
+        font-size: 25px;
+        font-family: "Arial Black";
+        font-weight: bold;
+    }
+
+    .menubar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .menubarwrap {
+        width: 100%;
+    }
+</style>
+
 <div id="header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-top p-0" id="navbar-top">
@@ -49,16 +74,16 @@
                     </li>
                 </ul>
             </div>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item"><a class="nav-link" href="/movie/list.jsp">영화</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/ticketing/screenList.jsp">예매</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/theater/list.jsp">극장</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/"
-                                            style="font-family: 'Alfa Slab One'; font-weight: 400;">동준 CINEMA</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">이벤트</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">스토어</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">혜택</a></li>
+            <div class="collapse navbar-collapse justify-content-center menubarwrap" id="navbarNav">
+                <ul class="navbar-nav menubar ">
+                    <li class="nav-item font1"><a class="nav-link" href="/movie/list.jsp">영화</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="/ticketing/screenList.jsp">예매</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="/theater/list.jsp">극장</a></li>
+                    <li class="nav-item font2"><a class="nav-link" href="/"
+                                                  style="font-family: 'Alfa Slab One';">동준 CINEMA</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="#">이벤트</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="#">스토어</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="#">혜택</a></li>
                 </ul>
             </div>
             <div class="collapse navbar-collapse justify-content-end">

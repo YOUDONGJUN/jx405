@@ -31,6 +31,14 @@
         color: #fff;
         text-decoration: underline;
     }
+
+    /*.container1{*/
+    /*    display: flex;*/
+    /*    flex-direction: row;*/
+    /*    align-items: center;*/
+    /*    width: 100%;*/
+    /*    justify-content: space-around;*/
+    /*}*/
 </style>
 <body>
 <%@include file="/common/navbar.jsp" %>
@@ -43,7 +51,7 @@
         </div>
         <div class="row text-center">
             <div class="col-4 mb-5">
-                <a href="#">
+                <a href="/timeTable/timeTable.jsp">
                     <img alt="" src="/images/main/ico-schedule-main.png">
                     상영시간표
                 </a>
@@ -55,7 +63,7 @@
                 </a>
             </div>
             <div class="col-4 mb-5">
-                <a href="#">
+                <a href="/ticketing/screenList.jsp">
                     <img alt="" src="/images/main/ico-quick-reserve-main.png">
                     빠른예매
                 </a>

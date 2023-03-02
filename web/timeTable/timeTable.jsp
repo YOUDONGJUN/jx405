@@ -25,16 +25,16 @@
         <div>
             <div class="movieChoiceArea">
                 <div class="tab-left-area1">
-                    <a href="#masterMovie" title="영화별 선택" class="btn"><img src="/web/images/btn/ico-tab-movie-on.png"/>
+                    <a href="#masterMovie" title="영화별 선택" class="btn"><img src="../images/btn/ico-tab-movie-on.png"/>
                         영화별</a>
                 </div>
                 <div class="tab-left-area2">
-                    <a href="#masterBrch" title="극장별 선택" class="btn"><img src="/web/images/btn/ico-tab-theater.png"/>
+                    <a href="#masterBrch" title="극장별 선택" class="btn"><img src="../images/btn/ico-tab-theater.png"/>
                         극장별</a>
                 </div>
                 <div class="tab-left-area3">
-                    <a href="#masterSpclBrch" title="특별관 선택" class="btn"><img
-                            src="/web/images/web/ico-tab-special.png"/> 특별관</a>
+                    <a href="#masterSpclBrch" title="특별관 선택" class="btn"><img src="../images/btn/ico-tab-special.png"/>
+                        특별관</a>
                 </div>
                 <div class="timeMainTitle">
                     <nav>
@@ -55,19 +55,18 @@
                     </nav>
                 </div>
                 <div class="timeMainMovie">
-                    <div class="col-3">ddd</div>
-                    <div class="col-3">ddd</div>
-                    <div class="col-3">ddd</div>
-                    <div class="col-3">ddd</div>
-                    <div class="col-3">ddd</div>
-                    <div class="col-3">ddd</div>
+                    <div class="col-3">example1</div>
+                    <div class="col-3">example2</div>
+                    <div class="col-3">example3</div>
+                    <div class="col-3">example4</div>
+                    <div class="col-3">example5</div>
+                    <div class="col-3">example6</div>
                 </div>
-                <div class="timePoster"><img src="/web/images/btn/examPoster.jpg"/></div>
+                <div class="timePoster"><img src="../images/btn/examPoster.jpg"/></div>
             </div>
             <div class="location">
                 <h3>
                     <span class="font-green">상영시간표</span>
-                </h3>
             </div>
             <div class="timeSchedule">
                 <h1>시간표</h1>
