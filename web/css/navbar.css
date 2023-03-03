@@ -64,7 +64,7 @@ a {
     position: absolute;
     top: 0;
     right: 10px;
-    left: 31;
+    left: 31px;
     width: 37px;
     height: 65px;
     background-position: center;
@@ -80,4 +80,14 @@ a {
 
 a {
     word-break: keep-all;
+}
+.font1 {
+    font-size: 20px;
+
+}
+
+.font2 {
+    font-size: 25px;
+    font-family: "Arial Black";
+    font-weight: bold;
 }

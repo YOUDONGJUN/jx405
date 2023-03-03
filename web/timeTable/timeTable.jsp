@@ -7,10 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/navbar.css"/>
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/footer.css"/>
+    <link rel="stylesheet" href="../css/timeTable.css"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/timeTable.css"/>
+
 </head>
 <body>
 <%@include file="../common/navbar.jsp" %>
@@ -20,7 +23,7 @@
             <div>
                 <span><a href="/">Home</a></span> >
                 <a href="#" title="예매 페이지로 이동">예매</a> >
-                <a href="/timeTable/timeTable" title="상영시간표 페이지로 이동">상영시간표</a>
+                <a href="/timeTable/timeTable.jsp" title="상영시간표 페이지로 이동">상영시간표</a>
             </div>
         </div>
         <div>
@@ -68,13 +71,13 @@
             <div class="location">
                 <h3>
                     <span class="font-green">상영시간표</span>
+                </h3>
             </div>
             <div class="timeSchedule">
                 <h1>시간표</h1>
             </div>
             <div class="movieOption">
                 <ul>
-                    <li>전체</li>
                     <li>전체</li>
                     <li>전체</li>
                     <li class="grade">

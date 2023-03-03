@@ -38,7 +38,7 @@ body {
 /* navbar */
 #header {
     border-bottom: 2px solid #000;
-    width: 2150px;
+    /*width: 2150px;*/
 }
 
 #navbar-2 .util-list li a {
@@ -83,7 +83,7 @@ body {
     position: absolute;
     top: 0;
     right: 10px;
-    left: 31;
+    left: 31px;
     width: 37px;
     height: 65px;
     background-position: center;
