@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>동준 CINEMA</title>
-    <script type="text/javascript" src="/resources/js/movie/movieFn.js"></script>
+    <script type="text/javascript" src="../js/movie/movieFn.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -31,8 +31,8 @@
                     <p id="original-title"></p>
                     <button id='btn-${param.no }' class='btn btn-outline-light btn-like col-2 float-end'
                             data-no='${param.no }' type='button'>
-                        <img class='me-3' src='/images/movie/unlike.png'><span style="color:white;"
-                                                                               id="likeCount">0</span>
+                        <img class='me-3' src='../images/movie/unlike.png'><span style="color:white;"
+                                                                                 id="likeCount">0</span>
                     </button>
                     <div class="row" style="margin-top: 310px;">
                         <div class="col-3 score-top">
@@ -41,12 +41,12 @@
                         </div>
                         <div class="col-3 rating-top">
                             <p>예매율</p>
-                            <img alt="" src="/images/movie/ico-ticket-gray.png">
+                            <img alt="" src="../images/movie/ico-ticket-gray.png">
                             <span class="rating">-</span>
                         </div>
                         <div class="col-3 audience-top">
                             <p>누적관객수</p>
-                            <img alt="" src="/images/movie/ico-person.png">
+                            <img alt="" src="../images/movie/ico-person.png">
                             <span class="audience">-</span>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                 <div class="col mt-5 mb-5">
                     <img class="rounded float-end" id="poster" src="" style="width: 18rem;">
                     <button type='button' class='ticketing btn btn-primary mt-3 float-end'><a
-                            href="/ticketing/screenList?no=${param.no }">예매</a></button>
+                            href="../ticketing/screenList.jsp?no=${param.no }">예매</a></button>
                 </div>
             </div>
         </div>
@@ -108,7 +108,7 @@
                         </div>
                         <!-- 데이터 없을 때 -->
                         <div class="no-graph1">
-                            <img alt="" src="/images/movie/no-graph01.jpg">
+                            <img alt="" src="../images/movie/no-graph01.jpg">
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         </div>
                     </div>
                     <div class="no-graph2">
-                        <img alt="" src="/images/movie/no-graph02.jpg">
+                        <img alt="" src="../images/movie/no-graph02.jpg">
                     </div>
                 </div>
                 <div class="col" style="text-align: center;">
@@ -138,7 +138,7 @@
                         </div>
                         <!-- 데이터 없을 때 -->
                         <div class="no-graph3">
-                            <img alt="" src="/images/movie/no-graph03.jpg">
+                            <img alt="" src="../images/movie/no-graph03.jpg">
                         </div>
                     </div>
                 </div>
@@ -158,10 +158,10 @@
                     <c:choose>
                         <c:when test="${not empty LOGIN_USER }">
                             <a data-bs-toggle="modal" data-bs-target="" href="" class="review-btn">
-                                <img alt="" src="/images/movie/ico-story-write.png"> 관람평 쓰기 </a>
+                                <img alt="" src="../images/movie/ico-story-write.png"> 관람평 쓰기 </a>
                         </c:when>
                         <c:otherwise>
-                            <img alt="" src="/images/movie/ico-story-write.png"><span
+                            <img alt="" src="../images/movie/ico-story-write.png"><span
                                 class="text-secondary"> 관람평 쓰기</span>
                         </c:otherwise>
                     </c:choose>
@@ -197,10 +197,10 @@
                     <c:choose>
                         <c:when test="${not empty LOGIN_USER }">
                             <a data-bs-toggle="modal" data-bs-target="" href="#" class="review-btn">
-                                <img alt="" src="/images/movie/ico-story-write.png"> 관람평 쓰기 </a>
+                                <img alt="" src="../images/movie/ico-story-write.png"> 관람평 쓰기 </a>
                         </c:when>
                         <c:otherwise>
-                            <img alt="" src="/images/movie/ico-story-write.png"><span
+                            <img alt="" src="../images/movie/ico-story-write.png"><span
                                 class="text-secondary"> 관람평 쓰기</span>
                         </c:otherwise>
                     </c:choose>
@@ -574,7 +574,7 @@
 
                         let output = "<div class='row review-start text-center mt-3 mb-3'>"
                         output += "<div class='col-1'>"
-                        output += "<img src='/resources/images/movie/bg-photo.png' style='width: 50px;'><br>"
+                        output += "<img src='../images/movie/bg-photo.png' style='width: 50px;'><br>"
                         output += "<span>" + maskedId + "</span>"
                         output += "</div>"
                         output += "<div id='review-" + review.reviewNo + "' data-review-no='" + review.reviewNo + "' class='col rounded border p-3' style='background-color: #f8f8fa'>"
@@ -629,7 +629,7 @@
 
                     if (myReview == reviewNo) {
                         utilbtn += `<button type='button' class='btn util-btn dropdown-toggle' id='utils' data-bs-toggle='dropdown' aria-expanded='false'>
-										<img src='/images/movie/btn-alert.png'>
+										<img src='../images/movie/btn-alert.png'>
 									</button>
 									<ul class='dropdown-menu' aria-labelledby='utils'>
 										<button id='edit-btn' type='button' class='dropdown-item edit' href='#'>수정</button>
@@ -867,8 +867,8 @@
 
             let movieNo = $(this).attr("data-no");
             let button = $(this);
-            let unlike = "/images/movie/unlike.png";
-            let like = "/images/movie/like.png";
+            let unlike = "../images/movie/unlike.png";
+            let like = "../images/movie/like.png";
 
             if (button.find('img').attr('src') == unlike) {
 

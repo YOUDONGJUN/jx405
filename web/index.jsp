@@ -63,7 +63,7 @@
                 </a>
             </div>
             <div class="col-4 mb-5">
-                <a href="/ticketing/screenList.jsp">
+                <a href="../ticketing/screenList.jsp">
                     <img alt="" src="/images/main/ico-quick-reserve-main.png">
                     빠른예매
                 </a>
@@ -74,6 +74,7 @@
 <div class="container">
     <div class="container mt-5 text-center">
         <div class="row">
+            <img src="../images/logo/logo-DJCINEMA-black.png">
             <h4>메인페이지입니당</h4>
             <p>아 피곤하다 집 가고 싶다</p>
         </div>

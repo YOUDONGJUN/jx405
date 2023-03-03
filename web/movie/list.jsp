@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/navbar.css"/>
     <link rel="stylesheet" href="../css/common.css"/>
     <script type="text/javascript" src="../js/movie/movieFn.js"></script>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <head>
     <meta charset="UTF-8">
@@ -48,7 +48,7 @@
         </div>
         <div class="col-auto">
             <button type="button" class="btn btn-sm mb-3 search-btn">
-                <img src="/images/nav/ico-search.png">
+                <img src="../images/nav/ico-search.png">
             </button>
         </div>
     </form>
@@ -70,7 +70,7 @@
     <div class="mt-1 mb-3">
         <div class="container">
             <button id="searchMore" class="btn btn-light col-sm-12">더보기
-                <img alt="" src="/images/movie/ico-btn-more-arr.png">
+                <img alt="" src="../images/movie/ico-btn-more-arr.png">
             </button>
         </div>
     </div>
@@ -150,11 +150,11 @@
                 let output = "";
 
                 output += "<div class='col-3 mb-5' style='padding-left: 0px;'>";
-                output += "<a href='/movie/detail?no=" + movie.id + "'>";
+                output += "<a href='../movie/detail.jsp?no=" + movie.id + "'>";
                 if (movie.poster_path) {
                     output += "<img src = '" + poster + "'class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
                 } else {
-                    output += "<img src ='/images/movie/none.jpg' class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
+                    output += "<img src ='../images/movie/none.jpg' class='rounded card-img-top' style='width: 17rem; height:440px;'/>";
                 }
                 output += "</a>";
                 if (movie.title) {
@@ -168,8 +168,8 @@
                     output += "<span class='openDt-txt'> 개봉일 |  미정</span>";
                 }
                 output += "<div class='d-flex'>";
-                output += "<button id='btn-" + movie.id + "' class='btn btn-light btn-like col-5 mt-1 float-end' data-no='" + movie.id + "' type='button' style='margin-right: 15px;'><img class='me-3' src='/images/movie/unlike.png'><span>" + count + "</span></button>";
-                output += "<button type='button' class='btn btn-primary ticket col-5 mt-1 float-end'><a href='/ticketing/screenList?no=" + movie.id + "'>예매</a></button>";
+                output += "<button id='btn-" + movie.id + "' class='btn btn-light btn-like col-5 mt-1 float-end' data-no='" + movie.id + "' type='button' style='margin-right: 15px;'><img class='me-3' src='../images/movie/unlike.png'><span>" + count + "</span></button>";
+                output += "<button type='button' class='btn btn-primary ticket col-5 mt-1 float-end'><a href='../ticketing/screenList.jsp?no=" + movie.id + "'>예매</a></button>";
                 output += "</div>";
                 output += "</div>";
 
@@ -252,8 +252,8 @@
 
             let movieNo = $(this).attr("data-no");
             let button = $(this);
-            let unlike = "/images/movie/unlike.png";
-            let like = "/images/movie/like.png";
+            let unlike = "../images/movie/unlike.png";
+            let like = "..`/`images/movie/like.png";
 
             if (button.find('img').attr('src') == unlike) {
 
