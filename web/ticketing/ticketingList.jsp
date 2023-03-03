@@ -159,14 +159,14 @@
                                 다음</a>
                         </c:when>
                         <c:otherwise>
-                            <a href="/ticketing/ticketingPay" class="button" id="pageNext" title="다음">다음</a>
+                            <a href="../ticketing/ticketingPay.jsp" class="button" id="pageNext" title="다음">다음</a>
                         </c:otherwise>
                     </c:choose>
                 </div>
             </div>
         </div>
     </div>
-    <form action="/ticketing/ticketingPay" method="post" id="form-seat-ticket">
+    <form action="../ticketing/ticketingPay.jsp" method="post" id="form-seat-ticket">
         <!-- 티켓번호, 관람자 구분번호(이름에 맞게 name정하기), 인원수, 예매한 좌석번호, 상영요일, 상영시작시간, 관람료 나중에 티켓번호도 넣을것 insert하고 -->
         <input type="hidden" name="ticketingPay" value=""/>
         <input type="hidden" name="showNo" value="${showType.no }"/>

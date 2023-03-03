@@ -118,7 +118,7 @@
             </div>
         </div>
     </div>
-    <form action="/ticketing/complete" method="post" id="form-submit">
+    <form action="../ticketing/complete" method="post" id="form-submit">
         <input type="hidden" name="theater" value="${theater }"/>
         <input type="hidden" name="screen" value="${screen }"/>
         <input type="hidden" name="movie" value="${movie.movieNo }"/>
@@ -211,7 +211,7 @@
             </ul>
             <div class="usable-coupon">
                 <p>쿠폰번호</p>
-                <form action="/cupon" method="post" id="form-coupon">
+                <form action="/coupon" method="post" id="form-coupon">
                     <input type="text" title="메가박스 영화 할인쿠폰 16자리 입력"
                            class="input-text" id="couponNo" style="width: 200px;" maxlength="16">
                     <button type="button" class="btn-submit">쿠폰등록</button>

@@ -65,7 +65,7 @@
                     </div>
                     <div class="movie-img">
                         <div class="choice-list" id="choiceMovieList-0">
-                            <img id="picture" alt="no-pricture" src="../images/movie/no-graph03.jpg">
+                            <img id="picture" alt="no-picture" src="../images/movie/no-graph03.jpg">
                             <p id="picture-name">영화를 클릭하세요</p>
                         </div>
                     </div>
@@ -116,7 +116,7 @@
         </div>
     </div>
 </div>
-<form action="/ticketing/ticketingList.jsp" method="post" id="form-post-List">
+<form action="../ticketing/ticketingList.jsp" method="post" id="form-post-List">
     <input type="hidden" name="day" value=""/>
     <input type="hidden" name="movieNo" value=""/>
     <input type="hidden" name="theaterNo" value=""/>
