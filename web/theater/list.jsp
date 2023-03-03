@@ -136,7 +136,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.seoul}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -144,7 +144,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.kyungki}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -152,7 +152,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.incheon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -160,7 +160,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.daejeon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -168,27 +168,27 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.busan}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <%--                <::after></::after>--%>
+                <::after></::after>
             </ul>
         </div>
         <div id="tab-6" class="tab-content">
             <ul>
                 <c:forEach var="theater" items="${theaters.kwangju}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <%--                <::after></::after>--%>
+                <::after></::after>
             </ul>
         </div>
         <div id="tab-7" class="tab-content">
             <ul>
                 <c:forEach var="theater" items="${theaters.kangwon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="detail?no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <%--                <::after></::after>--%>
+                <::after></::after>
             </ul>
         </div>
         <div class="my-fav-theater">

@@ -30,7 +30,7 @@
     <input type="hidden" name="no" value="${param.no }">
     <div class="row">
         <ul class="theater-menu">
-            <li><a href="/theater/list">전체극장</a></li>
+            <li><a href="../theater/list.jsp">전체극장</a></li>
             <li>></li>
             <li><a>극장정보</a></li>
         </ul>
@@ -42,7 +42,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.seoul}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -52,7 +52,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kyungki}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -62,7 +62,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.incheon}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul class="depth1">
                 </div>
@@ -72,7 +72,7 @@
                     <ul>
                         <c:forEach var="theater" items="${dto.theaterList.daejeon}">
                             <li class="theaterName" style="width: 23.6%"><a class="movieName"
-                                                                            href="detail?no=${theater.no}">${theater.name}</a>
+                                                                            href="detail.jsp?no=${theater.no}">${theater.name}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -83,7 +83,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.busan}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -93,7 +93,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kwangju}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kangwon}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail?no=${theater.no}">${theater.name}</a></li>
+                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -270,7 +270,7 @@
                                     <!-- 관람등급 사진 -->
                                     <p class="movie-grade age-12"></p>
                                     <p>
-                                        <a href="/movie/detail?no=${showSchedule.showDto.movieNo }"
+                                        <a href="../movie/detail.jsp?no=${showSchedule.showDto.movieNo }"
                                            title="${showSchedule.showDto.movieName } 상세보기">
                                                 ${showSchedule.showDto.movieName }</a>
                                     </p>
@@ -308,7 +308,8 @@
                                                                 theab-no="05" play-de="20220215" play-seq="2">
                                                                 <div class="td-ab">
                                                                     <div class="txt-center">
-                                                                        <a href="/ticketing/screenList" title="영화예매하기">
+                                                                        <a href="../ticketing/screenList.jsp"
+                                                                           title="영화예매하기">
 
                                                                             <p class="time"><fmt:formatDate
                                                                                     value="${schedule.startTime}"

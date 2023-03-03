@@ -74,19 +74,19 @@
 <div class="container">
     <div class="container mt-5 text-center">
         <div class="row">
-            <img src="../images/logo/logo-DJCINEMA-black.png">
+            <img src="../images/logo/logo-DJCINEMA-black.png" width="50%" height="auto">
             <h4>메인페이지입니당</h4>
             <p>아 피곤하다 집 가고 싶다</p>
         </div>
         <div class="row text-center mt-3">
             <div class="col"></div>
             <div class="col">
-                <a href="/supports/faq.jsp"><img alt="" src="/images/supports/ico-faq.png">
+                <a href="../supports/faq.jsp"><img alt="" src="../images/supports/ico-faq.png">
                     <p style="color:black;" class="mt-3">자주 묻는 질문</p>
                 </a>
             </div>
             <div class="col">
-                <a href="/supports/inquiry.jsp"><img alt="" src="/images/supports/ico-oneandone.png">
+                <a href="../supports/inquiry.jsp"><img alt="" src="../images/supports/ico-oneandone.png">
                     <p style="color:black;" class="mt-3">1:1 문의</p>
                 </a>
             </div>

@@ -19,6 +19,7 @@
 </head>
 <body>
 <%@include file="../common/navbar.jsp" %>
+<%--<input type="text" id="inputsearch" onkeypress="if( event.keyCode == 13 ){enterKey();}"/>--%>
 <div class="container">
     <div class="mt-5">
         <h1>전체 영화</h1>
