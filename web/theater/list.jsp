@@ -170,7 +170,7 @@
                     <li class="theaterName" style="width: 23.6%"><a
                             href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <::after></::after>
+                <%--                <::after></::after>--%>
             </ul>
         </div>
         <div id="tab-6" class="tab-content">
@@ -179,7 +179,7 @@
                     <li class="theaterName" style="width: 23.6%"><a
                             href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <::after></::after>
+                <%--                <::after></::after>--%>
             </ul>
         </div>
         <div id="tab-7" class="tab-content">
@@ -188,7 +188,7 @@
                     <li class="theaterName" style="width: 23.6%"><a
                             href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
-                <::after></::after>
+                <%--                <::after></::after>--%>
             </ul>
         </div>
         <div class="my-fav-theater">
