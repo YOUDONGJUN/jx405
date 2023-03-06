@@ -144,7 +144,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.kyungki}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -152,7 +152,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.incheon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -160,7 +160,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.daejeon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
             </ul>
         </div>
@@ -168,7 +168,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.busan}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
                 <::after></::after>
             </ul>
@@ -177,7 +177,7 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.kwangju}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
                 <::after></::after>
             </ul>
@@ -186,13 +186,13 @@
             <ul>
                 <c:forEach var="theater" items="${theaters.kangwon}">
                     <li class="theaterName" style="width: 23.6%"><a
-                            href="../theater/detail.jsp??no=${theater.no }">${theater.name}</a></li>
+                            href="../theater/detail.jsp?no=${theater.no }">${theater.name}</a></li>
                 </c:forEach>
                 <::after></::after>
             </ul>
         </div>
         <div class="my-fav-theater">
-            나의 선호영화관 정보 <a href="/common/loginFormModal.jsp" id="moveLogin">
+            나의 선호영화관 정보 <a href="../common/loginFormModal.jsp" id="moveLogin">
             <button class="login">로그인하기</button>
         </a>
         </div>

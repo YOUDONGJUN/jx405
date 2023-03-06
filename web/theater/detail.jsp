@@ -42,7 +42,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.seoul}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -52,7 +52,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kyungki}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -62,7 +62,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.incheon}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul class="depth1">
                 </div>
@@ -72,7 +72,7 @@
                     <ul>
                         <c:forEach var="theater" items="${dto.theaterList.daejeon}">
                             <li class="theaterName" style="width: 23.6%"><a class="movieName"
-                                                                            href="detail.jsp?no=${theater.no}">${theater.name}</a>
+                                                                            href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a>
                             </li>
                         </c:forEach>
                     </ul>
@@ -83,7 +83,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.busan}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -93,7 +93,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kwangju}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
@@ -103,7 +103,7 @@
                     <ul class="depth1">
                         <c:forEach var="theater" items="${dto.theaterList.kangwon}">
                             <li class="theaterName" style="width: 23.6%"><a
-                                    href="detail.jsp?no=${theater.no}">${theater.name}</a></li>
+                                    href="../theater/detail.jsp?no=${theater.no}">${theater.name}</a></li>
                         </c:forEach>
                     </ul>
                 </div>
