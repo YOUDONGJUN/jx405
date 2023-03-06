@@ -47,7 +47,7 @@
             </div>
         </div>
         <div>
-            <form id="qnaForm" action="/qna" method="post" enctype="multipart/form-data">
+            <form id="qnaForm" action="qna" method="post" enctype="multipart/form-data">
                 <table class="table mt-3">
                     <colgroup>
                         <col style="width:150px;">

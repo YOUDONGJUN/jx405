@@ -34,18 +34,18 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a href="#" class="nav-link">VIP LOUNGE</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">멤버십</a></li>
-                    <li class="nav-item"><a href="/supports/faq.jsp" class="nav-link">고객센터</a></li>
+                    <li class="nav-item"><a href="../supports/faq.jsp" class="nav-link">고객센터</a></li>
                 </ul>
                 <ul class="navbar-nav">
                     <c:if test="${empty LOGIN_USER }">
                         <li class="nav-item"><a href="modal-login-form" class="nav-link" data-bs-toggle="modal"
                                                 data-bs-target="#modal-login-form">로그인</a></li>
-                        <li class="nav-item"><a href="/customer/signUp.jsp" class="nav-link">회원가입</a></li>
+                        <li class="nav-item"><a href="../customer/signUp.jsp" class="nav-link">회원가입</a></li>
                     </c:if>
                     <c:if test="${not empty LOGIN_USER }">
                         <li class="nav-item"><a href="/logout" class="nav-link">로그아웃</a></li>
                     </c:if>
-                    <li class="nav-item"><a href="#" class="nav-link">빠른예매</a></li>
+                    <li class="nav-item"><a href="../ticketing/ticketingList.jsp" class="nav-link">빠른예매</a></li>
                 </ul>
             </div>
         </nav>
@@ -54,19 +54,19 @@
             <div class="collapse navbar-collapse justify-content-start">
                 <ul class="navbar-nav util-list">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><img src="/images/nav/ico-sitemap.png"></a>
+                        <a class="nav-link" href="#"><img src="../images/nav/ico-sitemap.png"></a>
                     </li>
 
                     <li class="nav-item dropdown"><a class="nav-link" href="#"
                                                      id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                                                     src="/images/nav/ico-search.png">
+                                                     src="../images/nav/ico-search.png">
                     </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="">
                             <div class="search-box p-3">
                                 <form action="">
                                     <input class="form-control" type="search" name="keyword" value=""
                                            placeholder="영화를 검색하세요!" aria-label="Search">
-                                    <button class="btn btn-sm" type="button"><img src="/images/nav/ico-search.png">
+                                    <button class="btn btn-sm" type="button"><img src="../images/nav/ico-search.png">
                                     </button>
                                 </form>
                             </div>
@@ -76,9 +76,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-center menubarwrap" id="navbarNav">
                 <ul class="navbar-nav menubar ">
-                    <li class="nav-item font1"><a class="nav-link" href="/movie/list.jsp">영화</a></li>
-                    <li class="nav-item font1"><a class="nav-link" href="/ticketing/screenList.jsp">예매</a></li>
-                    <li class="nav-item font1"><a class="nav-link" href="/theater/list.jsp">극장</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="../movie/list.jsp">영화</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="../ticketing/screenList.jsp">예매</a></li>
+                    <li class="nav-item font1"><a class="nav-link" href="../theater/list.jsp">극장</a></li>
                     <li class="nav-item font2"><a class="nav-link" href="/"
                                                   style="font-family: 'Alfa Slab One';">동준 CINEMA</a></li>
                     <li class="nav-item font1"><a class="nav-link" href="#">이벤트</a></li>
@@ -88,9 +88,9 @@
             </div>
             <div class="collapse navbar-collapse justify-content-end">
                 <ul class="navbar-nav util-list">
-                    <li class="nav-item"><a class="nav-link" href="#"><img src="/images/nav/ico-schedule.png"></a>
+                    <li class="nav-item"><a class="nav-link" href="#"><img src="../images/nav/ico-schedule.png"></a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#"><img src="/images/nav/ico-mymega.png"></a>
+                    <li class="nav-item"><a class="nav-link" href="#"><img src="../images/nav/ico-mymega.png"></a>
                     </li>
                 </ul>
             </div>

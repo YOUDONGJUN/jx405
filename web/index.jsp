@@ -51,13 +51,13 @@
         </div>
         <div class="row text-center">
             <div class="col-4 mb-5">
-                <a href="/timeTable/timeTable.jsp">
+                <a href="../timeTable/timeTable.jsp">
                     <img alt="" src="/images/main/ico-schedule-main.png">
                     상영시간표
                 </a>
             </div>
             <div class="col-4 mb-5">
-                <a href="/movie/list.jsp">
+                <a href="../movie/list.jsp">
                     <img alt="" src="/images/main/ico-boxoffice-main.png">
                     박스오피스
                 </a>
