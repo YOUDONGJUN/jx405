@@ -73,8 +73,8 @@
 </div>
 <div class="container">
     <div class="container mt-5 text-center">
-        <div class="row">
-            <img src="../images/logo/logo-DJCINEMA-black.png" width="50%" height="auto">
+        <div class="row" style="justify-content: center">
+            <img src="../images/logo/logo-DJCINEMA-black.png" style="width: 70%;">
             <h4>메인페이지입니당</h4>
             <p>아 피곤하다 집 가고 싶다</p>
         </div>

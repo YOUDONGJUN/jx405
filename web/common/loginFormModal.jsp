@@ -1,40 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-
-<div class="modal fade" id="modal-login-form" data-bs-backdrop="static" tabindex="-1"
-     aria-labelledby="loginFormModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="loginFormModalLabel">로그인</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="form-login">
-                    <input type="text" class="form-control" name="id" placeholder="아이디" maxlength="12"/>
-                    <input type="text" class="form-control mt-3" name="password" placeholder="비밀번호" maxlength="12"/>
-                </form>
-                <div class="form-check mt-3">
-                    <input class="form-check-input" type="checkbox" value="" id="form-check-saveId" name="saveId">
-                    <label class="form-check-label" for="form-check-saveId">
-                        아이디 저장
-                    </label>
+<form action="../user/auth.jsp" method="post">
+    <div class="modal fade" id="modal-login-form" data-bs-backdrop="static" tabindex="-1"
+         aria-labelledby="loginFormModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginFormModalLabel">로그인</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                 </div>
-                <div class="d-grid">
-                    <button id="btn-login" type="button" class="btn btn-primary btn-lg mt-3">로그인</button>
-                </div>
-                <button id="btn-call-login-error" data-bs-target="#modal-login-error" data-bs-toggle="modal"
-                        hidden></button>
-                <div class="container-a mt-3">
-                    <a class="link-secondary" href="../customer/findIdPassword.jsp">ID/PW 찾기</a>
-                    <span class="divide-a-tag mx-3"></span>
-                    <a class="link-secondary" href="../customer/signUp.jsp">회원가입</a>
+                <div class="modal-body">
+                    <form id="form-login">
+                        <input type="text" class="form-control" name="id" placeholder="아이디" maxlength="12"/>
+                        <input type="text" class="form-control mt-3" name="password" placeholder="비밀번호" maxlength="12"/>
+                    </form>
+                    <div class="form-check mt-3">
+                        <input class="form-check-input" type="checkbox" value="" id="form-check-saveId" name="saveId">
+                        <label class="form-check-label" for="form-check-saveId">
+                            아이디 저장
+                        </label>
+                    </div>
+                    <div class="d-grid">
+                        <button id="btn-login" type="submit" class="btn btn-primary btn-lg mt-3"><a></a>로그인</button>
+                    </div>
+                    <button id="btn-call-login-error" data-bs-target="#modal-login-error" data-bs-toggle="modal"
+                            hidden></button>
+                    <div class="container-a mt-3">
+                        <a class="link-secondary" href="../customer/findIdPassword.jsp">ID/PW 찾기</a>
+                        <span class="divide-a-tag mx-3"></span>
+                        <a class="link-secondary" href="../customer/signUp.jsp">회원가입</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 <div class="modal fade" id="modal-login-error" data-bs-backdrop="static" tabindex="-1"
      aria-labelledby="loginErrorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -155,28 +156,28 @@
         });
 
         // 로그인 버튼을 클릭했을 때 실행되며, ajax 통신을 통해 서버에 아이디와 비밀번호를 전송하고 서버에서 로그인 처리 결과를 받아온다.
-        loginButton.click(function (event) {
-            const jsonData = JSON.stringify(formToJson($("#form-login")));
-
-            $.ajax({
-                type: "POST",
-                url: "/customer/login",
-                data: jsonData,
-                contentType: "application/json",
-                dataType: "json",
-                success: function (response) {
-                    if (response.status) {
-                        checkSaveIdChecked();
-
-                        window.location.reload();
-                    } else {
-                        document.getElementById("span-login-error-message").innerHTML = response.error;
-
-                        $("#btn-call-login-error").trigger("click");
-                    }
-                }
-            });
-        });
+        // loginButton.click(function (event) {
+        //     const jsonData = JSON.stringify(formToJson($("#form-login")));
+        //
+        //     $.ajax({
+        //         type: "POST",
+        //         url: "/customer/login",
+        //         data: jsonData,
+        //         contentType: "application/json",
+        //         dataType: "json",
+        //         success: function (response) {
+        //             if (response.status) {
+        //                 checkSaveIdChecked();
+        //
+        //                 window.location.reload();
+        //             } else {
+        //                 document.getElementById("span-login-error-message").innerHTML = response.error;
+        //
+        //                 $("#btn-call-login-error").trigger("click");
+        //             }
+        //         }
+        //     });
+        // });
 
         // 로그인 에러 모달의 확인이나 닫기 버튼을 클릭했을 때 실행되며, 아이디/비밀번호 input의 값을 초기화하고 로그인 버튼을 비활성화한다.
         $(".btn-ok").click(function (event) {

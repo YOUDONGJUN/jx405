@@ -99,5 +99,5 @@
 </div>
 <!-- 로그인 모달 -->
 <c:if test="${empty LOGIN_USER }">
-    <%@include file="loginFormModal.jsp" %>
+    <%@include file="../common/loginFormModal.jsp" %>
 </c:if>
