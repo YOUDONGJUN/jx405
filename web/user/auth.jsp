@@ -13,6 +13,10 @@
     UserController userController = new UserController(connectionMaker);
     String userId = request.getParameter("userId");
     String password = request.getParameter("password");
+    System.out.println("userId : " + userId);
+    System.out.println("password : " + password);
+
+
     UserDTO userDTO = userController.auth(userId, password);
     String address;
     if (userDTO == null) {

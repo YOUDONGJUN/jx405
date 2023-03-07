@@ -1,3 +1,4 @@
+<%@ page import="model.UserDTO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="tags.jsp" %>
@@ -26,7 +27,9 @@
         width: 100%;
     }
 </style>
-
+<%
+    UserDTO logIn = (UserDTO) session.getAttribute("logIn");
+%>
 <div id="header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-top p-0" id="navbar-top">
@@ -37,13 +40,13 @@
                     <li class="nav-item"><a href="../supports/faq.jsp" class="nav-link">고객센터</a></li>
                 </ul>
                 <ul class="navbar-nav">
-                    <c:if test="${empty LOGIN_USER }">
+                    <c:if test="${logIn == null}">
                         <li class="nav-item"><a href="modal-login-form" class="nav-link" data-bs-toggle="modal"
                                                 data-bs-target="#modal-login-form">로그인</a></li>
                         <li class="nav-item"><a href="../customer/signUp.jsp" class="nav-link">회원가입</a></li>
                     </c:if>
-                    <c:if test="${not empty LOGIN_USER }">
-                        <li class="nav-item"><a href="/logout" class="nav-link">로그아웃</a></li>
+                    <c:if test="${logIn != null}">
+                        <li class="nav-item"><a href="../common/logout.jsp" class="nav-link">로그아웃</a></li>
                     </c:if>
                     <li class="nav-item"><a href="../ticketing/ticketingList.jsp" class="nav-link">빠른예매</a></li>
                 </ul>
@@ -98,6 +101,6 @@
     </div>
 </div>
 <!-- 로그인 모달 -->
-<c:if test="${empty LOGIN_USER }">
+<c:if test="${logIn == null }">
     <%@include file="../common/loginFormModal.jsp" %>
 </c:if>

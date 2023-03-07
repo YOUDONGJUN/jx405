@@ -53,11 +53,13 @@ public class UserController {
                 UserDTO userDTO = new UserDTO();
                 userDTO.setUserId(resultSet.getString("userId"));
                 userDTO.setPassword(resultSet.getString("password"));
+                System.out.println("logIn Ok");
                 return userDTO;
             }
 
             resultSet.close();
             pstmt.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
