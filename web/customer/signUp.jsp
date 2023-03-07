@@ -9,19 +9,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/web/css/common.css"/>
-    <link rel="stylesheet" href="/web/css/customer/customerCommon.css"/>
-    <link rel="stylesheet" href="/web/css/customer/signUp.css"/>
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/customer/customerCommon.css"/>
+    <link rel="stylesheet" href="../css/customer/signUp.css"/>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-<%@include file="/common/noticeModal.jsp" %>
+<%@include file="../common/noticeModal.jsp" %>
 <div class="container">
     <div class="content-wrap mx-auto">
         <div class="row">
             <div class="col">
                 <a class="nav-link my-5" href="/">
-                    <img id="img-logo" src="/images/logo/logo-DJCINEMA-red.png">
+                    <img id="img-logo" src="../images/logo/logo-DJCINEMA-red.png">
                 </a>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <span>회원정보를 입력해주세요.</span>
             </div>
         </div>
-        <form id="form-signUp">
+        <form id="form-signUp" action="../user/register_logic.jsp" method="post">
             <div class="row p-0 row-top">
                 <div class="col-3 m-0 ps-3 py-3 col-label">
                     <label for="input-id">아이디</label>
@@ -40,7 +40,7 @@
                            maxlength="12"/>
                 </div>
                 <div class="col-3 align-self-center">
-                    <button id="btn-check-id-duplicate" type="button" class="btn btn-primary" disabled>중복확인</button>
+                    <button id="btn-check-id-duplicate" type="submit" class="btn btn-primary">중복확인</button>
                 </div>
             </div>
             <div id="div-id-error" class="row p-0 row-other" hidden>
@@ -131,38 +131,26 @@
                     <span class="error">잘못된 이메일 형식입니다.</span>
                 </div>
             </div>
-            <!--
-            <div class="row p-0 mb-4 row-other">
-                <div class="col-3 m-0 ps-3 py-3 col-label">
-                    <label>나만의<br>메가박스</label>
-                </div>
-                <div class="col-6 align-self-center">
-                    <span>자주 방문하는 메가박스를 등록해 주세요!</span>
-                </div>
-                <div class="col-3 align-self-center">
-                    <button id="btn-set" type="button" class="btn btn-primary" disabled>설정</button>
-                </div>
-            </div>
-             -->
+
             <div class="row mt-4">
                 <div class="d-grid col-6 mx-auto">
-                    <button id="btn-signUp" type="button" class="btn btn-primary btn-lg" >회원가입</button>
+                    <button id="btn-signUp" type="submit" class="btn btn-primary btn-lg">회원가입</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 </body>
-<script src="/web/js/customer/regExp.js"></script>
-<script src="/web/js/customer/showErrorDiv.js"></script>
-<script src="/web/js/customer/showTopRowErrorDiv.js"></script>
-<script src="/web/js/customer/showTooltip.js"></script>
-<script src="/web/js/customer/enableButton.js"></script>
-<script src="/web/js/customer/Validation.js"></script>
-<script src="/web/js/customer/ValidationWithSave.js"></script>
-<script src="/web/js/customer/IdValidation.js"></script>
-<script src="/web/js/customer/PasswordValidation.js"></script>
-<script src="/web/js/customer/PasswordValidationWithSave.js"></script>
+<script src="../js/customer/regExp.js"></script>
+<script src="../js/customer/showErrorDiv.js"></script>
+<script src="../js/customer/showTopRowErrorDiv.js"></script>
+<script src="../js/customer/showTooltip.js"></script>
+<script src="../js/customer/enableButton.js"></script>
+<script src="../js/customer/Validation.js"></script>
+<script src="../js/customer/ValidationWithSave.js"></script>
+<script src="../js/customer/IdValidation.js"></script>
+<script src="../js/customer/PasswordValidation.js"></script>
+<script src="../js/customer/PasswordValidationWithSave.js"></script>
 <script>
     $(function () {
         const idInput = $("#input-id");

@@ -3,10 +3,7 @@ package controller;
 import connector.ConnectionMaker;
 import model.UserDTO;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserController {
     private Connection connection;
@@ -16,13 +13,16 @@ public class UserController {
     }
 
     public boolean insert(UserDTO userDTO) {
-        String query = "INSERT INTO `user`(`username`, `password`, `nickname`) VALUES(?, ?, ?)";
+        String query = "INSERT INTO `user`(`userId`, `password`, `name`, `birthDate`, `phoneNumber`, `email`) VALUES(?, ?, ?, ?, ?,?)";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, userDTO.getUsername());
+            pstmt.setString(1, userDTO.getUserId());
             pstmt.setString(2, userDTO.getPassword());
-            pstmt.setString(3, userDTO.getNickname());
+            pstmt.setString(3, userDTO.getName());
+            pstmt.setTimestamp(4, (Timestamp) userDTO.getBirthDate());
+            pstmt.setString(5, userDTO.getPhoneNumber());
+            pstmt.setString(6, userDTO.getEmail());
 
             pstmt.executeUpdate();
 
@@ -34,21 +34,19 @@ public class UserController {
         return true;
     }
 
-    public UserDTO auth(String username, String password) {
-        String query = "SELECT * FROM `user` WHERE `username` = ? AND `password` = ?";
+    public UserDTO auth(String userId, String password) {
+        String query = "SELECT * FROM `user` WHERE `userId` = ? AND `password` = ?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
-            pstmt.setString(1, username);
+            pstmt.setString(1, userId);
             pstmt.setString(2, password);
 
             ResultSet resultSet = pstmt.executeQuery();
 
             if (resultSet.next()) {
                 UserDTO userDTO = new UserDTO();
-                userDTO.setId(resultSet.getInt("id"));
-                userDTO.setUsername(resultSet.getString("username"));
-                userDTO.setNickname(resultSet.getString("nickname"));
-                userDTO.setLevel(resultSet.getInt("level"));
+                userDTO.setUserId(resultSet.getString("userId"));
+                userDTO.setPassword(resultSet.getString("password"));
                 return userDTO;
             }
 
@@ -62,15 +60,15 @@ public class UserController {
     }
 
     public void update(UserDTO userDTO) {
-        String query = "UPDATE `user` SET `password` = ?, `nickname` = ? ,`level` = ? WHERE `id` = ?";
+        String query = "UPDATE `user` SET `password` = ?, `name` = ? , `phoneNumber` = ?, `email` = ? WHERE `id` = ?";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
 
             pstmt.setString(1, userDTO.getPassword());
-            pstmt.setString(2, userDTO.getNickname());
-            pstmt.setInt(3, userDTO.getLevel());
-            pstmt.setInt(4, userDTO.getId());
+            pstmt.setString(2, userDTO.getName());
+            pstmt.setString(3, userDTO.getPhoneNumber());
+            pstmt.setString(4, userDTO.getEmail());
 
             pstmt.executeUpdate();
 
@@ -105,8 +103,8 @@ public class UserController {
             ResultSet resultSet = pstmt.executeQuery();
             if (resultSet.next()) {
                 u = new UserDTO();
-                u.setId(resultSet.getInt("id"));
-                u.setNickname(resultSet.getString("nickname"));
+                u.setUserId(resultSet.getString("userId"));
+                u.setName(resultSet.getString("name"));
             }
 
             resultSet.close();
