@@ -35,13 +35,13 @@
                 <div class="col-3 m-0 ps-3 py-3 col-label">
                     <label for="input-id">아이디</label>
                 </div>
-                <div class="col-6 align-self-center">
-                    <input type="text" class="form-control" id="input-id" name="id" placeholder="영문, 숫자 조합(8~12자)"
+                <div class="col-9 align-self-center">
+                    <input type="text" class="form-control" id="input-id" name="userId" placeholder="영문, 숫자 조합(8~12자)"
                            maxlength="12"/>
                 </div>
-                <div class="col-3 align-self-center">
-                    <button id="btn-check-id-duplicate" type="submit" class="btn btn-primary">중복확인</button>
-                </div>
+<%--                <div class="col-3 align-self-center">--%>
+                <%--                    <button id="#" type="submit" class="btn btn-primary">중복확인</button>--%>
+                <%--                </div>--%>
             </div>
             <div id="div-id-error" class="row p-0 row-other" hidden>
                 <div class="col-3 m-0 ps-3 py-3 col-label"></div>
@@ -168,7 +168,7 @@
         const emailErrorDiv = $("#div-email-error");
 
         const checkIdDuplicateButton = $("#btn-check-id-duplicate");
-        const signUpButton = $("#btn-signUp");
+        // const signUpButton = $("#btn-signUp");
 
         const noticeModal = new bootstrap.Modal(document.getElementById("modal-notice"), {
             keyboard: false
@@ -223,35 +223,35 @@
 
             showTopRowErrorDiv(idErrorDiv, !idValidation.flag);
             enableButton(checkIdDuplicateButton, idValidation.flag);
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         // "중복확인" 버튼을 클릭했을 때 실행되며, ajax 통신을 통해 서버로 아이디를 보내고 아이디 중복 여부를 받아온다.
-        checkIdDuplicateButton.click(function () {
-            const id = idInput.val();
-
-            $.ajax({
-                type: "post",
-                url: "/customer/checkIdDuplicate",
-                data: {id: id},
-                dataType: "json",
-                success: function (response) {
-                    if (response.status) {
-                        let {items: {isIdDuplicate, message}} = response;
-
-                        console.log("isIdDuplicate: " + isIdDuplicate);
-                        console.log("message: " + message);
-                        idDuplicateValidationFlag = !isIdDuplicate;
-                        noticeModalSpan.innerHTML = message;
-
-                        enableButton(signUpButton, isAllFlagTrue());
-                    } else {
-                        noticeModalSpan.innerHTML = "통신 실패";
-                    }
-                    noticeModal.show();
-                }
-            });
-        });
+        // checkIdDuplicateButton.click(function () {
+        //     const id = idInput.val();
+        //
+        //     $.ajax({
+        //         type: "post",
+        //         url: "/customer/checkIdDuplicate",
+        //         data: {id: id},
+        //         dataType: "json",
+        //         success: function (response) {
+        //             if (response.status) {
+        //                 let {items: {isIdDuplicate, message}} = response;
+        //
+        //                 console.log("isIdDuplicate: " + isIdDuplicate);
+        //                 console.log("message: " + message);
+        //                 idDuplicateValidationFlag = !isIdDuplicate;
+        //                 noticeModalSpan.innerHTML = message;
+        //
+        //                 enableButton(signUpButton, isAllFlagTrue());
+        //             } else {
+        //                 noticeModalSpan.innerHTML = "통신 실패";
+        //             }
+        //             noticeModal.show();
+        //         }
+        //     });
+        // });
 
         // 비밀번호와 비밀번호 확인에 키보드 입력이 있을 때마다 실행된다.
         // input 값에 대해 유효성 검사를 실시하고 결과에 따라 "회원가입" 버튼을 활성화/비활성화한다.
@@ -264,7 +264,7 @@
 
             showErrorDiv(passwordErrorDiv, !passwordValidation.flag);
             showErrorDiv(matchErrorDiv, !passwordValueMatchValidationFlag);
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
         passwordCheckInput.on("input", function () {
             if (!passwordCheckValidationWithSave.test()) {
@@ -273,18 +273,18 @@
             passwordValueMatchValidation();
 
             showErrorDiv(matchErrorDiv, !passwordValueMatchValidationFlag);
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         // 이름에 키보드 입력이 있을 때마다 실행되며, input 값에 대해 유효성 검사를 실시한다.
         nameInput.on("input", function () {
             nameValidationWithSave.test();
 
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         birthDateInput.change(function () {
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         // 핸드폰 번호에 키보드 입력이 있을 때마다 실행되며, input 값에 대해 유효성 검사를 실시한다.
@@ -293,7 +293,7 @@
             phoneNumberValidation.test();
 
             showErrorDiv(phoneNumberErrorDiv, !phoneNumberValidation.flag);
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         // 이메일에 키보드 입력이 있을 때마다 실행되며, input 값에 대해 유효성 검사를 실시한다.
@@ -301,7 +301,7 @@
             emailValidation.test();
 
             showErrorDiv(emailErrorDiv, !emailValidation.flag);
-            enableButton(signUpButton, isAllFlagTrue());
+            // enableButton(signUpButton, isAllFlagTrue());
         });
 
         // "회원가입" 버튼을 클릭하면 실행되며, ajax 통신을 통해 서버에 form의 값들을 보내고 처리 결과를 받아와서 알림 모달에 표시한다.

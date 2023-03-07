@@ -14,19 +14,25 @@ public class UserController {
 
     public boolean insert(UserDTO userDTO) {
         String query = "INSERT INTO `user`(`userId`, `password`, `name`, `birthDate`, `phoneNumber`, `email`) VALUES(?, ?, ?, ?, ?,?)";
-
+        System.out.println(userDTO.getUserId());
+        System.out.println(userDTO.getPassword());
+        System.out.println(userDTO.getName());
+        System.out.println(userDTO.getPhoneNumber());
+        System.out.println(userDTO.getEmail());
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
             pstmt.setString(1, userDTO.getUserId());
             pstmt.setString(2, userDTO.getPassword());
             pstmt.setString(3, userDTO.getName());
-            pstmt.setTimestamp(4, (Timestamp) userDTO.getBirthDate());
+            Date temp = new Date(userDTO.getBirthDate().getTime());
+            pstmt.setDate(4, temp);
             pstmt.setString(5, userDTO.getPhoneNumber());
             pstmt.setString(6, userDTO.getEmail());
 
             pstmt.executeUpdate();
 
             pstmt.close();
+
         } catch (SQLException e) {
             return false;
         }

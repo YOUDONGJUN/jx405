@@ -11,9 +11,9 @@
 <%
     ConnectionMaker connectionMaker = new MySqlConnectionMaker();
     UserController userController = new UserController(connectionMaker);
-    String id = request.getParameter("id");
+    String userId = request.getParameter("userId");
     String password = request.getParameter("password");
-    UserDTO userDTO = userController.auth(id, password);
+    UserDTO userDTO = userController.auth(userId, password);
     String address;
     if (userDTO == null) {
         address = "/index.jsp";
